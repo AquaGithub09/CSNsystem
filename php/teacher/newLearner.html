@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorShapeNum | Add Learner</title>
+    
+    <!-- bootstrap scss -->
+    <link rel="stylesheet" href="../../src/css/index.css">
+    <link rel="stylesheet" href="../../src/css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    
+</head>
+
+
+<body>
+    
+    
+    <div class="teacher-wrapper">
+        
+        <!-- side navigationbar -->
+        <div id="navigationbar"></div>
+        
+        <!-- mobile overlay -->
+        <div class="teacher-overlay" id="teacherOverlay"></div>
+        
+        <!-- main content -->
+        <main class="teacher-main">
+            
+            <!-- top navbar -->
+            <header class="teacher-topbar">
+                
+                
+                <div class="teacher-top-left">
+                    
+                    
+                    <button type="button" class="teacher-menu-button d-lg-none" id="teacherMenu">
+                    
+                        <i class="bi bi-list"></i>
+                        
+                    </button>
+                    
+                    
+                    <div>
+                        
+                        <h6>
+                            New Learners
+                        </h6>
+                        
+                        <span>
+                            Add new Learners
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+                
+                <div class="teacher-top-right">
+                    
+                    
+                    <!-- Notifications -->
+                    
+                    <button type="button" class="teacher-notification">
+                    
+                        <i class="bi bi-bell"></i>
+                        
+                        <span></span>
+                        
+                    </button>
+                    
+                    
+                    
+                    <!-- Teacher Profile -->
+                    
+                    <div class="teacher-profile">
+                        
+                        
+                        <div class="teacher-avatar">
+                            TA
+                        </div>
+                        
+                        
+                        <div class="teacher-profile-info d-none d-md-block">
+                            
+                            <strong>
+                                Teacher Anna
+                            </strong>
+                            
+                            <small>
+                                Teacher
+                            </small>
+                            
+                        </div>
+                        
+                        
+                        <i class="bi bi-chevron-down d-none d-md-block"></i>
+                        
+                    </div>
+                    
+                </div>
+                
+            </header>
+            
+            <!-- page content -->
+            <div class="teacher-content">
+                
+                <!-- content header -->
+                <section class="mb-4">
+                    
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                        
+                        
+                        <div>
+                            
+                            
+                            
+                            <h1 class="h3 fw-bold mb-1">
+                                Learner Information
+                            </h1>
+                            
+                            <p class="text-muted small mb-0">
+                                Enter the learner’s details to create their profile.
+                            </p>
+                        </div>
+                    </div>
+                    
+                </section>
+                
+                <!-- learner management card -->
+                <section class="teacher-card">
+                    
+                    <!-- new learner form -->
+                    <div class="card border-0 rounded-4">
+                        
+                        <div class="card-body p-4">
+                            
+                            <!-- FORM -->
+                            <form id="addLearnerForm">
+                                
+                                <!-- Form input -->
+                                <div class="row g-3">
+                                    
+                                    <!-- FIRST NAME -->
+                                    <div class="col-12 col-md-4">
+                                        <label for="learnerFirstName" class="form-label">
+                                            First Name
+                                        </label>
+                                        
+                                        <input type="text" class="form-control" id="learnerFirstName" name="firstName" placeholder="Enter first name" required>
+                                    </div>
+                                    
+                                    <!-- MIDDLE NAME -->
+                                    <div class="col-12 col-md-4">
+                                        <label for="learnerFirstName" class="form-label">
+                                            Middle Name
+                                        </label>
+                                        
+                                        <input type="text" class="form-control" id="learnersMiddleName" name="middlename" placeholder="Enter Middle name">
+                                    </div>
+                                    
+                                    <!-- LAST NAME -->
+                                    <div class="col-12 col-md-4">
+                                        <label for="learnerLastName" class="form-label">
+                                            Last Name
+                                        </label>
+                                        
+                                        <input type="text" class="form-control" id="learnerLastName" name="lastName" placeholder="Enter last name" required>
+                                    </div>
+                                    
+                                    <!-- LEARNER ID -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="learnerId" class="form-label">
+                                            Learner ID
+                                        </label>
+                                        
+                                        <input type="text" class="form-control" id="learnerId" name="learnerId" placeholder="e.g. LRN-006" required>
+                                        
+                                        <div class="form-text">
+                                            Use a unique ID for this learner.
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- CLASS -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="learnerClass" class="form-label">
+                                            Class
+                                        </label>
+                                        
+                                        <select class="form-select" id="learnerClass" name="class" required>
+                                            <option value="" selected disabled>
+                                                Select class
+                                            </option>
+                                            
+                                            <option value="Grade 1 - A">
+                                                Grade 1 - A
+                                            </option>
+                                            
+                                            <option value="Grade 1 - B">
+                                                Grade 1 - B
+                                            </option>
+                                            
+                                            <option value="Grade 2 - A">
+                                                Grade 2 - A
+                                            </option>
+                                            
+                                            <option value="Grade 2 - B">
+                                                Grade 2 - B
+                                            </option>
+                                        </select>
+                                    </div>
+                                    
+                                    <!-- DATE OF BIRTH -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="learnerBirthdate" class="form-label">
+                                            Date of Birth
+                                        </label>
+                                        
+                                        <input type="date" class="form-control" id="learnerBirthdate" name="birthdate">
+                                    </div>
+                                    
+                                    
+                                    <!-- STATUS -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="learnerStatus" class="form-label">
+                                            Status
+                                        </label>
+                                        
+                                        <select class="form-select" id="learnerStatus" name="status" required>
+                                            <option value="Active" selected>
+                                                Active
+                                            </option>
+                                            
+                                            <option value="Inactive">
+                                                Inactive
+                                            </option>
+                                        </select>
+                                    </div>
+                                    
+                                    
+                                    <!-- NOTES -->
+                                    <div class="col-12">
+                                        <label for="learnerNotes" class="form-label">
+                                            Notes
+                                            <span class="text-muted">
+                                                (Optional)
+                                            </span>
+                                        </label>
+                                        
+                                        <textarea class="form-control" id="learnerNotes" name="notes" rows="3" placeholder="Add any notes about the learner..."></textarea>
+                                    </div>
+                                    
+                                </div>
+                                
+                                
+                                <!-- ACTIONS -->
+                                <div class="d-flex flex-column flex-sm-row justify-content-end gap-2 mt-4">
+                                    
+                                    <a href="learners.html" class="btn btn-light px-4">
+                                        Cancel
+                                    </a>
+                                    
+                                    <button type="submit" class="btn btn-primary px-4">
+                                        <i class="bi bi-person-plus me-2"></i>
+                                        Add Learner
+                                    </button>
+                                    
+                                </div>
+                                
+                            </form>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    
+                    
+                    <!-- =========================================
+                     MOBILE LEARNER CARDS
+                ========================================== -->
+                    
+                    <div class="d-md-none" id="mobileLearnerList">
+                        
+                        
+                        <!-- LEARNER CARD -->
+                        
+                        <div class="border rounded-3 p-3 mb-3 learner-mobile-card">
+                            
+                            <div class="d-flex align-items-center gap-2">
+                                
+                                
+                                <div class="learner-avatar blue">
+                                    JM
+                                </div>
+                                
+                                
+                                <div class="flex-grow-1">
+                                    
+                                    <strong class="d-block">
+                                        John Martinez
+                                    </strong>
+                                    
+                                    <small class="text-muted">
+                                        Grade 1 - A
+                                    </small>
+                                    
+                                </div>
+                                
+                                
+                                <div class="dropdown">
+                                    
+                                    <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    
+                                        <i class="bi bi-three-dots"></i>
+                                        
+                                    </button>
+                                    
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        
+                                        <li>
+                                            <a class="dropdown-item" href="learner-profile.html">
+                                            
+                                                View Profile
+                                                
+                                            </a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a class="dropdown-item" href="progress.html">
+                                            
+                                                View Progress
+                                                
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            <hr>
+                            
+                            
+                            <div class="d-flex justify-content-between">
+                                
+                                <small class="text-muted">
+                                    Progress
+                                </small>
+                                
+                                <strong>
+                                    94%
+                                </strong>
+                                
+                            </div>
+                            
+                            
+                            <div class="progress mt-2" style="height: 6px;">
+                                
+                                <div class="progress-bar bg-success" style="width: 94%;">
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            <div class="d-flex justify-content-between mt-3">
+                                
+                                <small class="text-muted">
+                                    Average Score
+                                </small>
+                                
+                                <strong>
+                                    94%
+                                </strong>
+                                
+                            </div>
+                            
+                            
+                            <div class="mt-2">
+                                
+                                <span class="badge text-bg-success">
+                                    Active
+                                </span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <!-- LEARNER CARD -->
+                        
+                        <div class="border rounded-3 p-3 mb-3 learner-mobile-card">
+                            
+                            <div class="d-flex align-items-center gap-2">
+                                
+                                
+                                <div class="learner-avatar pink">
+                                    AS
+                                </div>
+                                
+                                
+                                <div class="flex-grow-1">
+                                    
+                                    <strong class="d-block">
+                                        Anna Santos
+                                    </strong>
+                                    
+                                    <small class="text-muted">
+                                        Grade 1 - A
+                                    </small>
+                                    
+                                </div>
+                                
+                                
+                                <div class="dropdown">
+                                    
+                                    <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    
+                                        <i class="bi bi-three-dots"></i>
+                                        
+                                    </button>
+                                    
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        
+                                        <li>
+                                            <a class="dropdown-item" href="learner-profile.html">
+                                            
+                                                View Profile
+                                                
+                                            </a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a class="dropdown-item" href="progress.html">
+                                            
+                                                View Progress
+                                                
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            <hr>
+                            
+                            
+                            <div class="d-flex justify-content-between">
+                                
+                                <small class="text-muted">
+                                    Progress
+                                </small>
+                                
+                                <strong>
+                                    91%
+                                </strong>
+                                
+                            </div>
+                            
+                            
+                            <div class="progress mt-2" style="height: 6px;">
+                                
+                                <div class="progress-bar bg-success" style="width: 91%;">
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            <div class="d-flex justify-content-between mt-3">
+                                
+                                <small class="text-muted">
+                                    Average Score
+                                </small>
+                                
+                                <strong>
+                                    91%
+                                </strong>
+                                
+                            </div>
+                            
+                            
+                            <div class="mt-2">
+                                
+                                <span class="badge text-bg-success">
+                                    Active
+                                </span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <!-- LEARNER CARD -->
+                        
+                        <div class="border rounded-3 p-3 mb-3 learner-mobile-card">
+                            
+                            <div class="d-flex align-items-center gap-2">
+                                
+                                
+                                <div class="learner-avatar green">
+                                    MR
+                                </div>
+                                
+                                
+                                <div class="flex-grow-1">
+                                    
+                                    <strong class="d-block">
+                                        Maria Reyes
+                                    </strong>
+                                    
+                                    <small class="text-muted">
+                                        Grade 1 - B
+                                    </small>
+                                    
+                                </div>
+                                
+                                
+                                <div class="dropdown">
+                                    
+                                    <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    
+                                        <i class="bi bi-three-dots"></i>
+                                        
+                                    </button>
+                                    
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        
+                                        <li>
+                                            <a class="dropdown-item" href="learner-profile.html">
+                                            
+                                                View Profile
+                                                
+                                            </a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a class="dropdown-item" href="progress.html">
+                                            
+                                                View Progress
+                                                
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            <hr>
+                            
+                            
+                            <div class="d-flex justify-content-between">
+                                
+                                <small class="text-muted">
+                                    Progress
+                                </small>
+                                
+                                <strong>
+                                    87%
+                                </strong>
+                                
+                            </div>
+                            
+                            
+                            <div class="progress mt-2" style="height: 6px;">
+                                
+                                <div class="progress-bar bg-primary" style="width: 87%;">
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            <div class="d-flex justify-content-between mt-3">
+                                
+                                <small class="text-muted">
+                                    Average Score
+                                </small>
+                                
+                                <strong>
+                                    87%
+                                </strong>
+                                
+                            </div>
+                            
+                            
+                            <div class="mt-2">
+                                
+                                <span class="badge text-bg-success">
+                                    Active
+                                </span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <!-- LEARNER CARD -->
+                        
+                        <div class="border rounded-3 p-3 mb-3 learner-mobile-card">
+                            
+                            <div class="d-flex align-items-center gap-2">
+                                
+                                
+                                <div class="learner-avatar orange">
+                                    DT
+                                </div>
+                                
+                                
+                                <div class="flex-grow-1">
+                                    
+                                    <strong class="d-block">
+                                        Daniel Torres
+                                    </strong>
+                                    
+                                    <small class="text-muted">
+                                        Grade 1 - B
+                                    </small>
+                                    
+                                </div>
+                                
+                                
+                                <div class="dropdown">
+                                    
+                                    <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+                                    
+                                        <i class="bi bi-three-dots"></i>
+                                        
+                                    </button>
+                                    
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        
+                                        <li>
+                                            <a class="dropdown-item" href="learner-profile.html">
+                                            
+                                                View Profile
+                                                
+                                            </a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a class="dropdown-item" href="progress.html">
+                                            
+                                                View Progress
+                                                
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            <hr>
+                            
+                            
+                            <div class="d-flex justify-content-between">
+                                
+                                <small class="text-muted">
+                                    Progress
+                                </small>
+                                
+                                <strong>
+                                    83%
+                                </strong>
+                                
+                            </div>
+                            
+                            
+                            <div class="progress mt-2" style="height: 6px;">
+                                
+                                <div class="progress-bar bg-warning" style="width: 83%;">
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            <div class="d-flex justify-content-between mt-3">
+                                
+                                <small class="text-muted">
+                                    Average Score
+                                </small>
+                                
+                                <strong>
+                                    83%
+                                </strong>
+                                
+                            </div>
+                            
+                            
+                            <div class="mt-2">
+                                
+                                <span class="badge text-bg-warning">
+                                    Needs Attention
+                                </span>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    
+                    
+                    <!-- =========================================
+                     PAGINATION
+                ========================================== -->
+                    
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 mt-4">
+                        
+                        
+                        <small class="text-muted">
+                        
+                            Showing
+                            <strong>1–5</strong>
+                            of
+                            <strong>24</strong>
+                            learners
+                            
+                        </small>
+                    </div>
+                    
+                </section>
+                
+                
+                
+                <!-- footer component -->
+                <div id="footersection">
+                    
+                </div>
+                
+        </main>
+        
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- custom JS -->
+    
+    <script src="js/aside.js"></script>
+</body>
+
+</html>

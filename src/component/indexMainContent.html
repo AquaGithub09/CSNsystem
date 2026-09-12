@@ -1,0 +1,291 @@
+    <main class="login-page">
+
+        <div class="container">
+            <div class="row min-vh-100 align-items-center justify-content-center g-0">
+
+                <!-- BRANDING SECTION -->
+                <div class="col-lg-6 d-none d-lg-flex">
+                    <div class="brand-section">
+
+                        <!-- Logo -->
+                        <div class="brand-logo mb-4">
+                            <div class="logo-shape">
+                                <i class="bi bi-stars"></i>
+                            </div>
+
+                            <div>
+                                <h1 class="brand-name">ColorShapeNum</h1>
+                                <p class="brand-tagline mb-0">
+                                    Learn. Play. Discover.
+                                </p>
+                            </div>
+                        </div>
+
+                        <h2 class="brand-title">
+                            Learning becomes
+                            <span>fun</span> when kids
+                            <span>explore.</span>
+                        </h2>
+
+                        <p class="brand-description">
+                            An interactive learning system designed to help
+                            children discover colors, shapes, and numbers
+                            through fun and engaging activities.
+                        </p>
+
+                        <!-- Decorative Shapes -->
+                        <div class="shape-area">
+
+                            <div class="shape shape-circle">
+                                <span>1</span>
+                            </div>
+
+                            <div class="shape shape-square">
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+
+                            <div class="shape shape-triangle">
+                                <span>△</span>
+                            </div>
+
+                            <div class="shape shape-small-circle">
+                                <span>3</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- LOGIN SECTION -->
+                <div class="col-12 col-md-8 col-lg-6">
+
+                    <div class="login-card">
+
+                        <!-- Mobile Logo -->
+                        <div class="mobile-brand d-lg-none text-center mb-4">
+
+                            <div class="mobile-logo">
+                                <i class="bi bi-stars"></i>
+                            </div>
+
+                            <h1>ColorShapeNum</h1>
+
+                            <p>
+                                Learn. Play. Discover.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Login Header -->
+                        <div class="login-header">
+                            <h2>Welcome back!</h2>
+
+                            <p>
+                                Sign in to continue your learning journey.
+                            </p>
+                        </div>
+
+
+                        <!-- Login Form -->
+                        <form id="loginForm" novalidate>
+
+                            <!-- Email -->
+                            <div class="mb-3">
+
+                                <label
+                                    for="username"
+                                    class="form-label"
+                                >
+                                    Username
+                                </label>
+
+                                <div class="input-group custom-input">
+
+                                    <span class="input-group-text">
+                                        <i class="bi bi-person"></i>
+                                    </span>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="username"
+                                        placeholder="Enter your username"                                        
+                                        required
+                                    >
+
+                                </div>
+
+                                <div
+                                    class="invalid-feedback"
+                                    id="emailError"
+                                >
+                                    Please enter a valid email address.
+                                </div>
+
+                            </div>
+
+
+                            <!-- Password -->
+                            <div class="mb-3">
+
+                                <div class="d-flex justify-content-between">
+                                    <label
+                                        for="password"
+                                        class="form-label"
+                                    >
+                                        Password
+                                    </label>
+
+                                    <a
+                                        href="#"
+                                        class="forgot-password"
+                                    >
+                                        Forgot password?
+                                    </a>
+                                </div>
+
+                                <div class="input-group custom-input">
+
+                                    <span class="input-group-text">
+                                        <i class="bi bi-lock"></i>
+                                    </span>
+
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        id="password"
+                                        placeholder="Enter your password"
+                                        autocomplete="current-password"
+                                        required
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="input-group-text password-toggle"
+                                        id="togglePassword"
+                                        aria-label="Show password"
+                                    >
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+
+                                </div>
+
+                                <div
+                                    class="invalid-feedback"
+                                    id="passwordError"
+                                >
+                                    Please enter your password.
+                                </div>
+
+                            </div>
+
+
+                            <!-- Remember Me -->
+                            <div class="form-check mb-4">
+
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="rememberMe"
+                                >
+
+                                <label
+                                    class="form-check-label"
+                                    for="rememberMe"
+                                >
+                                    Remember me
+                                </label>
+
+                            </div>
+
+
+                            <!-- Error Message -->
+                            <div
+                                id="loginMessage"
+                                class="alert d-none"
+                                role="alert"
+                            ></div>
+
+
+                            <!-- Login Button -->
+                            <button
+                                type="submit"
+                                class="btn login-btn w-100"
+                            >
+                                <span>Sign In</span>
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+
+                        </form>
+
+
+                        <!-- Divider -->
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+
+
+                        <!-- Register -->
+                        <div class="register-text text-center">
+
+                            <p class="mb-0">
+                                Don't have an account?
+                                <a href="#" class="register-link">
+                                    Create an account
+                                </a>
+                            </p>
+                        </div>
+                        <hr>
+
+                        
+                        <!-- demo login for admin -->
+                        <div class="register-text text-center">
+
+                            <p class="mb-0">
+                                Demo Account
+                                <a href="php/admin/dashboard.html" class="register-link">
+                                    Administrator
+                                </a>
+                            </p>
+
+                        </div>
+
+
+                        
+                        <!-- demo login for teacher -->
+                        <div class="register-text text-center">
+
+                            <p class="mb-0">
+                                Demo Account
+                                <a href="php/teacher/dashboard.html" class="register-link">
+                                    Teacher
+                                </a>
+                            </p>
+
+                        </div>
+
+
+                        
+                        <!-- demo login for parent -->
+                        <div class="register-text text-center">
+
+                            <p class="mb-0">
+                                Demo Account
+                                <a href="../../php/parents/dashboard.html" class="register-link">
+                                    parent
+                                </a>
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </main>

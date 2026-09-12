@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorShapeNum | Teacher Profile</title>
+
+    <!-- bootstrap scss -->
+    <link rel="stylesheet" href="../../src/css/index.css">
+    <link rel="stylesheet" href="../../src/css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <div class="teacher-wrapper">
+
+        <!-- side navigationbar -->
+        <div id="navigationbar"></div>
+
+        <!-- mobile overlay -->
+        <div class="teacher-overlay" id="teacherOverlay"></div>
+
+        <!-- main content -->
+        <main class="teacher-main">
+
+            <!-- top navbar -->
+            <header class="teacher-topbar">
+
+                <div class="teacher-top-left">
+
+                    <button type="button" class="teacher-menu-button d-lg-none" id="teacherMenu">
+                        <i class="bi bi-list"></i>
+                    </button>
+
+                    <div>
+                        <h6>My Profile</h6>
+                        <span>Manage your account information</span>
+                    </div>
+
+                </div>
+
+                <div class="teacher-top-right">
+
+                    <!-- Notifications -->
+                    <button type="button" class="teacher-notification">
+                        <i class="bi bi-bell"></i>
+                        <span></span>
+                    </button>
+
+                    <!-- Teacher Profile -->
+                    <div class="teacher-profile">
+
+                        <div class="teacher-avatar">
+                            TA
+                        </div>
+
+                        <div class="teacher-profile-info d-none d-md-block">
+                            <strong>Teacher Anna</strong>
+                            <small>Teacher</small>
+                        </div>
+
+                        <i class="bi bi-chevron-down d-none d-md-block"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- page content -->
+            <div class="teacher-content">
+
+                <!-- content header -->
+
+                <section class="mb-4">
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+
+                        <div>
+                            <h1 class="h3 fw-bold mb-1">Teacher Profile</h1>
+                            <p class="text-muted small mb-0">
+                                View and update your personal and professional information.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Profile Header Card -->
+
+                <section class="teacher-card mb-4">
+
+                    <div class="card border-0 rounded-4">
+
+                        <div class="card-body p-4">
+
+                            <div class="d-flex flex-column flex-md-row align-items-center gap-4">
+
+                                <!-- Avatar -->
+                                <div class="text-center">
+                                    <div class="teacher-avatar mx-auto mb-3"
+                                        style="width: 100px; height: 100px; font-size: 2rem;">
+                                        TA
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-camera me-1"></i>
+                                        Change Photo
+                                    </button>
+                                </div>
+
+                                <!-- Basic Info -->
+                                <div class="flex-grow-1 text-center text-md-start">
+                                    <h3 class="fw-bold mb-1">Anna Reyes</h3>
+                                    <p class="text-muted mb-2">Teacher • Grade 1</p>
+
+                                    <div
+                                        class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3 small">
+                                        <span class="d-flex align-items-center gap-1">
+                                            <i class="bi bi-envelope text-muted"></i>
+                                            anna.reyes@colorshapenum.edu
+                                        </span>
+                                        <span class="d-flex align-items-center gap-1">
+                                            <i class="bi bi-telephone text-muted"></i>
+                                            +63 912 345 6789
+                                        </span>
+                                        <span class="d-flex align-items-center gap-1">
+                                            <i class="bi bi-geo-alt text-muted"></i>
+                                            Manila, Philippines
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Status -->
+                                <div class="text-center text-md-end">
+                                    <span class="badge text-bg-success mb-2">Active</span>
+                                    <div class="small text-muted">Joined August 2024</div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Personal Information -->
+                <section class="teacher-card mb-4">
+
+                    <div class="card border-0 rounded-4">
+
+                        <div class="card-body p-4">
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="fw-semibold mb-0">Personal Information</h5>
+                                <button type="button" class="btn btn-sm btn-outline-primary" id="editPersonalBtn">
+                                    <i class="bi bi-pencil me-1"></i>
+                                    Edit
+                                </button>
+                            </div>
+
+                            <form id="personalInfoForm">
+
+                                <div class="row g-3">
+
+                                    <div class="col-12 col-md-4">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="firstName"
+                                            value="Anna" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-4">
+                                        <label for="middleName" class="form-label">Middle Name</label>
+                                        <input type="text" class="form-control" id="middleName" name="middleName"
+                                            value="Santos" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-4">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="lastName"
+                                            value="Reyes" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            value="anna.reyes@colorshapenum.edu" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone"
+                                            value="+63 912 345 6789" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="birthdate" class="form-label">Date of Birth</label>
+                                        <input type="date" class="form-control" id="birthdate" name="birthdate"
+                                            value="1992-05-14" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="gender" class="form-label">Gender</label>
+                                        <select class="form-select" id="gender" name="gender" disabled>
+                                            <option value="Female" selected>Female</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Other">Other</option>
+                                            <option value="Prefer not to say">Prefer not to say</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="address" class="form-label">Address</label>
+                                        <textarea class="form-control" id="address" name="address" rows="2"
+                                            readonly>123 Education Street, Quezon City, Metro Manila</textarea>
+                                    </div>
+
+                                </div>
+
+                                <!-- Save / Cancel (hidden by default) -->
+                                <div class="d-flex justify-content-end gap-2 mt-4 d-none" id="personalActions">
+                                    <button type="button" class="btn btn-light px-4"
+                                        id="cancelPersonalBtn">Cancel</button>
+                                    <button type="submit" class="btn btn-primary px-4">
+                                        <i class="bi bi-check-lg me-2"></i>
+                                        Save Changes
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Professional Information -->
+                <section class="teacher-card mb-4">
+
+                    <div class="card border-0 rounded-4">
+
+                        <div class="card-body p-4">
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="fw-semibold mb-0">Professional Information</h5>
+                                <button type="button" class="btn btn-sm btn-outline-primary" id="editProfessionalBtn">
+                                    <i class="bi bi-pencil me-1"></i>
+                                    Edit
+                                </button>
+                            </div>
+
+                            <form id="professionalInfoForm">
+
+                                <div class="row g-3">
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="employeeId" class="form-label">Employee ID</label>
+                                        <input type="text" class="form-control" id="employeeId" name="employeeId"
+                                            value="TCH-2024-089" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="role" class="form-label">Role</label>
+                                        <input type="text" class="form-control" id="role" name="role"
+                                            value="Classroom Teacher" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="department" class="form-label">Department / Level</label>
+                                        <input type="text" class="form-control" id="department" name="department"
+                                            value="Primary Education – Grade 1" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="classes" class="form-label">Classes Assigned</label>
+                                        <input type="text" class="form-control" id="classes" name="classes"
+                                            value="Grade 1 - A, Grade 1 - B" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="subjects" class="form-label">Subjects / Focus Areas</label>
+                                        <input type="text" class="form-control" id="subjects" name="subjects"
+                                            value="Colors, Shapes, Numbers, Early Literacy" readonly>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <label for="yearsExperience" class="form-label">Years of Experience</label>
+                                        <input type="number" class="form-control" id="yearsExperience"
+                                            name="yearsExperience" value="6" readonly>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="bio" class="form-label">Bio / About Me</label>
+                                        <textarea class="form-control" id="bio" name="bio" rows="3"
+                                            readonly>Passionate early childhood educator focused on interactive learning through colors, shapes, and numbers. Dedicated to making foundational skills fun and engaging for young learners.</textarea>
+                                    </div>
+
+                                </div>
+
+                                <!-- Save / Cancel (hidden by default) -->
+                                <div class="d-flex justify-content-end gap-2 mt-4 d-none" id="professionalActions">
+                                    <button type="button" class="btn btn-light px-4"
+                                        id="cancelProfessionalBtn">Cancel</button>
+                                    <button type="submit" class="btn btn-primary px-4">
+                                        <i class="bi bi-check-lg me-2"></i>
+                                        Save Changes
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Security / Change Password -->
+                <section class="teacher-card mb-4">
+
+                    <div class="card border-0 rounded-4">
+
+                        <div class="card-body p-4">
+
+                            <h5 class="fw-semibold mb-4">Security</h5>
+
+                            <form id="passwordForm">
+
+                                <div class="row g-3">
+
+                                    <div class="col-12 col-md-4">
+                                        <label for="currentPassword" class="form-label">Current Password</label>
+                                        <input type="password" class="form-control" id="currentPassword"
+                                            name="currentPassword" placeholder="Enter current password">
+                                    </div>
+
+                                    <div class="col-12 col-md-4">
+                                        <label for="newPassword" class="form-label">New Password</label>
+                                        <input type="password" class="form-control" id="newPassword" name="newPassword"
+                                            placeholder="Enter new password">
+                                    </div>
+
+                                    <div class="col-12 col-md-4">
+                                        <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                                        <input type="password" class="form-control" id="confirmPassword"
+                                            name="confirmPassword" placeholder="Confirm new password">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-text mt-2">
+                                    Password must be at least 8 characters and include a mix of letters, numbers, and
+                                    symbols.
+                                </div>
+
+                                <div class="d-flex justify-content-end mt-4">
+                                    <button type="submit" class="btn btn-primary px-4">
+                                        <i class="bi bi-shield-lock me-2"></i>
+                                        Update Password
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- Preferences -->
+                <section class="teacher-card">
+
+                    <div class="card border-0 rounded-4">
+
+                        <div class="card-body p-4">
+
+                            <h5 class="fw-semibold mb-4">Preferences</h5>
+
+                            <div class="row g-3">
+
+                                <div class="col-12 col-md-6">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="emailNotifications" checked>
+                                        <label class="form-check-label" for="emailNotifications">
+                                            Email notifications for new assessments and activities
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="smsNotifications">
+                                        <label class="form-check-label" for="smsNotifications">
+                                            SMS alerts for important announcements
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="weeklyReport" checked>
+                                        <label class="form-check-label" for="weeklyReport">
+                                            Receive weekly progress summary
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="darkMode">
+                                        <label class="form-check-label" for="darkMode">
+                                            Enable dark mode (coming soon)
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="button" class="btn btn-primary px-4">
+                                    <i class="bi bi-check-lg me-2"></i>
+                                    Save Preferences
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- footer component -->
+                <div id="footersection"></div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- custom JS -->
+    <script src="js/aside.js"></script>
+    <script src="js/componentfetcher/profile/profile.js"></script>
+
+    <script>
+        // Toggle edit mode for Personal Information
+        const personalForm = document.getElementById('personalInfoForm');
+        const personalInputs = personalForm.querySelectorAll('input, select, textarea');
+        const personalActions = document.getElementById('personalActions');
+        const editPersonalBtn = document.getElementById('editPersonalBtn');
+        const cancelPersonalBtn = document.getElementById('cancelPersonalBtn');
+
+        editPersonalBtn?.addEventListener('click', () => {
+            personalInputs.forEach(el => {
+                if (el.tagName === 'SELECT') {
+                    el.disabled = false;
+                } else {
+                    el.removeAttribute('readonly');
+                }
+            });
+            personalActions.classList.remove('d-none');
+            editPersonalBtn.classList.add('d-none');
+        });
+
+        cancelPersonalBtn?.addEventListener('click', () => {
+            personalInputs.forEach(el => {
+                if (el.tagName === 'SELECT') {
+                    el.disabled = true;
+                } else {
+                    el.setAttribute('readonly', true);
+                }
+            });
+            personalActions.classList.add('d-none');
+            editPersonalBtn.classList.remove('d-none');
+            // In real app: reset form values here
+        });
+
+        personalForm?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulate save
+            personalInputs.forEach(el => {
+                if (el.tagName === 'SELECT') {
+                    el.disabled = true;
+                } else {
+                    el.setAttribute('readonly', true);
+                }
+            });
+            personalActions.classList.add('d-none');
+            editPersonalBtn.classList.remove('d-none');
+            alert('Personal information updated successfully!');
+        });
+
+        // Toggle edit mode for Professional Information
+        const professionalForm = document.getElementById('professionalInfoForm');
+        const professionalInputs = professionalForm.querySelectorAll('input, textarea');
+        const professionalActions = document.getElementById('professionalActions');
+        const editProfessionalBtn = document.getElementById('editProfessionalBtn');
+        const cancelProfessionalBtn = document.getElementById('cancelProfessionalBtn');
+
+        editProfessionalBtn?.addEventListener('click', () => {
+            professionalInputs.forEach(el => el.removeAttribute('readonly'));
+            professionalActions.classList.remove('d-none');
+            editProfessionalBtn.classList.add('d-none');
+        });
+
+        cancelProfessionalBtn?.addEventListener('click', () => {
+            professionalInputs.forEach(el => el.setAttribute('readonly', true));
+            professionalActions.classList.add('d-none');
+            editProfessionalBtn.classList.remove('d-none');
+        });
+
+        professionalForm?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            professionalInputs.forEach(el => el.setAttribute('readonly', true));
+            professionalActions.classList.add('d-none');
+            editProfessionalBtn.classList.remove('d-none');
+            alert('Professional information updated successfully!');
+        });
+
+        // Password form demo
+        document.getElementById('passwordForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const newPass = document.getElementById('newPassword').value;
+            const confirmPass = document.getElementById('confirmPassword').value;
+
+            if (newPass !== confirmPass) {
+                alert('New passwords do not match.');
+                return;
+            }
+
+            alert('Password updated successfully! (Demo only)');
+            e.target.reset();
+        });
+    </script>
+</body>
+
+</html>

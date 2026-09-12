@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorShapeNum | Learner Reports</title>
+    
+    <!-- bootstrap scss -->
+    <link rel="stylesheet" href="../../src/css/index.css">
+    <link rel="stylesheet" href="../../src/css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    
+    <div class="teacher-wrapper">
+        
+        <!-- side navigationbar -->
+        <div id="navigationbar"></div>
+        
+        <!-- mobile overlay -->
+        <div class="teacher-overlay" id="teacherOverlay"></div>
+        
+        <!-- main content -->
+        <main class="teacher-main">
+            
+            <!-- top navbar -->
+            <header class="teacher-topbar">
+                
+                <div class="teacher-top-left">
+                    
+                    <button type="button" class="teacher-menu-button d-lg-none" id="teacherMenu">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    
+                    <div>
+                        <h6>Reports</h6>
+                        <span>Generate learner progress reports</span>
+                    </div>
+                    
+                </div>
+                
+                <div class="teacher-top-right">
+                    
+                    <!-- Notifications -->
+                    <button type="button" class="teacher-notification">
+                        <i class="bi bi-bell"></i>
+                        <span></span>
+                    </button>
+                    
+                    <!-- Teacher Profile -->
+                    <div class="teacher-profile">
+                        
+                        <div class="teacher-avatar">
+                            TA
+                        </div>
+                        
+                        <div class="teacher-profile-info d-none d-md-block">
+                            <strong>Teacher Anna</strong>
+                            <small>Teacher</small>
+                        </div>
+                        
+                        <i class="bi bi-chevron-down d-none d-md-block"></i>
+                        
+                    </div>
+                    
+                </div>
+                
+            </header>
+            
+            <!-- page content -->
+            <div class="teacher-content">
+                
+                <!-- content header -->
+                <section class="mb-4">
+                    
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                        
+                        <div>
+                            <h1 class="h3 fw-bold mb-1">Learner Reports</h1>
+                            <p class="text-muted small mb-0">
+                                Generate progress, assessment, and performance reports for your learners.
+                            </p>
+                        </div>
+                        
+                    </div>
+                    
+                </section>
+                
+                <!-- Report Generator Card -->
+                <section class="teacher-card mb-4">
+                    
+                    <div class="card border-0 rounded-4">
+                        
+                        <div class="card-body p-4">
+                            
+                            <h5 class="fw-semibold mb-4">Generate Report</h5>
+                            
+                            <form id="reportForm">
+                                
+                                <div class="row g-3">
+                                    
+                                    <!-- Report Type -->
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <label for="reportType" class="form-label">Report Type</label>
+                                        <select class="form-select" id="reportType" name="reportType" required>
+                                            <option value="" selected disabled>Select report type</option>
+                                            <option value="progress">Progress Report</option>
+                                            <option value="assessment">Assessment Summary</option>
+                                            <option value="performance">Overall Performance</option>
+                                            <option value="attendance">Attendance Report</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <!-- Class -->
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <label for="reportClass" class="form-label">Class</label>
+                                        <select class="form-select" id="reportClass" name="class" required>
+                                            <option value="" selected disabled>Select class</option>
+                                            <option value="Grade 1 - A">Grade 1 - A</option>
+                                            <option value="Grade 1 - B">Grade 1 - B</option>
+                                            <option value="Grade 2 - A">Grade 2 - A</option>
+                                            <option value="Grade 2 - B">Grade 2 - B</option>
+                                            <option value="All Classes">All Classes</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <!-- Date From -->
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <label for="dateFrom" class="form-label">From</label>
+                                        <input type="date" class="form-control" id="dateFrom" name="dateFrom" value="2026-08-01">
+                                    </div>
+                                    
+                                    <!-- Date To -->
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <label for="dateTo" class="form-label">To</label>
+                                        <input type="date" class="form-control" id="dateTo" name="dateTo" value="2026-09-11">
+                                    </div>
+                                    
+                                    <!-- Optional: Specific Learner -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="reportLearner" class="form-label">
+                                            Learner
+                                            <span class="text-muted">(Optional – leave blank for class report)</span>
+                                        </label>
+                                        <select class="form-select" id="reportLearner" name="learner">
+                                            <option value="" selected>All Learners</option>
+                                            <option value="LRN-001">John Martinez (LRN-001)</option>
+                                            <option value="LRN-002">Anna Santos (LRN-002)</option>
+                                            <option value="LRN-003">Maria Reyes (LRN-003)</option>
+                                            <option value="LRN-004">Daniel Torres (LRN-004)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <!-- Format -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="reportFormat" class="form-label">Export Format</label>
+                                        <select class="form-select" id="reportFormat" name="format">
+                                            <option value="preview" selected>Preview Only</option>
+                                            <option value="pdf">PDF</option>
+                                            <option value="excel">Excel</option>
+                                            <option value="print">Print</option>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <!-- Actions -->
+                                <div class="d-flex flex-column flex-sm-row justify-content-end gap-2 mt-4">
+                                    
+                                    <button type="reset" class="btn btn-light px-4">
+                                        Reset
+                                    </button>
+                                    
+                                    <button type="submit" class="btn btn-primary px-4">
+                                        <i class="bi bi-file-earmark-bar-graph me-2"></i>
+                                        Generate Report
+                                    </button>
+                                    
+                                </div>
+                                
+                            </form>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </section>
+                
+                <!-- Report Preview / Results -->
+                <section class="teacher-card" id="reportResults">
+                    
+                    <div class="card border-0 rounded-4">
+                        
+                        <div class="card-body p-4">
+                            
+                            <!-- Report Header -->
+                            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-start gap-3 mb-4">
+                                
+                                <div>
+                                    <h5 class="fw-semibold mb-1">Progress Report – Grade 1 - A</h5>
+                                    <p class="text-muted small mb-0">
+                                        Period: August 1, 2026 – September 11, 2026
+                                    </p>
+                                </div>
+                                
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm">
+                                        <i class="bi bi-printer me-1"></i> Print
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary btn-sm">
+                                        <i class="bi bi-download me-1"></i> Export PDF
+                                    </button>
+                                </div>
+                                
+                            </div>
+                            
+                            <!-- Summary Cards -->
+                            <div class="row g-3 mb-4">
+                                
+                                <div class="col-6 col-md-3">
+                                    <div class="border rounded-3 p-3 text-center h-100">
+                                        <div class="text-muted small mb-1">Total Learners</div>
+                                        <div class="h4 fw-bold mb-0">24</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 col-md-3">
+                                    <div class="border rounded-3 p-3 text-center h-100">
+                                        <div class="text-muted small mb-1">Average Progress</div>
+                                        <div class="h4 fw-bold mb-0 text-success">89%</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 col-md-3">
+                                    <div class="border rounded-3 p-3 text-center h-100">
+                                        <div class="text-muted small mb-1">Avg. Assessment Score</div>
+                                        <div class="h4 fw-bold mb-0 text-primary">87%</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 col-md-3">
+                                    <div class="border rounded-3 p-3 text-center h-100">
+                                        <div class="text-muted small mb-1">Needs Attention</div>
+                                        <div class="h4 fw-bold mb-0 text-warning">3</div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <!-- Detailed Table -->
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">Learner</th>
+                                            <th scope="col">Learner ID</th>
+                                            <th scope="col">Progress</th>
+                                            <th scope="col">Avg. Score</th>
+                                            <th scope="col">Assessments</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col" class="text-end">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <!-- Row -->
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="learner-avatar blue" style="width:36px;height:36px;font-size:0.8rem;">JM</div>
+                                                    <div>
+                                                        <strong class="d-block">John Martinez</strong>
+                                                        <small class="text-muted">Grade 1 - A</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>LRN-001</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height:6px;min-width:60px;">
+                                                        <div class="progress-bar bg-success" style="width:94%"></div>
+                                                    </div>
+                                                    <small class="fw-semibold">94%</small>
+                                                </div>
+                                            </td>
+                                            <td><strong>94%</strong></td>
+                                            <td>8 / 8</td>
+                                            <td><span class="badge text-bg-success">Excellent</span></td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-light" title="View detailed report">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        
+                                        <!-- Row -->
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="learner-avatar pink" style="width:36px;height:36px;font-size:0.8rem;">AS</div>
+                                                    <div>
+                                                        <strong class="d-block">Anna Santos</strong>
+                                                        <small class="text-muted">Grade 1 - A</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>LRN-002</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height:6px;min-width:60px;">
+                                                        <div class="progress-bar bg-success" style="width:91%"></div>
+                                                    </div>
+                                                    <small class="fw-semibold">91%</small>
+                                                </div>
+                                            </td>
+                                            <td><strong>91%</strong></td>
+                                            <td>8 / 8</td>
+                                            <td><span class="badge text-bg-success">Excellent</span></td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-light" title="View detailed report">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        
+                                        <!-- Row -->
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="learner-avatar green" style="width:36px;height:36px;font-size:0.8rem;">MR</div>
+                                                    <div>
+                                                        <strong class="d-block">Maria Reyes</strong>
+                                                        <small class="text-muted">Grade 1 - B</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>LRN-003</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height:6px;min-width:60px;">
+                                                        <div class="progress-bar bg-primary" style="width:87%"></div>
+                                                    </div>
+                                                    <small class="fw-semibold">87%</small>
+                                                </div>
+                                            </td>
+                                            <td><strong>87%</strong></td>
+                                            <td>7 / 8</td>
+                                            <td><span class="badge text-bg-primary">Good</span></td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-light" title="View detailed report">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        
+                                        <!-- Row -->
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="learner-avatar orange" style="width:36px;height:36px;font-size:0.8rem;">DT</div>
+                                                    <div>
+                                                        <strong class="d-block">Daniel Torres</strong>
+                                                        <small class="text-muted">Grade 1 - B</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>LRN-004</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height:6px;min-width:60px;">
+                                                        <div class="progress-bar bg-warning" style="width:83%"></div>
+                                                    </div>
+                                                    <small class="fw-semibold">83%</small>
+                                                </div>
+                                            </td>
+                                            <td><strong>83%</strong></td>
+                                            <td>6 / 8</td>
+                                            <td><span class="badge text-bg-warning">Needs Attention</span></td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-light" title="View detailed report">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        
+                                        <!-- Row -->
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="learner-avatar blue" style="width:36px;height:36px;font-size:0.8rem;">SL</div>
+                                                    <div>
+                                                        <strong class="d-block">Sofia Lopez</strong>
+                                                        <small class="text-muted">Grade 1 - A</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>LRN-005</td>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="progress flex-grow-1" style="height:6px;min-width:60px;">
+                                                        <div class="progress-bar bg-success" style="width:96%"></div>
+                                                    </div>
+                                                    <small class="fw-semibold">96%</small>
+                                                </div>
+                                            </td>
+                                            <td><strong>96%</strong></td>
+                                            <td>8 / 8</td>
+                                            <td><span class="badge text-bg-success">Excellent</span></td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-light" title="View detailed report">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- Pagination / Info -->
+                            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 mt-4">
+                                <small class="text-muted">
+                                    Showing <strong>1–5</strong> of <strong>24</strong> learners
+                                </small>
+                                
+                                <nav>
+                                    <ul class="pagination pagination-sm mb-0">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#">Previous</a>
+                                        </li>
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#">1</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">2</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">3</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </section>
+                
+                <!-- footer component -->
+                <div id="footersection"></div>
+                
+            </div>
+            
+        </main>
+        
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- custom JS -->
+    <script src="js/aside.js"></script>
+    <script src="js/componentfetcher/report/report.js"></script>
+    
+    <script>
+        // Demo: prevent actual form submission
+        document.getElementById('reportForm')?.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            // In a real app you would fetch data and update the reportResults section
+            // For now we just show a simple confirmation
+            const reportType = document.getElementById('reportType').value;
+            const reportClass = document.getElementById('reportClass').value;
+            
+            if (!reportType || !reportClass) {
+                alert('Please select both Report Type and Class.');
+                return;
+            }
+            
+            // Scroll to results
+            document.getElementById('reportResults')?.scrollIntoView({ behavior: 'smooth' });
+            
+            // Optional: show a toast or update the title
+            console.log('Generating report...', {
+                type: reportType,
+                class: reportClass,
+                from: document.getElementById('dateFrom').value,
+                to: document.getElementById('dateTo').value
+            });
+        });
+    </script>
+</body>
+</html>

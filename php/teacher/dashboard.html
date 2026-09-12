@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ColorShapeNum | Dashboard</title>
+
+  <!-- bootstrap scss -->
+  <link rel="stylesheet" href="../../src/css/index.css" />
+  <link rel="stylesheet" href="../../src/css/main.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <!-- bootstrap icons -->
+  <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+</head>
+
+<body>
+  <div class="teacher-wrapper">
+    <!-- sidebar -->
+    <div id="navigationbar"></div>
+
+    <!-- mobile overlay -->
+    <div class="teacher-overlay" id="teacherOverlay"></div>
+
+    <!-- MAIN -->
+    <main class="teacher-main">
+
+      <!-- header -->
+      <header class="teacher-topbar">
+
+        <div class="teacher-top-left">
+
+          <button type="button" class="teacher-menu-button d-lg-none" id="teacherMenu">
+
+            <i class="bi bi-list"></i>
+
+          </button>
+
+
+          <div>
+
+            <h6>
+              Teacher Dashboard
+            </h6>
+
+            <span>
+              Monday, August 24, 2026
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="teacher-top-right">
+
+          <button class="teacher-notification" type="button">
+
+            <i class="bi bi-bell"></i>
+
+            <span></span>
+
+          </button>
+
+
+          <div class="teacher-profile">
+
+            <div class="teacher-avatar">
+              TA
+            </div>
+
+            <div class="teacher-profile-info d-none d-md-block">
+
+              <strong>
+                Teacher Anna
+              </strong>
+
+              <small>
+                Teacher
+              </small>
+
+            </div>
+
+            <i class="bi bi-chevron-down d-none d-md-block"></i>
+
+          </div>
+
+        </div>
+
+      </header>
+
+      <div class="teacher-content">
+
+        <!-- welcome header -->
+        <section class="teacher-welcome">
+          <div class="teacher-welcome-content">
+            <span class="teacher-welcome-tag">
+              <i class="bi bi-stars"></i>
+
+              Good morning, Teacher Anna!
+            </span>
+
+            <h1>
+              Ready to inspire
+              <span>young learners?</span>
+            </h1>
+
+            <p>
+              Track your learners, manage activities, and help every child
+              make progress today.
+            </p>
+
+            <div class="teacher-welcome-actions">
+              <a href="ActivitySelection.html">
+                <button class="btn teacher-primary-button">
+                  <i class="bi bi-plus-lg"></i>
+
+                  Create Activity
+                </button>
+              </a>
+
+              <button class="btn teacher-secondary-button">
+                <i class="bi bi-bar-chart-fill"></i>
+
+                View Progress
+              </button>
+            </div>
+          </div>
+
+          <div class="teacher-welcome-art">
+            <div class="teacher-art-main">
+              <i class="bi bi-mortarboard-fill"></i>
+            </div>
+
+            <div class="teacher-art-shape teacher-art-one">
+              <i class="bi bi-palette-fill"></i>
+            </div>
+
+            <div class="teacher-art-shape teacher-art-two">
+              <i class="bi bi-shapes"></i>
+            </div>
+
+            <div class="teacher-art-shape teacher-art-three">
+              <i class="bi bi-123"></i>
+            </div>
+          </div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="teacher-stats">
+          <div class="teacher-stat-card">
+            <div class="teacher-stat-icon learners">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <div>
+              <span> My Learners </span>
+
+              <strong> 0 </strong>
+
+              <small> 0 classes </small>
+            </div>
+          </div>
+
+          <div class="teacher-stat-card">
+            <div class="teacher-stat-icon activities">
+              <i class="bi bi-controller"></i>
+            </div>
+
+            <div>
+              <span> Activities </span>
+
+              <strong> 0 </strong>
+
+              <small> 0 new this week </small>
+            </div>
+          </div>
+
+          <div class="teacher-stat-card">
+            <div class="teacher-stat-icon completed">
+              <i class="bi bi-check-circle-fill"></i>
+            </div>
+
+            <div>
+              <span> Completion Rate </span>
+
+              <strong> 0% </strong>
+
+              <small class="positive">
+                <i class="bi bi-arrow-up"></i>
+                0% this week
+              </small>
+            </div>
+          </div>
+
+          <div class="teacher-stat-card">
+            <div class="teacher-stat-icon score">
+              <i class="bi bi-trophy-fill"></i>
+            </div>
+
+            <div>
+              <span> Average Score </span>
+
+              <strong> 0% </strong>
+
+              <small> Excellent progress </small>
+            </div>
+          </div>
+        </section>
+
+        <!-- main dashboard grid -->
+        <section class="teacher-dashboard-grid">
+          <!-- LEARNER PROGRESS -->
+
+          <div class="teacher-card teacher-progress-card">
+            <div class="teacher-card-header">
+              <div>
+                <h5>Learner Progress</h5>
+
+                <span> Overall performance of your learners </span>
+              </div>
+
+              <button class="teacher-more">
+                <i class="bi bi-three-dots"></i>
+              </button>
+            </div>
+
+            <div class="teacher-progress-layout">
+              <div class="teacher-progress-circle">
+                <div>
+                  <strong> 0% </strong>
+
+                  <span> Class Average </span>
+                </div>
+              </div>
+
+              <div class="teacher-progress-details">
+                <div class="teacher-progress-row">
+                  <div class="teacher-progress-title">
+                    <span>
+                      <i class="bi bi-palette-fill"></i>
+                      Colors
+                    </span>
+
+                    <strong> 0% </strong>
+                  </div>
+
+                  <div class="progress">
+                    <div class="progress-bar teacher-color-progress" style="width: 91%"></div>
+                  </div>
+                </div>
+
+                <div class="teacher-progress-row">
+                  <div class="teacher-progress-title">
+                    <span>
+                      <i class="bi bi-shapes"></i>
+                      Shapes
+                    </span>
+
+                    <strong> 0% </strong>
+                  </div>
+
+                  <div class="progress">
+                    <div class="progress-bar teacher-shape-progress" style="width: 82%"></div>
+                  </div>
+                </div>
+
+                <div class="teacher-progress-row">
+                  <div class="teacher-progress-title">
+                    <span>
+                      <i class="bi bi-123"></i>
+                      Numbers
+                    </span>
+
+                    <strong> 0% </strong>
+                  </div>
+
+                  <div class="progress">
+                    <div class="progress-bar teacher-number-progress" style="width: 74%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- QUICK ACTIONS -->
+
+          <div class="teacher-card">
+            <div class="teacher-card-header">
+              <div>
+                <h5>Quick Actions</h5>
+
+                <span> Frequently used tools </span>
+              </div>
+            </div>
+
+            <div class="teacher-quick-actions">
+              <a href="#">
+                <button class="teacher-action">
+                  <div class="teacher-action-icon purple">
+                    <i class="bi bi-person-plus-fill"></i>
+                  </div>
+
+                  <div>
+                    <strong> Add Learner </strong>
+
+                    <small> Add a learner to your class </small>
+                  </div>
+
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+              </a>
+
+              <a href="colorsActivitySelection.html">
+                <button class="teacher-action">
+                  <div class="teacher-action-icon orange">
+                    <i class="bi bi-controller"></i>
+                  </div>
+
+                  <div>
+                    <strong> Create Activity </strong>
+
+                    <small> Make a new learning activity </small>
+                  </div>
+
+                  <i class="bi bi-chevron-right"></i>
+                </button>
+              </a>
+
+              <button class="teacher-action">
+                <div class="teacher-action-icon green">
+                  <i class="bi bi-file-earmark-bar-graph-fill"></i>
+                </div>
+
+                <div>
+                  <strong> Generate Report </strong>
+
+                  <small> Review learner performance </small>
+                </div>
+
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- lower grid -->
+        <section class="teacher-lower-grid">
+          <!-- LEARNERS -->
+
+          <div class="teacher-card">
+            <div class="teacher-card-header">
+              <div>
+                <h5>My Learners</h5>
+
+                <span> Recently active learners </span>
+              </div>
+
+              <a href="#"> View All </a>
+            </div>
+
+            <div class="teacher-learners">
+              <div class="teacher-learner">
+                <div class="learner-avatar blue">JM</div>
+
+                <div class="learner-info">
+                  <strong> John Martinez </strong>
+                </div>
+
+                <div class="learner-score">0%</div>
+              </div>
+
+              <div class="teacher-learner">
+                <div class="learner-avatar pink">AS</div>
+
+                <div class="learner-info">
+                  <strong> Anna Santos </strong>
+                </div>
+
+                <div class="learner-score">0%</div>
+              </div>
+
+              <div class="teacher-learner">
+                <div class="learner-avatar green">MR</div>
+
+                <div class="learner-info">
+                  <strong> Maria Reyes </strong>
+                </div>
+
+                <div class="learner-score">0%</div>
+              </div>
+
+              <div class="teacher-learner">
+                <div class="learner-avatar orange">DT</div>
+
+                <div class="learner-info">
+                  <strong> Daniel Torres </strong>
+                </div>
+
+                <div class="learner-score">0%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- UPCOMING ACTIVITIES -->
+
+          <div class="teacher-card">
+            <div class="teacher-card-header">
+              <div>
+                <h5>Upcoming Activities</h5>
+
+                <span> Your scheduled activities </span>
+              </div>
+
+              <a href="#"> View All </a>
+            </div>
+
+            <div class="teacher-schedule">
+              <div class="teacher-schedule-item">
+                <div class="schedule-date">
+                  <strong> 25 </strong>
+
+                  <span> AUG </span>
+                </div>
+
+                <div class="schedule-info">
+                  <strong> Shape Explorer </strong>
+
+                  <span> 9:00 AM • Grade 1 </span>
+                </div>
+
+                <div class="schedule-icon">
+                  <i class="bi bi-triangles"></i>
+                </div>
+              </div>
+
+              <div class="teacher-schedule-item">
+                <div class="schedule-date">
+                  <strong> 26 </strong>
+
+                  <span> AUG </span>
+                </div>
+
+                <div class="schedule-info">
+                  <strong> Number Adventure </strong>
+
+                  <span> 10:30 AM • Grade 1 </span>
+                </div>
+
+                <div class="schedule-icon">
+                  <i class="bi bi-123"></i>
+                </div>
+              </div>
+
+              <div class="teacher-schedule-item">
+                <div class="schedule-date">
+                  <strong> 28 </strong>
+
+                  <span> AUG </span>
+                </div>
+
+                <div class="schedule-info">
+                  <strong> Color Discovery </strong>
+
+                  <span> 9:30 AM • Grade 1 </span>
+                </div>
+
+                <div class="schedule-icon">
+                  <i class="bi bi-palette-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- footer component -->
+        <div id="footersection"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Teacher Dashboard JS -->
+  <script src="js/aside.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorShapeNum | Dashboard</title>
+
+    <!-- bootstrap scss -->
+    <link rel="stylesheet" href="../../src/css/index.css">
+    <link rel="stylesheet" href="../../src/css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+
+    <div class="teacher-wrapper">
+
+        <!-- aside vertical navigation bar -->
+        <div id="navigationbar"></div>
+
+        <!-- mobile overlay -->
+        <div class="teacher-overlay" id="teacherOverlay"></div>
+
+
+        <!-- Main content -->
+        <main class="teacher-main">
+
+            <!-- top bar -->
+            <header class="teacher-topbar">
+
+                <div class="teacher-top-left">
+
+                    <button type="button" class="teacher-menu-button d-lg-none" id="teacherMenu">
+
+                        <i class="bi bi-list"></i>
+
+                    </button>
+
+
+                    <div>
+
+                        <h6>
+                            Learning Materials
+                        </h6>
+
+                        <span>
+                            Manage and upload Learning Materials.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="teacher-top-right">
+
+                    <!-- Notification -->
+
+                    <button type="button" class="teacher-notification">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span></span>
+
+                    </button>
+
+
+                    <!-- Profile -->
+
+                    <div class="teacher-profile">
+
+                        <div class="teacher-avatar">
+                            TA
+                        </div>
+
+                        <div class="teacher-profile-info d-none d-md-block">
+
+                            <strong>
+                                Teacher Anna
+                            </strong>
+
+                            <small>
+                                Teacher
+                            </small>
+
+                        </div>
+
+                        <i class="bi bi-chevron-down d-none d-md-block"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- content -->
+            <div class="teacher-content">
+
+
+                <!-- page header -->
+                <section class="mb-4">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+                        <div>
+                            <h1 class="h3 fw-bold mb-1">
+                                Learning Materials
+                            </h1>
+
+
+                            <p class="text-muted small mb-0">
+
+                                Manage and share engaging learning materials that help your learners explore, learn, and
+                                grow.
+                            </p>
+
+                        </div>
+
+
+                        <!-- CREATE ACTIVITY -->
+                        <a href="components/colors_activity/colorsActivitySelection.html"
+                            class="btn teacher-primary-button">
+
+                            <i class="bi bi-plus-lg me-1"></i>
+
+                            Upload Learning Materials
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+                <!-- Activity Management -->
+
+                <section class="teacher-card">
+
+                    <!-- header -->
+                    <div class="teacher-card-header">
+                        <div>
+                            <h5>Your Resources</h5>
+                            <span>Upload, organize, and share resources with your learners</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Search and filter -->
+
+                    <div class="row g-2 mb-4">
+
+                        <!-- Search -->
+                        <div class="col-12 col-lg-9">
+                            <div class="input-group">
+                                <span class="input-group-text bg-white">
+                                    <i class="bi bi-search text-muted"></i>
+                                </span>
+
+                                <input type="search" class="form-control" id="learningMaterialSearch"
+                                    placeholder="Search Learning Material...">
+                            </div>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="col-12 col-sm-6 col-lg-2">
+                            <select class="form-select" id="activityCategory">
+                                <option value="">
+                                    All Categories
+                                </option>
+
+                                <option value="colors">
+                                    Colors
+                                </option>
+
+                                <option value="shapes">
+                                    Shapes
+                                </option>
+
+                                <option value="numbers">
+                                    Numbers
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Filter Button -->
+                        <div class="col-12 col-sm-6 col-lg-1">
+
+                            <button type="button" class="btn btn-outline-secondary w-100" title="Filter">
+
+                                <i class="bi bi-funnel"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Activity cards will be displayed here! -->
+                    <div class="row g-3" id="activityList">
+
+
+                        <!-- Sample Learning Material 1 -->
+
+                        <div class="col-12 col-md-6 col-xl-4 learning-material-item" data-category="colors"
+                            data-type="document" data-status="published">
+
+                            <div class="border rounded-4 h-100 p-3">
+
+                                <!-- TOP -->
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                    <!-- MATERIAL ICON -->
+                                    <div class="learning-material-icon">
+                                        <i class="bi bi-file-earmark-text-fill"></i>
+                                    </div>
+
+                                    <!-- MENU -->
+                                    <div class="dropdown">
+
+                                        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown"
+                                            aria-label="Learning material options">
+
+                                            <i class="bi bi-three-dots"></i>
+
+                                        </button>
+
+                                        <ul class="dropdown-menu dropdown-menu-end">
+
+                                            <li>
+                                                <a class="dropdown-item text-danger" href="#">
+                                                    <i class="bi bi-trash me-2"></i>
+                                                    Delete
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- TITLE -->
+
+                                <h6 class="fw-bold mb-1">
+                                    Colors Learning Module
+                                </h6>
+
+                                <p class="text-muted small mb-3">
+                                    Introduction to primary and secondary colors.
+                                </p>
+
+
+                                <!-- TAGS -->
+
+                                <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                    <span class="badge text-bg-primary">
+                                        Colors
+                                    </span>
+
+                                    <span class="badge text-bg-light text-dark">
+                                        <i class="bi bi-file-earmark-text me-1"></i>
+                                        PDF
+                                    </span>
+
+                                    <span class="badge text-bg-success">
+                                        Published
+                                    </span>
+
+                                </div>
+
+
+                                <!-- INFO -->
+
+                                <div class="small text-muted mb-3">
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            File Size
+                                        </span>
+
+                                        <strong>
+                                            2.4 MB
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Assigned
+                                        </span>
+
+                                        <strong>
+                                            18 learners
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between">
+
+                                        <span>
+                                            Accessed
+                                        </span>
+
+                                        <strong>
+                                            16 learners
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ACCESS PROGRESS -->
+
+                                <div class="mb-3">
+
+                                    <div class="d-flex justify-content-between small mb-1">
+
+                                        <span>
+                                            Learner Access
+                                        </span>
+
+                                        <strong>
+                                            89%
+                                        </strong>
+
+                                    </div>
+
+                                    <div class="progress" style="height: 6px;">
+
+                                        <div class="progress-bar bg-success" style="width: 89%;">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- FOOTER -->
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-muted">
+                                        Updated 2 hours ago
+                                    </small>
+
+                                    <a href="#" class="btn btn-sm btn-outline-primary">
+
+                                        <i class="bi bi-download"></i>
+                                        Download
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Sample Learning Material 1 -->
+
+                        <div class="col-12 col-md-6 col-xl-4 learning-material-item" data-category="colors"
+                            data-type="document" data-status="published">
+
+                            <div class="border rounded-4 h-100 p-3">
+
+                                <!-- TOP -->
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                    <!-- MATERIAL ICON -->
+                                    <div class="learning-material-icon">
+                                        <i class="bi bi-file-earmark-text-fill"></i>
+                                    </div>
+
+                                    <!-- MENU -->
+                                    <div class="dropdown">
+
+                                        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown"
+                                            aria-label="Learning material options">
+
+                                            <i class="bi bi-three-dots"></i>
+
+                                        </button>
+
+                                        <ul class="dropdown-menu dropdown-menu-end">
+
+                                            <li>
+                                                <a class="dropdown-item text-danger" href="#">
+                                                    <i class="bi bi-trash me-2"></i>
+                                                    Delete
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- TITLE -->
+
+                                <h6 class="fw-bold mb-1">
+                                    Shapes Learning Module
+                                </h6>
+
+                                <p class="text-muted small mb-3">
+                                    Introduction to primary and secondary colors.
+                                </p>
+
+
+                                <!-- TAGS -->
+
+                                <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                    <span class="badge text-bg-primary">
+                                        Colors
+                                    </span>
+
+                                    <span class="badge text-bg-light text-dark">
+                                        <i class="bi bi-file-earmark-text me-1"></i>
+                                        PDF
+                                    </span>
+
+                                    <span class="badge text-bg-success">
+                                        Published
+                                    </span>
+
+                                </div>
+
+
+                                <!-- INFO -->
+
+                                <div class="small text-muted mb-3">
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            File Size
+                                        </span>
+
+                                        <strong>
+                                            2.4 MB
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Assigned
+                                        </span>
+
+                                        <strong>
+                                            18 learners
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between">
+
+                                        <span>
+                                            Accessed
+                                        </span>
+
+                                        <strong>
+                                            16 learners
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ACCESS PROGRESS -->
+
+                                <div class="mb-3">
+
+                                    <div class="d-flex justify-content-between small mb-1">
+
+                                        <span>
+                                            Learner Access
+                                        </span>
+
+                                        <strong>
+                                            89%
+                                        </strong>
+
+                                    </div>
+
+                                    <div class="progress" style="height: 6px;">
+
+                                        <div class="progress-bar bg-success" style="width: 89%;">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- FOOTER -->
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-muted">
+                                        Updated 2 hours ago
+                                    </small>
+
+                                    <a href="#" class="btn btn-sm btn-outline-primary">
+
+                                        <i class="bi bi-download"></i>
+                                        Download
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Sample Learning Material 1 -->
+
+                        <div class="col-12 col-md-6 col-xl-4 learning-material-item" data-category="colors"
+                            data-type="document" data-status="published">
+
+                            <div class="border rounded-4 h-100 p-3">
+
+                                <!-- TOP -->
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                    <!-- MATERIAL ICON -->
+                                    <div class="learning-material-icon">
+                                        <i class="bi bi-file-earmark-text-fill"></i>
+                                    </div>
+
+                                    <!-- MENU -->
+                                    <div class="dropdown">
+
+                                        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown"
+                                            aria-label="Learning material options">
+
+                                            <i class="bi bi-three-dots"></i>
+
+                                        </button>
+
+                                        <ul class="dropdown-menu dropdown-menu-end">
+
+                                            <li>
+                                                <a class="dropdown-item text-danger" href="#">
+                                                    <i class="bi bi-trash me-2"></i>
+                                                    Delete
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- TITLE -->
+
+                                <h6 class="fw-bold mb-1">
+                                    Numbers Learning Module
+                                </h6>
+
+                                <p class="text-muted small mb-3">
+                                    Introduction to primary and secondary colors.
+                                </p>
+
+
+                                <!-- TAGS -->
+
+                                <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                    <span class="badge text-bg-primary">
+                                        Colors
+                                    </span>
+
+                                    <span class="badge text-bg-light text-dark">
+                                        <i class="bi bi-file-earmark-text me-1"></i>
+                                        PDF
+                                    </span>
+
+                                    <span class="badge text-bg-success">
+                                        Published
+                                    </span>
+
+                                </div>
+
+
+                                <!-- INFO -->
+
+                                <div class="small text-muted mb-3">
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            File Size
+                                        </span>
+
+                                        <strong>
+                                            2.4 MB
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Assigned
+                                        </span>
+
+                                        <strong>
+                                            18 learners
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between">
+
+                                        <span>
+                                            Accessed
+                                        </span>
+
+                                        <strong>
+                                            16 learners
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ACCESS PROGRESS -->
+
+                                <div class="mb-3">
+
+                                    <div class="d-flex justify-content-between small mb-1">
+
+                                        <span>
+                                            Learner Access
+                                        </span>
+
+                                        <strong>
+                                            89%
+                                        </strong>
+
+                                    </div>
+
+                                    <div class="progress" style="height: 6px;">
+
+                                        <div class="progress-bar bg-success" style="width: 89%;">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- FOOTER -->
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-muted">
+                                        Updated 2 hours ago
+                                    </small>
+
+                                    <a href="#" class="btn btn-sm btn-outline-primary">
+
+                                        <i class="bi bi-download"></i>
+                                        Download
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                         PAGINATION
+                    ================================== -->
+
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 mt-4">
+
+
+                        <small class="text-muted">
+
+                            Showing
+                            <strong>1–5</strong>
+                            of
+                            <strong>18</strong>
+                            activities
+
+                        </small>
+
+
+                        <nav>
+
+                            <ul class="pagination pagination-sm mb-0">
+
+                                <li class="page-item disabled">
+
+                                    <a class="page-link" href="#">
+
+                                        <i class="bi bi-chevron-left"></i>
+
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item active">
+
+                                    <a class="page-link" href="#">
+                                        1
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item">
+
+                                    <a class="page-link" href="#">
+                                        2
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item">
+
+                                    <a class="page-link" href="#">
+                                        3
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item">
+
+                                    <a class="page-link" href="#">
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </a>
+
+                                </li>
+
+                            </ul>
+
+                        </nav>
+
+                    </div>
+
+                </section>
+
+
+                <!-- footer section -->
+                <div id="footersection"></div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- Teacher Dashboard JS -->
+    <script src="js/aside.js"></script>
+
+</body>
+
+</html>

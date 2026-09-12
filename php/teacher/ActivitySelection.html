@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ColorShapeNum | Create Activity</title>
+
+  <!-- bootstrap scss -->
+  <link rel="stylesheet" href="../../src/css/index.css" />
+  <link rel="stylesheet" href="../../src/css/main.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/activity-type.css" />
+  <!-- bootstrap icons -->
+  <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css" />
+</head>
+
+<body>
+  <div class="teacher-wrapper">
+
+    <!-- SIDEBAR -->
+    <div id="navigationbar"></div>
+
+    <!-- MOBILE OVERLAY -->
+    <div class="teacher-overlay" id="teacherOverlay"></div>
+
+    <!-- MAIN -->
+    <main class="teacher-main">
+
+      <!-- TOPBAR -->
+      <header class="teacher-topbar">
+        <div class="teacher-top-left">
+          <button type="button" class="teacher-menu-button d-lg-none" id="teacherMenu">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <div>
+            <h6>Create Activity</h6>
+            <span>Build an educational game</span>
+          </div>
+        </div>
+
+        <div class="teacher-top-right">
+          <button type="button" class="teacher-notification">
+            <i class="bi bi-bell"></i>
+            <span></span>
+          </button>
+
+          <div class="teacher-profile">
+            <div class="teacher-avatar">TA</div>
+
+            <div class="teacher-profile-info d-none d-md-block">
+              <strong>Teacher Anna</strong>
+              <small>Teacher</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <div class="teacher-content">
+
+        <!-- PAGE HEADER -->
+        <div class="mb-4">
+          <h1 class="h3 fw-bold mb-1">Create Educational Activity</h1>
+
+          <p class="text-muted mb-0">
+            Create interactive learning games for children.
+          </p>
+        </div>
+
+        <!-- ACTIVITY TYPE -->
+        <div class="teacher-card mb-4" id="activityTypeSection">
+          <div class="teacher-card-header">
+            <div>
+              <h5 class="mb-1">Choose Activity Type</h5>
+              <span id="activityTypeDescription">
+                How would you like children to interact with this activity?
+              </span>
+            </div>
+          </div>
+
+          <div class="activity-type-grid">
+            <a href="components/activityMaker/multipleChoice.html">
+              <!-- CHOOSE THE ANSWER -->
+              <div class="activity-option">
+                <label for="typeChoose" class="activity-option-card">
+                  <div class="activity-option-top">
+                    <div class="activity-option-icon choose-icon">
+                      <i class="bi bi-ui-checks"></i>
+                    </div>
+                  </div>
+                  <div class="activity-option-content">
+                    <h6>Choose the Answer</h6>
+                    <p>
+                      Children choose the correct answer from several choices.
+                    </p>
+                  </div>
+                  <div class="activity-option-example">
+                    <span>Example</span>
+                    <div class="mini-example">
+                      <span>What color is this?</span>
+                      <div class="mini-answers">
+                        <span class="mini-answer">🔴</span>
+                        <span class="mini-answer">🔵</span>
+                        <span class="mini-answer">🟡</span>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </a>
+
+            <a href="components/activityMaker/matching.html">
+              <div class="activity-option">
+                <label for="typeMatch" class="activity-option-card">
+                  <div class="activity-option-top">
+                    <div class="activity-option-icon match-icon">
+                      <i class="bi bi-intersect"></i>
+                    </div>
+                  </div>
+                  <div class="activity-option-content">
+                    <h6>Match</h6>
+                    <p>Children match objects with their correct pair.</p>
+                  </div>
+                  <div class="activity-option-example">
+                    <span>Example</span>
+                    <div class="mini-example match-example">
+                      <span>🔴</span>
+                      <i class="bi bi-arrow-right"></i>
+                      <span>Red</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </a>
+
+            <a href="components/activityMaker/identify.html">
+              <!-- IDENTIFY -->
+              <div class="activity-option">
+
+                <label for="typeIdentify" class="activity-option-card">
+                  <div class="activity-option-top">
+                    <div class="activity-option-icon identify-icon">
+                      <i class="bi bi-search"></i>
+                    </div>
+                  </div>
+                  <div class="activity-option-content">
+                    <h6>Identify</h6>
+                    <p>Children identify a color, shape, or number.</p>
+                  </div>
+                  <div class="activity-option-example">
+                    <span>Example</span>
+                    <div class="mini-example">
+                      <span class="example-shape">▲</span>
+                      <span>Triangle?</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </a>
+
+            <!-- COUNT -->
+            <div class="activity-option">
+              <input type="radio" class="btn-check activity-radio" name="activityType" id="typeCount" value="count"
+                autocomplete="off" />
+              <label for="typeCount" class="activity-option-card">
+                <div class="activity-option-top">
+                  <div class="activity-option-icon count-icon">
+                    <i class="bi bi-123"></i>
+                  </div>
+                  <div class="activity-option-check">
+                    <i class="bi bi-check-lg"></i>
+                  </div>
+                </div>
+                <div class="activity-option-content">
+                  <h6>Count</h6>
+                  <p>Children count objects and select the correct number.</p>
+                </div>
+                <div class="activity-option-example">
+                  <span>Example</span>
+                  <div class="mini-example count-example">
+                    <span>🍎 🍎 🍎</span>
+                    <i class="bi bi-arrow-right"></i>
+                    <strong>3</strong>
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            <!-- LISTEN & CHOOSE -->
+            <div class="activity-option">
+              <input type="radio" class="btn-check activity-radio" name="activityType" id="typeListen" value="listen"
+                autocomplete="off" />
+              <label for="typeListen" class="activity-option-card">
+                <div class="activity-option-top">
+                  <div class="activity-option-icon listen-icon">
+                    <i class="bi bi-volume-up-fill"></i>
+                  </div>
+                  <div class="activity-option-check">
+                    <i class="bi bi-check-lg"></i>
+                  </div>
+                </div>
+                <div class="activity-option-content">
+                  <h6>Listen & Choose</h6>
+                  <p>Children listen and choose the correct answer.</p>
+                </div>
+                <div class="activity-option-example">
+                  <span>Example</span>
+                  <div class="mini-example">
+                    <div class="listen-example-button">
+                      <i class="bi bi-volume-up-fill"></i>
+                    </div>
+                    <span>Which color?</span>
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            <!-- DRAG & MATCH -->
+            <div class="activity-option">
+              <input type="radio" class="btn-check activity-radio" name="activityType" id="typeDrag" value="drag"
+                autocomplete="off" />
+              <label for="typeDrag" class="activity-option-card">
+                <div class="activity-option-top">
+                  <div class="activity-option-icon drag-icon">
+                    <i class="bi bi-arrows-move"></i>
+                  </div>
+                  <div class="activity-option-check">
+                    <i class="bi bi-check-lg"></i>
+                  </div>
+                </div>
+                <div class="activity-option-content">
+                  <h6>Drag & Match</h6>
+                  <p>Children drag objects into the correct area.</p>
+                </div>
+                <div class="activity-option-example">
+                  <span>Example</span>
+                  <div class="mini-example">
+                    <span>🔵</span>
+                    <i class="bi bi-arrow-right"></i>
+                    <span class="drop-area">?</span>
+                  </div>
+                </div>
+              </label>
+            </div>
+
+            <!-- MIX TYPE -->
+            <div class="activity-option activity-option-mix">
+              <input type="radio" class="btn-check activity-radio" name="activityType" id="typeMix" value="mix"
+                autocomplete="off" />
+              <label for="typeMix" class="activity-option-card mix-card">
+                <div class="activity-option-top">
+                  <div class="activity-option-icon mix-icon">
+                    <i class="bi bi-stars"></i>
+                  </div>
+                  <div class="activity-option-check">
+                    <i class="bi bi-check-lg"></i>
+                  </div>
+                  <span class="recommended-badge">Recommended</span>
+                </div>
+                <div class="activity-option-content">
+                  <h6>Mix Type Activity</h6>
+                  <p>
+                    Combine different game types into one learning activity.
+                  </p>
+                </div>
+                <div class="activity-option-example">
+                  <span>Example</span>
+                  <div class="mix-types">
+                    <span>Choose</span>
+                    <span>Match</span>
+                    <span>Count</span>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTIVITY BUILDER -->
+        <div class="teacher-card mb-4 d-none" id="activityBuilderSection">
+          <div class="teacher-card-header">
+            <div>
+              <h5>3. Build Activity</h5>
+              <span id="builderDescription">Create your questions.</span>
+            </div>
+            <span id="selectedActivityBadge" class="badge text-bg-primary">Activity</span>
+          </div>
+
+          <div id="builderContent">
+            <!-- ========== CHOOSE THE ANSWER ========== -->
+            <div class="builder-panel d-none" id="builderChoose">
+              <div class="alert alert-primary d-flex align-items-start gap-2">
+                <i class="bi bi-lightbulb-fill mt-1"></i>
+                <div>
+                  <strong>Choose the Answer</strong>
+                  <div class="small mt-1">
+                    Create questions where children choose the correct answer.
+                  </div>
+                </div>
+              </div>
+              <div id="chooseQuestionsContainer"></div>
+              <div class="mt-4">
+                <button type="button" id="addChooseQuestionBtn" class="btn btn-small">
+                  <i class="bi bi-plus-lg me-1"></i> Add Question
+                </button>
+              </div>
+            </div>
+
+            <!-- ========== MATCH ========== -->
+            <div class="builder-panel d-none" id="builderMatch">
+              <div class="alert alert-info">
+                Create matching pairs. You can use text, emoji, or upload
+                images.
+              </div>
+              <div id="matchPairsContainer"></div>
+              <button type="button" id="addMatchPairBtn" class="btn btn-outline-primary mt-3">
+                <i class="bi bi-plus-lg"></i> Add Matching Pair
+              </button>
+            </div>
+
+            <!-- ========== IDENTIFY ========== -->
+            <div class="builder-panel d-none" id="builderIdentify">
+              <div class="alert alert-success">
+                Show an object (text/emoji/image) and let the child identify
+                it.
+              </div>
+              <div id="identifyQuestionsContainer"></div>
+              <button type="button" id="addIdentifyQuestionBtn" class="btn btn-outline-primary mt-3">
+                <i class="bi bi-plus-lg"></i> Add Identify Question
+              </button>
+            </div>
+
+            <!-- ========== COUNT ========== -->
+            <div class="builder-panel d-none" id="builderCount">
+              <div class="alert alert-warning">
+                Create objects for children to count. Use emoji or upload an
+                image.
+              </div>
+              <div id="countQuestionsContainer"></div>
+              <button type="button" id="addCountQuestionBtn" class="btn btn-outline-primary mt-3">
+                <i class="bi bi-plus-lg"></i> Add Count Question
+              </button>
+            </div>
+
+            <!-- ========== LISTEN & CHOOSE ========== -->
+            <div class="builder-panel d-none" id="builderListen">
+              <div class="alert alert-secondary">
+                Text-to-speech is handled on the learner side. Provide the
+                word that will be spoken. You can show an image + word, or
+                word only. Choices can be text or images.
+              </div>
+              <div id="listenQuestionsContainer"></div>
+              <button type="button" id="addListenQuestionBtn" class="btn btn-outline-primary mt-3">
+                <i class="bi bi-plus-lg"></i> Add Listen Question
+              </button>
+            </div>
+
+            <!-- ========== DRAG & MATCH ========== -->
+            <div class="builder-panel d-none" id="builderDrag">
+              <div class="alert alert-dark">
+                Create draggable items and matching targets. Learners can drag
+                with mouse or touch.
+              </div>
+              <div id="dragPairsContainer"></div>
+              <button type="button" id="addDragPairBtn" class="btn btn-outline-primary mt-3">
+                <i class="bi bi-plus-lg"></i> Add Drag Pair
+              </button>
+            </div>
+
+            <!-- ========== MIX ========== -->
+            <div class="builder-panel d-none" id="builderMix">
+              <div class="alert alert-warning">
+                <strong>Mix Type Activity</strong><br />
+                Select the game types you want, then build each one in order.
+              </div>
+
+              <label class="form-label fw-semibold">1. Choose Game Types (order matters)</label>
+              <div class="row g-3 mb-4">
+                <div class="col-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input mix-checkbox" type="checkbox" value="choose" id="mixChoose" />
+                    <label class="form-check-label" for="mixChoose">Choose the Answer</label>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input mix-checkbox" type="checkbox" value="match" id="mixMatch" />
+                    <label class="form-check-label" for="mixMatch">Match</label>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input mix-checkbox" type="checkbox" value="identify" id="mixIdentify" />
+                    <label class="form-check-label" for="mixIdentify">Identify</label>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input mix-checkbox" type="checkbox" value="count" id="mixCount" />
+                    <label class="form-check-label" for="mixCount">Count</label>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input mix-checkbox" type="checkbox" value="listen" id="mixListen" />
+                    <label class="form-check-label" for="mixListen">Listen & Choose</label>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input mix-checkbox" type="checkbox" value="drag" id="mixDrag" />
+                    <label class="form-check-label" for="mixDrag">Drag & Match</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label fw-semibold">Activity Sequence</label>
+                <div id="mixSequence" class="border rounded-3 p-3">
+                  <span class="text-muted">Select activity types above.</span>
+                </div>
+              </div>
+
+              <!-- Mix step builders will be injected here -->
+              <div id="mixStepsContainer"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SETTINGS -->
+        <!-- <div class="teacher-card mb-4 d-none" id="gameSettingsSection">
+            <div class="teacher-card-header">
+              <div>
+                <h5>4. Game Settings</h5>
+
+                <span> Customize the learner experience. </span>
+              </div>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-semibold">
+                  Number of Questions
+                </label>
+
+                <select id="questionLimit" class="form-select">
+                  <option value="5">5 Questions</option>
+
+                  <option value="10" selected>10 Questions</option>
+
+                  <option value="15">15 Questions</option>
+
+                  <option value="20">20 Questions</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-semibold"> Attempts </label>
+
+                <select id="attempts" class="form-select">
+                  <option value="1">1 Attempt</option>
+
+                  <option value="3" selected>3 Attempts</option>
+
+                  <option value="unlimited">Unlimited</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="allowRetry"
+                    checked
+                  />
+
+                  <label class="form-check-label" for="allowRetry">
+                    <strong> Allow Retry </strong>
+
+                    <small class="d-block text-muted">
+                      Allow children to try again.
+                    </small>
+                  </label>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="showProgress"
+                    checked
+                  />
+
+                  <label class="form-check-label" for="showProgress">
+                    <strong> Show Progress </strong>
+
+                    <small class="d-block text-muted">
+                      Show activity progress.
+                    </small>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+        <!-- ACTIONS -->
+        <div class="d-flex flex-column flex-sm-row justify-content-between gap-2 mb-5">
+          <a href="../../create-activity.html" class="btn btn-light">
+            <i class="bi bi-arrow-left me-1"></i>
+            Cancel
+          </a>
+
+          <div class="d-flex flex-column flex-sm-row gap-2">
+            <button type="button" id="saveDraftBtn" class="btn btn-outline-primary">
+              <i class="bi bi-file-earmark me-1"></i>
+              Save Draft
+            </button>
+
+            <button type="button" id="previewActivityBtn" class="btn btn-outline-primary">
+              <i class="bi bi-eye me-1"></i>
+              Preview
+            </button>
+
+            <button type="button" id="publishActivityBtn" class="btn teacher-primary-button">
+              <i class="bi bi-rocket-takeoff me-1"></i>
+              Publish Activity
+            </button>
+          </div>
+        </div>
+
+        <!-- footer -->
+        <div id="footersection"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Teacher Dashboard JS -->
+  <script src="js/aside.js"></script>
+
+</body>
+
+</html>

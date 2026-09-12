@@ -1,0 +1,1540 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorShapeNum | Activities</title>
+
+    <!-- bootstrap scss -->
+    <link rel="stylesheet" href="../../src/css/index.css">
+    <link rel="stylesheet" href="../../src/css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+
+    <div class="teacher-wrapper">
+
+        <!-- sidebar -->
+        <div class="" id="navigationbar"></div>
+
+        <!-- mobile overlay -->
+        <div class="teacher-overlay" id="teacherOverlay"></div>
+
+        <!-- =========================================
+             MAIN CONTENT
+        ========================================== -->
+
+        <main class="teacher-main">
+            <!-- top bar -->
+            <header class="teacher-topbar">
+
+                <div class="teacher-top-left">
+
+                    <button type="button" class="teacher-menu-button d-lg-none" id="teacherMenu">
+
+                        <i class="bi bi-list"></i>
+
+                    </button>
+
+
+                    <div>
+
+                        <h6>
+                            Activities
+                        </h6>
+
+                        <span>
+                            Create and manage learning activities
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="teacher-top-right">
+
+                    <!-- Notification -->
+
+                    <button type="button" class="teacher-notification">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span></span>
+
+                    </button>
+
+
+                    <!-- Profile -->
+
+                    <div class="teacher-profile">
+
+                        <div class="teacher-avatar">
+                            TA
+                        </div>
+
+                        <div class="teacher-profile-info d-none d-md-block">
+
+                            <strong>
+                                Teacher Anna
+                            </strong>
+
+                            <small>
+                                Teacher
+                            </small>
+
+                        </div>
+
+                        <i class="bi bi-chevron-down d-none d-md-block"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- content -->
+            <div class="teacher-content">
+
+                <!-- page header -->
+                <section class="mb-4">
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+
+
+                        <div>
+
+
+
+                            <h1 class="h3 fw-bold mb-1">
+                                Learning Activities
+                            </h1>
+
+
+                            <p class="text-muted small mb-0">
+
+                                Create, assign, and monitor interactive
+                                activities for your learners.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- CREATE ACTIVITY -->
+                        <a href="ActivitySelection.html" class="btn teacher-primary-button">
+
+                            <i class="bi bi-plus-lg me-1"></i>
+
+                            Create Activity
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+                <!-- activity statistics -->
+                <section class="teacher-stats mb-4">
+
+
+                    <!-- TOTAL -->
+
+                    <div class="teacher-stat-card">
+
+                        <div class="teacher-stat-icon learners">
+
+                            <i class="bi bi-controller"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Total Activities
+                            </span>
+
+                            <strong>
+                                0
+                            </strong>
+
+                            <small>
+                                All activities
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PUBLISHED -->
+
+                    <div class="teacher-stat-card">
+
+                        <div class="teacher-stat-icon completed">
+
+                            <i class="bi bi-check-circle-fill"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Published
+                            </span>
+
+                            <strong>
+                                0
+                            </strong>
+
+                            <small>
+                                Available to learners
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DRAFTS -->
+
+                    <div class="teacher-stat-card">
+
+                        <div class="teacher-stat-icon activities">
+
+                            <i class="bi bi-pencil-square"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Drafts
+                            </span>
+
+                            <strong>
+                                0
+                            </strong>
+
+                            <small>
+                                Still being prepared
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COMPLETION -->
+
+                    <div class="teacher-stat-card">
+
+                        <div class="teacher-stat-icon score">
+
+                            <i class="bi bi-graph-up-arrow"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Avg. Completion
+                            </span>
+
+                            <strong>
+                                0%
+                            </strong>
+
+                            <small class="positive">
+
+                                <i class="bi bi-arrow-up"></i>
+
+                                0% this month
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- activity management -->
+
+                <section class="teacher-card">
+
+
+                    <!-- HEADER -->
+
+                    <div class="teacher-card-header">
+
+                        <div>
+
+                            <h5>
+                                My Activities
+                            </h5>
+
+                            <span>
+                                Manage activities assigned to your learners
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="teacher-more">
+
+                            <i class="bi bi-three-dots"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- =================================
+                         SEARCH & FILTER
+                    ================================== -->
+
+                    <div class="row g-2 mb-4">
+
+
+                        <!-- SEARCH -->
+
+                        <div class="col-12 col-lg-5">
+
+                            <div class="input-group">
+
+                                <span class="input-group-text bg-white">
+
+                                    <i class="bi bi-search text-muted"></i>
+
+                                </span>
+
+
+                                <input type="search" class="form-control" id="activitySearch"
+                                    placeholder="Search activities...">
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CATEGORY -->
+
+                        <div class="col-12 col-sm-6 col-lg-2">
+
+                            <select class="form-select" id="activityCategory">
+
+                                <option value="">
+                                    All Categories
+                                </option>
+
+                                <option value="colors">
+                                    Colors
+                                </option>
+
+                                <option value="shapes">
+                                    Shapes
+                                </option>
+
+                                <option value="numbers">
+                                    Numbers
+                                </option>
+
+                                <option value="mixed">
+                                    Mixed
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- TYPE -->
+
+                        <div class="col-12 col-sm-6 col-lg-2">
+
+                            <select class="form-select" id="activityType">
+
+                                <option value="">
+                                    All Types
+                                </option>
+
+                                <option value="game">
+                                    Game
+                                </option>
+
+                                <option value="quiz">
+                                    Quiz
+                                </option>
+
+                                <option value="exercise">
+                                    Exercise
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- STATUS -->
+
+                        <div class="col-12 col-sm-6 col-lg-2">
+
+                            <select class="form-select" id="activityStatus">
+
+                                <option value="">
+                                    All Status
+                                </option>
+
+                                <option value="published">
+                                    Published
+                                </option>
+
+                                <option value="draft">
+                                    Draft
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- FILTER -->
+
+                        <div class="col-12 col-sm-6 col-lg-1">
+
+                            <button type="button" class="btn btn-outline-secondary w-100" title="Filter">
+
+                                <i class="bi bi-funnel"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                         ACTIVITY CARDS
+                    ================================== -->
+
+                    <div class="row g-3" id="activityList">
+
+
+                        <!-- =============================
+                             ACTIVITY 1
+                        ============================== -->
+
+                        <div class="col-12 col-md-6 col-xl-4 activity-item" data-category="colors" data-type="game"
+                            data-status="published">
+
+
+                            <div class="border rounded-4 h-100 p-3">
+
+
+                                <!-- TOP -->
+
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+
+
+                                    <div class="activity-icon">
+
+                                        <i class="bi bi-palette-fill"></i>
+
+                                    </div>
+
+
+                                    <div class="dropdown">
+
+                                        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                            <i class="bi bi-three-dots"></i>
+
+                                        </button>
+
+
+                                        <ul class="dropdown-menu dropdown-menu-end">
+
+                                            <li>
+
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-pencil me-2"></i>
+
+                                                    Edit Activity
+
+                                                </a>
+
+                                            </li>
+
+
+                                            <li>
+
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-person-plus me-2"></i>
+
+                                                    Assign Learners
+
+                                                </a>
+
+                                            </li>
+
+
+                                            <li>
+
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-bar-chart me-2"></i>
+
+                                                    View Results
+
+                                                </a>
+
+                                            </li>
+
+
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+
+
+                                            <li>
+
+                                                <a class="dropdown-item text-danger" href="#">
+
+                                                    <i class="bi bi-trash me-2"></i>
+
+                                                    Delete
+
+                                                </a>
+
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- TITLE -->
+
+                                <h6 class="fw-bold mb-1">
+
+                                    Color Matching Game
+
+                                </h6>
+
+
+                                <p class="text-muted small mb-3">
+
+                                    Match objects with their correct colors.
+
+                                </p>
+
+
+                                <!-- TAGS -->
+
+                                <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                    <span class="badge text-bg-primary">
+                                        Colors
+                                    </span>
+
+                                    <span class="badge text-bg-light text-dark">
+                                        Game
+                                    </span>
+
+                                    <span class="badge text-bg-success">
+                                        Published
+                                    </span>
+
+                                </div>
+
+
+                                <!-- INFO -->
+
+                                <div class="small text-muted mb-3">
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Assigned
+                                        </span>
+
+                                        <strong>
+                                            18 learners
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Completed
+                                        </span>
+
+                                        <strong>
+                                            16 / 18
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between">
+
+                                        <span>
+                                            Avg. Score
+                                        </span>
+
+                                        <strong class="text-success">
+                                            91%
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- COMPLETION -->
+
+                                <div class="mb-3">
+
+                                    <div class="d-flex justify-content-between small mb-1">
+
+                                        <span>
+                                            Completion
+                                        </span>
+
+                                        <strong>
+                                            89%
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="progress" style="height: 6px;">
+
+                                        <div class="progress-bar bg-success" style="width: 89%;">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- FOOTER -->
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+
+                                    <small class="text-muted">
+
+                                        Updated 2 hours ago
+
+                                    </small>
+
+
+                                    <a href="#" class="btn btn-sm btn-outline-primary">
+
+                                        View Results
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =============================
+                             ACTIVITY 2
+                        ============================== -->
+
+                        <div class="col-12 col-md-6 col-xl-4 activity-item" data-category="shapes" data-type="quiz"
+                            data-status="published">
+
+
+                            <div class="border rounded-4 h-100 p-3">
+
+
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                    <div class="activity-icon">
+
+                                        <i class="bi bi-shapes"></i>
+
+                                    </div>
+
+
+                                    <div class="dropdown">
+
+                                        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                            <i class="bi bi-three-dots"></i>
+
+                                        </button>
+
+
+                                        <ul class="dropdown-menu dropdown-menu-end">
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-pencil me-2"></i>
+
+                                                    Edit Activity
+
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-person-plus me-2"></i>
+
+                                                    Assign Learners
+
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-bar-chart me-2"></i>
+
+                                                    View Results
+
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item text-danger" href="#">
+
+                                                    <i class="bi bi-trash me-2"></i>
+
+                                                    Delete
+
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+                                <h6 class="fw-bold mb-1">
+
+                                    Shape Recognition Quiz
+
+                                </h6>
+
+
+                                <p class="text-muted small mb-3">
+
+                                    Identify basic shapes and their properties.
+
+                                </p>
+
+
+                                <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                    <span class="badge text-bg-info">
+                                        Shapes
+                                    </span>
+
+                                    <span class="badge text-bg-light text-dark">
+                                        Quiz
+                                    </span>
+
+                                    <span class="badge text-bg-success">
+                                        Published
+                                    </span>
+
+                                </div>
+
+
+                                <div class="small text-muted mb-3">
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Assigned
+                                        </span>
+
+                                        <strong>
+                                            24 learners
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Completed
+                                        </span>
+
+                                        <strong>
+                                            20 / 24
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between">
+
+                                        <span>
+                                            Avg. Score
+                                        </span>
+
+                                        <strong class="text-success">
+                                            84%
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="mb-3">
+
+                                    <div class="d-flex justify-content-between small mb-1">
+
+                                        <span>
+                                            Completion
+                                        </span>
+
+                                        <strong>
+                                            83%
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="progress" style="height: 6px;">
+
+                                        <div class="progress-bar bg-primary" style="width: 83%;">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-muted">
+                                        Updated yesterday
+                                    </small>
+
+                                    <a href="#" class="btn btn-sm btn-outline-primary">
+
+                                        View Results
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =============================
+                             ACTIVITY 3
+                        ============================== -->
+
+                        <div class="col-12 col-md-6 col-xl-4 activity-item" data-category="numbers" data-type="game"
+                            data-status="published">
+
+
+                            <div class="border rounded-4 h-100 p-3">
+
+
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                    <div class="activity-icon">
+
+                                        <i class="bi bi-123"></i>
+
+                                    </div>
+
+
+                                    <div class="dropdown">
+
+                                        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                            <i class="bi bi-three-dots"></i>
+
+                                        </button>
+
+
+                                        <ul class="dropdown-menu dropdown-menu-end">
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-pencil me-2"></i>
+
+                                                    Edit Activity
+
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-person-plus me-2"></i>
+
+                                                    Assign Learners
+
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-bar-chart me-2"></i>
+
+                                                    View Results
+
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item text-danger" href="#">
+
+                                                    <i class="bi bi-trash me-2"></i>
+
+                                                    Delete
+
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+                                <h6 class="fw-bold mb-1">
+
+                                    Number Counting Challenge
+
+                                </h6>
+
+
+                                <p class="text-muted small mb-3">
+
+                                    Practice counting numbers from 1 to 20.
+
+                                </p>
+
+
+                                <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                    <span class="badge text-bg-warning">
+                                        Numbers
+                                    </span>
+
+                                    <span class="badge text-bg-light text-dark">
+                                        Game
+                                    </span>
+
+                                    <span class="badge text-bg-success">
+                                        Published
+                                    </span>
+
+                                </div>
+
+
+                                <div class="small text-muted mb-3">
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Assigned
+                                        </span>
+
+                                        <strong>
+                                            20 learners
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Completed
+                                        </span>
+
+                                        <strong>
+                                            17 / 20
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between">
+
+                                        <span>
+                                            Avg. Score
+                                        </span>
+
+                                        <strong class="text-success">
+                                            88%
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="mb-3">
+
+                                    <div class="d-flex justify-content-between small mb-1">
+
+                                        <span>
+                                            Completion
+                                        </span>
+
+                                        <strong>
+                                            85%
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="progress" style="height: 6px;">
+
+                                        <div class="progress-bar bg-warning" style="width: 85%;">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-muted">
+                                        Updated 2 days ago
+                                    </small>
+
+                                    <a href="#" class="btn btn-sm btn-outline-primary">
+
+                                        View Results
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =============================
+                             ACTIVITY 4 - DRAFT
+                        ============================== -->
+
+                        <div class="col-12 col-md-6 col-xl-4 activity-item" data-category="colors" data-type="exercise"
+                            data-status="draft">
+
+
+                            <div class="border rounded-4 h-100 p-3">
+
+
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                    <div class="activity-icon">
+
+                                        <i class="bi bi-pencil-fill"></i>
+
+                                    </div>
+
+
+                                    <div class="dropdown">
+
+                                        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                            <i class="bi bi-three-dots"></i>
+
+                                        </button>
+
+
+                                        <ul class="dropdown-menu dropdown-menu-end">
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-pencil me-2"></i>
+
+                                                    Continue Editing
+
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-eye me-2"></i>
+
+                                                    Preview
+
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item text-danger" href="#">
+
+                                                    <i class="bi bi-trash me-2"></i>
+
+                                                    Delete
+
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+                                <h6 class="fw-bold mb-1">
+
+                                    Color Sorting Exercise
+
+                                </h6>
+
+
+                                <p class="text-muted small mb-3">
+
+                                    Sort objects according to their colors.
+
+                                </p>
+
+
+                                <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                    <span class="badge text-bg-primary">
+                                        Colors
+                                    </span>
+
+                                    <span class="badge text-bg-light text-dark">
+                                        Exercise
+                                    </span>
+
+                                    <span class="badge text-bg-secondary">
+                                        Draft
+                                    </span>
+
+                                </div>
+
+
+                                <div class="small text-muted mb-3">
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Questions
+                                        </span>
+
+                                        <strong>
+                                            8
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Assigned
+                                        </span>
+
+                                        <strong>
+                                            Not assigned
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between">
+
+                                        <span>
+                                            Created
+                                        </span>
+
+                                        <strong>
+                                            Aug 25, 2026
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="mb-3">
+
+                                    <div class="d-flex justify-content-between small mb-1">
+
+                                        <span>
+                                            Completion
+                                        </span>
+
+                                        <strong>
+                                            60%
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="progress" style="height: 6px;">
+
+                                        <div class="progress-bar bg-secondary" style="width: 60%;">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-muted">
+                                        Draft
+                                    </small>
+
+                                    <a href="#" class="btn btn-sm btn-primary">
+
+                                        Continue
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =============================
+                             ACTIVITY 5
+                        ============================== -->
+
+                        <div class="col-12 col-md-6 col-xl-4 activity-item" data-category="shapes" data-type="game"
+                            data-status="published">
+
+
+                            <div class="border rounded-4 h-100 p-3">
+
+
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                    <div class="activity-icon">
+
+                                        <i class="bi bi-puzzle-fill"></i>
+
+                                    </div>
+
+
+                                    <div class="dropdown">
+
+                                        <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                            <i class="bi bi-three-dots"></i>
+
+                                        </button>
+
+
+                                        <ul class="dropdown-menu dropdown-menu-end">
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-pencil me-2"></i>
+
+                                                    Edit Activity
+
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-person-plus me-2"></i>
+
+                                                    Assign Learners
+
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+
+                                                    <i class="bi bi-bar-chart me-2"></i>
+
+                                                    View Results
+
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+                                <h6 class="fw-bold mb-1">
+
+                                    Shape Puzzle
+
+                                </h6>
+
+
+                                <p class="text-muted small mb-3">
+
+                                    Complete puzzles using basic geometric shapes.
+
+                                </p>
+
+
+                                <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                    <span class="badge text-bg-info">
+                                        Shapes
+                                    </span>
+
+                                    <span class="badge text-bg-light text-dark">
+                                        Game
+                                    </span>
+
+                                    <span class="badge text-bg-success">
+                                        Published
+                                    </span>
+
+                                </div>
+
+
+                                <div class="small text-muted mb-3">
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Assigned
+                                        </span>
+
+                                        <strong>
+                                            22 learners
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between mb-2">
+
+                                        <span>
+                                            Completed
+                                        </span>
+
+                                        <strong>
+                                            18 / 22
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between">
+
+                                        <span>
+                                            Avg. Score
+                                        </span>
+
+                                        <strong class="text-success">
+                                            90%
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="mb-3">
+
+                                    <div class="d-flex justify-content-between small mb-1">
+
+                                        <span>
+                                            Completion
+                                        </span>
+
+                                        <strong>
+                                            82%
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="progress" style="height: 6px;">
+
+                                        <div class="progress-bar bg-info" style="width: 82%;">
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-muted">
+                                        Updated 3 days ago
+                                    </small>
+
+                                    <a href="#" class="btn btn-sm btn-outline-primary">
+
+                                        View Results
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- =================================
+                         PAGINATION
+                    ================================== -->
+
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 mt-4">
+
+
+                        <small class="text-muted">
+
+                            Showing
+                            <strong>1–5</strong>
+                            of
+                            <strong>18</strong>
+                            activities
+
+                        </small>
+
+
+                        <nav>
+
+                            <ul class="pagination pagination-sm mb-0">
+
+                                <li class="page-item disabled">
+
+                                    <a class="page-link" href="#">
+
+                                        <i class="bi bi-chevron-left"></i>
+
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item active">
+
+                                    <a class="page-link" href="#">
+                                        1
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item">
+
+                                    <a class="page-link" href="#">
+                                        2
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item">
+
+                                    <a class="page-link" href="#">
+                                        3
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item">
+
+                                    <a class="page-link" href="#">
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </a>
+
+                                </li>
+
+                            </ul>
+
+                        </nav>
+
+                    </div>
+
+                </section>
+
+
+                <!-- footer section -->
+                <div id="footersection"></div>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Teacher Dashboard JS -->
+    <script src="js/aside.js"></script>
+
+</body>
+
+</html>

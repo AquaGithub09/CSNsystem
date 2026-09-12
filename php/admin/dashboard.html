@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorShapeNum | Dashboard</title>
+
+    <!-- bootstrap scss -->
+    <link rel="stylesheet" href="../../src/css/index.css">
+    <link rel="stylesheet" href="../../src/css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+</head>
+
+
+<body>
+
+    <!-- mobile navigation bar -->
+    <nav class="mobile-navbar d-lg-none">
+
+        <div class="container-fluid">
+
+            <div class="d-flex align-items-center justify-content-between">
+
+                <!-- Menu Button -->
+                <button class="btn sidebar-toggle" id="sidebarToggle" type="button">
+                    <i class="bi bi-list"></i>
+                </button>
+
+
+                <!-- Brand -->
+                <a href="#" class="mobile-brand">
+                    <span class="brand-icon">
+                        <i class="bi bi-stars"></i>
+                    </span>
+
+                    <span class="brand-name">
+                        ColorShapeNum
+                    </span>
+                </a>
+
+
+                <!-- Notification -->
+                <button class="btn notification-button" type="button">
+                    <i class="bi bi-bell"></i>
+
+                    <span class="notification-dot"></span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Overlay Sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+
+            <a href="#" class="sidebar-brand">
+
+                <div class="brand-icon">
+                    <i class="bi bi-stars"></i>
+                </div>
+
+                <div class="brand-information">
+
+                    <h5>
+                        ColorShapeNum
+                    </h5>
+
+                    <small>
+                        Learn. Play. Discover.
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <!-- Mobile Close -->
+            <button class="sidebar-close d-lg-none" id="sidebarClose" type="button">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+        </div>
+
+
+
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar-navigation">
+
+            <!-- Main Menu -->
+            <div class="navigation-section">
+
+                <p class="navigation-title">
+                    MAIN MENU
+                </p>
+
+
+                <a href="#" class="navigation-link active">
+
+                    <i class="bi bi-grid-1x2-fill"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+            </div>
+
+            <!-- User Management -->
+            <div class="navigation-section">
+
+                <p class="navigation-title">
+                    USER MANAGEMENT
+                </p>
+
+
+                <a href="#" class="navigation-link">
+
+                    <i class="bi bi-person-badge-fill"></i>
+
+                    <span>
+                        Teachers
+                    </span>
+
+                    <span class="navigation-count">
+                        12
+                    </span>
+
+                </a>
+
+
+                <a href="#" class="navigation-link">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <span>
+                        Parents
+                    </span>
+
+                    <span class="navigation-count">
+                        28
+                    </span>
+
+                </a>
+
+
+                <a href="#" class="navigation-link">
+
+                    <i class="bi bi-person-hearts"></i>
+
+                    <span>
+                        Learners
+                    </span>
+
+                    <span class="navigation-count">
+                        45
+                    </span>
+
+                </a>
+
+            </div>
+
+            <!-- Monitoring -->
+            <div class="navigation-section">
+
+                <p class="navigation-title">
+                    MONITORING
+                </p>
+
+
+                <a href="#" class="navigation-link">
+
+                    <i class="bi bi-bar-chart-fill"></i>
+
+                    <span>
+                        Progress
+                    </span>
+
+                </a>
+
+
+                <a href="#" class="navigation-link">
+
+                    <i class="bi bi-file-earmark-bar-graph-fill"></i>
+
+                    <span>
+                        Reports
+                    </span>
+
+                </a>
+
+            </div>
+
+            <!-- System -->
+            <div class="navigation-section">
+
+                <p class="navigation-title">
+                    SYSTEM
+                </p>
+
+
+                <a href="#" class="navigation-link">
+
+                    <i class="bi bi-gear-fill"></i>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </a>
+
+
+                <a href="#" class="navigation-link logout-link">
+
+                    <i class="bi bi-box-arrow-right"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+    </aside>
+
+    <!-- main-content -->
+    <main class="admin-main">
+
+        <!-- Desktop Topbar -->
+        <header class="admin-topbar d-none d-lg-flex">
+            <div>
+                <h6 class="mb-1">
+                    Admin Dashboard
+                </h6>
+
+                <small>
+                    Manage and monitor ColorShapeNum
+                </small>
+            </div>
+
+
+            <div class="topbar-actions">
+
+
+                <!-- Notification -->
+                <button class="topbar-icon-button" type="button">
+
+                    <i class="bi bi-bell"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+
+                <!-- Admin Profile -->
+                <button class="admin-profile" type="button">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-information">
+
+                        <strong>
+                            Administrator
+                        </strong>
+
+                        <small>
+                            System Admin
+                        </small>
+
+                    </div>
+
+                    <i class="bi bi-chevron-down"></i>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- Dashboard Container -->
+        <div class="dashboard-container">
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <span class="welcome-label">
+                        ADMINISTRATOR
+                    </span>
+
+                    <h1>
+                        Good morning, Admin! 👋
+                    </h1>
+
+                    <p>
+                        Here's an overview of your
+                        ColorShapeNum learning system.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 STATISTICS
+            ================================================== -->
+
+            <section class="statistics-section">
+
+                <div class="row g-3">
+
+
+                    <!-- Teachers -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+
+                        <div class="stat-card">
+
+                            <div class="stat-card-header">
+
+                                <div class="stat-icon teacher-icon">
+                                    <i class="bi bi-person-badge-fill"></i>
+                                </div>
+
+                                <span class="stat-trend positive">
+                                    +2
+                                </span>
+
+                            </div>
+
+
+                            <div class="stat-card-content">
+
+                                <span>
+                                    Total Teachers
+                                </span>
+
+                                <h2>
+                                    12
+                                </h2>
+
+                                <small>
+                                    Compared to last month
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Parents -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+
+                        <div class="stat-card">
+
+                            <div class="stat-card-header">
+
+                                <div class="stat-icon parent-icon">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>
+
+                                <span class="stat-trend positive">
+                                    +5
+                                </span>
+
+                            </div>
+
+
+                            <div class="stat-card-content">
+
+                                <span>
+                                    Total Parents
+                                </span>
+
+                                <h2>
+                                    28
+                                </h2>
+
+                                <small>
+                                    Compared to last month
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Learners -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+
+                        <div class="stat-card">
+
+                            <div class="stat-card-header">
+
+                                <div class="stat-icon learner-icon">
+                                    <i class="bi bi-person-hearts"></i>
+                                </div>
+
+                                <span class="stat-trend positive">
+                                    +8
+                                </span>
+
+                            </div>
+
+
+                            <div class="stat-card-content">
+
+                                <span>
+                                    Total Learners
+                                </span>
+
+                                <h2>
+                                    45
+                                </h2>
+
+                                <small>
+                                    Compared to last month
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Content -->
+                    <div class="col-12 col-sm-6 col-xl-3">
+
+                        <div class="stat-card">
+
+                            <div class="stat-card-header">
+
+                                <div class="stat-icon content-icon">
+                                    <i class="bi bi-collection-fill"></i>
+                                </div>
+
+                                <span class="stat-trend">
+                                    36
+                                </span>
+
+                            </div>
+
+
+                            <div class="stat-card-content">
+
+                                <span>
+                                    Learning Content
+                                </span>
+
+                                <h2>
+                                    36
+                                </h2>
+
+                                <small>
+                                    Lessons, games & activities
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LEARNING OVERVIEW
+            ================================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Learning Overview
+                        </h2>
+
+                        <p>
+                            Learner performance across modules
+                        </p>
+
+                    </div>
+
+
+                    <a href="#">
+                        View Progress
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+
+                <div class="learning-overview-card">
+
+                    <!-- Colors -->
+
+                    <div class="learning-progress-item">
+
+                        <div class="learning-progress-header">
+
+                            <div class="learning-title">
+
+                                <div class="learning-icon colors-icon">
+                                    <i class="bi bi-palette-fill"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Colors
+                                    </strong>
+
+                                    <small>
+                                        Color recognition
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                            <strong>
+                                85%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div class="progress-bar" style="width: 85%"></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Shapes -->
+
+                    <div class="learning-progress-item">
+
+                        <div class="learning-progress-header">
+
+                            <div class="learning-title">
+
+                                <div class="learning-icon shapes-icon">
+                                    <i class="bi bi-shapes"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Shapes
+                                    </strong>
+
+                                    <small>
+                                        Shape recognition
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                            <strong>
+                                76%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div class="progress-bar" style="width: 76%"></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Numbers -->
+
+                    <div class="learning-progress-item">
+
+                        <div class="learning-progress-header">
+
+                            <div class="learning-title">
+
+                                <div class="learning-icon numbers-icon">
+                                    <i class="bi bi-123"></i>
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Numbers
+                                    </strong>
+
+                                    <small>
+                                        Number recognition
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                            <strong>
+                                92%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress">
+
+                            <div class="progress-bar" style="width: 92%"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CONTENT SUMMARY
+            ================================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Content Summary
+                        </h2>
+
+                        <p>
+                            Manage your learning resources
+                        </p>
+
+                    </div>
+
+                    <a href="#">
+                        Manage Content
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+
+                <div class="row g-3">
+
+
+                    <!-- Lessons -->
+                    <div class="col-6 col-lg-3">
+
+                        <div class="content-card">
+
+                            <div class="content-card-icon">
+                                <i class="bi bi-book-fill"></i>
+                            </div>
+
+                            <strong>
+                                25
+                            </strong>
+
+                            <span>
+                                Lessons
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Activities -->
+                    <div class="col-6 col-lg-3">
+
+                        <div class="content-card">
+
+                            <div class="content-card-icon">
+                                <i class="bi bi-puzzle-fill"></i>
+                            </div>
+
+                            <strong>
+                                32
+                            </strong>
+
+                            <span>
+                                Activities
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Games -->
+                    <div class="col-6 col-lg-3">
+
+                        <div class="content-card">
+
+                            <div class="content-card-icon">
+                                <i class="bi bi-controller"></i>
+                            </div>
+
+                            <strong>
+                                18
+                            </strong>
+
+                            <span>
+                                Games
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Quizzes -->
+                    <div class="col-6 col-lg-3">
+
+                        <div class="content-card">
+
+                            <div class="content-card-icon">
+                                <i class="bi bi-ui-checks-grid"></i>
+                            </div>
+
+                            <strong>
+                                15
+                            </strong>
+
+                            <span>
+                                Quizzes
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RECENT ACTIVITY
+            ================================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Recent Activity
+                        </h2>
+
+                        <p>
+                            Latest system activity
+                        </p>
+
+                    </div>
+
+                    <a href="#">
+                        View All
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+
+                <div class="activity-card">
+
+
+                    <!-- Activity -->
+                    <div class="activity-item">
+
+                        <div class="activity-icon success">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+
+                        <div class="activity-information">
+
+                            <strong>
+                                Juan completed "Colors Lesson 3"
+                            </strong>
+
+                            <small>
+                                Learner activity
+                            </small>
+
+                        </div>
+
+                        <time>
+                            5 min ago
+                        </time>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon success">
+                            <i class="bi bi-trophy-fill"></i>
+                        </div>
+
+                        <div class="activity-information">
+
+                            <strong>
+                                Maria scored 9/10 on Shapes Quiz
+                            </strong>
+
+                            <small>
+                                Quiz result
+                            </small>
+
+                        </div>
+
+                        <time>
+                            15 min ago
+                        </time>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon info">
+                            <i class="bi bi-person-plus-fill"></i>
+                        </div>
+
+                        <div class="activity-information">
+
+                            <strong>
+                                New parent registered
+                            </strong>
+
+                            <small>
+                                User registration
+                            </small>
+
+                        </div>
+
+                        <time>
+                            30 min ago
+                        </time>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon info">
+                            <i class="bi bi-person-plus-fill"></i>
+                        </div>
+
+                        <div class="activity-information">
+
+                            <strong>
+                                New learner registered
+                            </strong>
+
+                            <small>
+                                User registration
+                            </small>
+
+                        </div>
+
+                        <time>
+                            45 min ago
+                        </time>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-icon warning">
+                            <i class="bi bi-book-fill"></i>
+                        </div>
+
+                        <div class="activity-information">
+
+                            <strong>
+                                New lesson "Counting 1–10" added
+                            </strong>
+
+                            <small>
+                                Learning content
+                            </small>
+
+                        </div>
+
+                        <time>
+                            1 hour ago
+                        </time>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Quick Actions
+                        </h2>
+
+                        <p>
+                            Frequently used actions
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="row g-3">
+
+
+                    <div class="col-12 col-sm-6 col-lg-3">
+
+                        <a href="#" class="quick-action">
+
+                            <div>
+                                <i class="bi bi-person-plus-fill"></i>
+                            </div>
+
+                            <span>
+                                Add Teacher
+                            </span>
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="col-12 col-sm-6 col-lg-3">
+
+                        <a href="#" class="quick-action">
+
+                            <div>
+                                <i class="bi bi-person-plus-fill"></i>
+                            </div>
+
+                            <span>
+                                Add Parent
+                            </span>
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="col-12 col-sm-6 col-lg-3">
+
+                        <a href="#" class="quick-action">
+
+                            <div>
+                                <i class="bi bi-person-hearts"></i>
+                            </div>
+
+                            <span>
+                                Add Learner
+                            </span>
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="col-12 col-sm-6 col-lg-3">
+
+                        <a href="#" class="quick-action">
+
+                            <div>
+                                <i class="bi bi-plus-circle-fill"></i>
+                            </div>
+
+                            <span>
+                                Create Content
+                            </span>
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>    
+    <!-- Custom JS -->
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

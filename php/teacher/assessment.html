@@ -1,0 +1,2876 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorShapeNum | Dashboard</title>
+
+    <!-- bootstrap scss -->
+    <link rel="stylesheet" href="../../src/css/index.css">
+    <link rel="stylesheet" href="../../src/css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+
+    <div class="teacher-wrapper">
+
+        <!-- sidebar -->
+        <div id="navigationbar"></div>
+
+        <!-- mobile overlay -->
+        <div class="teacher-overlay" id="teacherOverlay"></div>
+
+
+        <!-- main content -->
+        <main class="teacher-main">
+
+            <!-- top bar -->
+            <header class="teacher-topbar">
+
+                <div class="teacher-top-left">
+
+                    <button type="button" class="teacher-menu-button d-lg-none" id="teacherMenu">
+
+                        <i class="bi bi-list"></i>
+
+                    </button>
+
+
+                    <div>
+
+                        <h6>
+                            Assessments
+                        </h6>
+
+                        <span>
+                            Evaluate learner knowledge and performance
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="teacher-top-right">
+
+                    <!-- NOTIFICATION -->
+
+                    <button type="button" class="teacher-notification">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span></span>
+
+                    </button>
+
+
+                    <!-- PROFILE -->
+
+                    <div class="teacher-profile">
+
+                        <div class="teacher-avatar">
+                            TA
+                        </div>
+
+
+                        <div class="teacher-profile-info d-none d-md-block">
+
+                            <strong>
+                                Teacher Anna
+                            </strong>
+
+                            <small>
+                                Teacher
+                            </small>
+
+                        </div>
+
+
+                        <i class="bi bi-chevron-down d-none d-md-block"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <div class="teacher-content">
+
+                <!-- page header -->
+                <section class="mb-4">
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+
+
+                        <div>
+
+
+
+                            <h1 class="h3 fw-bold mb-1">
+                                Assessments
+                            </h1>
+
+
+                            <p class="text-muted small mb-0">
+
+                                Create assessments, evaluate learners,
+                                and monitor their academic performance.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- CREATE ASSESSMENT -->
+
+                        <button type="button" class="btn teacher-primary-button" data-bs-toggle="modal"
+                            data-bs-target="#createAssessmentModal">
+
+                            <i class="bi bi-plus-lg me-1"></i>
+
+                            Create Assessment
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <!-- assessment statistics -->
+                <section class="teacher-stats mb-4">
+
+
+                    <!-- TOTAL ASSESSMENTS -->
+
+                    <div class="teacher-stat-card">
+
+                        <div class="teacher-stat-icon learners">
+
+                            <i class="bi bi-clipboard-check-fill"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Total Assessments
+                            </span>
+
+                            <strong>
+                                12
+                            </strong>
+
+                            <small>
+                                All assessments
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIVE -->
+
+                    <div class="teacher-stat-card">
+
+                        <div class="teacher-stat-icon completed">
+
+                            <i class="bi bi-play-circle-fill"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Active
+                            </span>
+
+                            <strong>
+                                5
+                            </strong>
+
+                            <small>
+                                Currently assigned
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PENDING -->
+
+                    <div class="teacher-stat-card">
+
+                        <div class="teacher-stat-icon activities">
+
+                            <i class="bi bi-hourglass-split"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Pending Submissions
+                            </span>
+
+                            <strong>
+                                14
+                            </strong>
+
+                            <small>
+                                Awaiting completion
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AVERAGE -->
+
+                    <div class="teacher-stat-card">
+
+                        <div class="teacher-stat-icon score">
+
+                            <i class="bi bi-trophy-fill"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Average Score
+                            </span>
+
+                            <strong>
+                                84%
+                            </strong>
+
+                            <small class="positive">
+
+                                <i class="bi bi-arrow-up"></i>
+
+                                5% improvement
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- assessment management -->
+                <section class="teacher-card">
+
+
+                    <!-- HEADER -->
+
+                    <div class="teacher-card-header">
+
+                        <div>
+
+                            <h5>
+                                Assessment List
+                            </h5>
+
+                            <span>
+                                Manage and evaluate your assessments
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="teacher-more">
+
+                            <i class="bi bi-three-dots"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- =================================
+                         SEARCH AND FILTER
+                    ================================== -->
+
+                    <div class="row g-2 mb-4">
+
+
+                        <!-- SEARCH -->
+
+                        <div class="col-12 col-lg-4">
+
+                            <div class="input-group">
+
+                                <span class="input-group-text bg-white">
+
+                                    <i class="bi bi-search text-muted"></i>
+
+                                </span>
+
+
+                                <input type="search" class="form-control" id="assessmentSearch"
+                                    placeholder="Search assessments...">
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SUBJECT -->
+
+                        <div class="col-12 col-sm-6 col-lg-2">
+
+                            <select class="form-select" id="assessmentSubject">
+
+                                <option value="">
+                                    All Subjects
+                                </option>
+
+                                <option value="colors">
+                                    Colors
+                                </option>
+
+                                <option value="shapes">
+                                    Shapes
+                                </option>
+
+                                <option value="numbers">
+                                    Numbers
+                                </option>
+
+                                <option value="mixed">
+                                    Mixed
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- TYPE -->
+
+                        <div class="col-12 col-sm-6 col-lg-2">
+
+                            <select class="form-select" id="assessmentType">
+
+                                <option value="">
+                                    All Types
+                                </option>
+
+                                <option value="quiz">
+                                    Quiz
+                                </option>
+
+                                <option value="test">
+                                    Test
+                                </option>
+
+                                <option value="evaluation">
+                                    Evaluation
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- STATUS -->
+
+                        <div class="col-12 col-sm-6 col-lg-2">
+
+                            <select class="form-select" id="assessmentStatus">
+
+                                <option value="">
+                                    All Status
+                                </option>
+
+                                <option value="active">
+                                    Active
+                                </option>
+
+                                <option value="draft">
+                                    Draft
+                                </option>
+
+                                <option value="completed">
+                                    Completed
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- FILTER -->
+
+                        <div class="col-12 col-sm-6 col-lg-2">
+
+                            <button type="button" class="btn btn-outline-secondary w-100">
+
+                                <i class="bi bi-funnel me-1"></i>
+
+                                Filter
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                         ASSESSMENT TABLE
+                    ================================== -->
+
+                    <div class="table-responsive d-none d-md-block">
+
+
+                        <table class="table align-middle mb-0">
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Assessment
+                                    </th>
+
+                                    <th>
+                                        Type
+                                    </th>
+
+                                    <th>
+                                        Assigned
+                                    </th>
+
+                                    <th>
+                                        Submissions
+                                    </th>
+
+                                    <th>
+                                        Average Score
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th class="text-end">
+                                        Action
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="assessmentTableBody">
+
+
+                                <!-- =================================
+                                     ASSESSMENT 1
+                                ================================== -->
+
+                                <tr class="assessment-row">
+
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center gap-2">
+
+
+                                            <div class="activity-icon">
+
+                                                <i class="bi bi-palette-fill"></i>
+
+                                            </div>
+
+
+                                            <div>
+
+                                                <strong class="d-block small">
+
+                                                    Colors Recognition Assessment
+
+                                                </strong>
+
+
+                                                <span class="text-muted" style="font-size: 10px;">
+
+                                                    15 questions • 20 points
+
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-primary">
+                                            Quiz
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="small">
+                                            24 learners
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <div>
+
+                                            <strong class="small">
+                                                21 / 24
+                                            </strong>
+
+                                            <div class="progress mt-1" style="height: 5px; width: 90px;">
+
+                                                <div class="progress-bar bg-success" style="width: 88%;">
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong class="text-success small">
+                                            89%
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-success">
+
+                                            Active
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="text-end">
+
+                                        <div class="dropdown">
+
+                                            <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                                <i class="bi bi-three-dots"></i>
+
+                                            </button>
+
+
+                                            <ul class="dropdown-menu dropdown-menu-end">
+
+
+                                                <li>
+
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-eye me-2"></i>
+
+                                                        View Assessment
+
+                                                    </a>
+
+                                                </li>
+
+
+                                                <li>
+
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-bar-chart me-2"></i>
+
+                                                        View Results
+
+                                                    </a>
+
+                                                </li>
+
+
+                                                <li>
+
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-pencil me-2"></i>
+
+                                                        Edit
+
+                                                    </a>
+
+                                                </li>
+
+
+                                                <li>
+
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-person-plus me-2"></i>
+
+                                                        Assign Learners
+
+                                                    </a>
+
+                                                </li>
+
+
+                                                <li>
+                                                    <hr class="dropdown-divider">
+                                                </li>
+
+
+                                                <li>
+
+                                                    <a class="dropdown-item text-danger" href="#">
+
+                                                        <i class="bi bi-trash me-2"></i>
+
+                                                        Delete
+
+                                                    </a>
+
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- =================================
+                                     ASSESSMENT 2
+                                ================================== -->
+
+                                <tr class="assessment-row">
+
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center gap-2">
+
+
+                                            <div class="activity-icon">
+
+                                                <i class="bi bi-shapes"></i>
+
+                                            </div>
+
+
+                                            <div>
+
+                                                <strong class="d-block small">
+
+                                                    Basic Shapes Assessment
+
+                                                </strong>
+
+
+                                                <span class="text-muted" style="font-size: 10px;">
+
+                                                    20 questions • 25 points
+
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-info">
+                                            Test
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="small">
+                                            24 learners
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <div>
+
+                                            <strong class="small">
+                                                18 / 24
+                                            </strong>
+
+
+                                            <div class="progress mt-1" style="height: 5px; width: 90px;">
+
+                                                <div class="progress-bar bg-primary" style="width: 75%;">
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong class="text-success small">
+                                            84%
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-success">
+                                            Active
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="text-end">
+
+                                        <div class="dropdown">
+
+                                            <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                                <i class="bi bi-three-dots"></i>
+
+                                            </button>
+
+
+                                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-eye me-2"></i>
+
+                                                        View Assessment
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-bar-chart me-2"></i>
+
+                                                        View Results
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-pencil me-2"></i>
+
+                                                        Edit
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-person-plus me-2"></i>
+
+                                                        Assign Learners
+
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- =================================
+                                     ASSESSMENT 3
+                                ================================== -->
+
+                                <tr class="assessment-row">
+
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center gap-2">
+
+
+                                            <div class="activity-icon">
+
+                                                <i class="bi bi-123"></i>
+
+                                            </div>
+
+
+                                            <div>
+
+                                                <strong class="d-block small">
+
+                                                    Number Recognition Test
+
+                                                </strong>
+
+
+                                                <span class="text-muted" style="font-size: 10px;">
+
+                                                    15 questions • 15 points
+
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-warning">
+                                            Evaluation
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="small">
+                                            20 learners
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <div>
+
+                                            <strong class="small">
+                                                20 / 20
+                                            </strong>
+
+                                            <div class="progress mt-1" style="height: 5px; width: 90px;">
+
+                                                <div class="progress-bar bg-success" style="width: 100%;">
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong class="text-success small">
+                                            92%
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-secondary">
+                                            Completed
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="text-end">
+
+                                        <div class="dropdown">
+
+                                            <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                                <i class="bi bi-three-dots"></i>
+
+                                            </button>
+
+
+                                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-eye me-2"></i>
+
+                                                        View Assessment
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-bar-chart me-2"></i>
+
+                                                        View Results
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-file-earmark-arrow-down me-2"></i>
+
+                                                        Generate Report
+
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- =================================
+                                     ASSESSMENT 4
+                                ================================== -->
+
+                                <tr class="assessment-row">
+
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center gap-2">
+
+
+                                            <div class="activity-icon">
+
+                                                <i class="bi bi-palette"></i>
+
+                                            </div>
+
+
+                                            <div>
+
+                                                <strong class="d-block small">
+
+                                                    Color & Shape Review
+
+                                                </strong>
+
+
+                                                <span class="text-muted" style="font-size: 10px;">
+
+                                                    10 questions • 10 points
+
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-primary">
+                                            Quiz
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="small">
+                                            18 learners
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <div>
+
+                                            <strong class="small">
+                                                11 / 18
+                                            </strong>
+
+                                            <div class="progress mt-1" style="height: 5px; width: 90px;">
+
+                                                <div class="progress-bar bg-warning" style="width: 61%;">
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong class="text-warning small">
+                                            76%
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-success">
+                                            Active
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="text-end">
+
+                                        <div class="dropdown">
+
+                                            <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                                <i class="bi bi-three-dots"></i>
+
+                                            </button>
+
+
+                                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-eye me-2"></i>
+
+                                                        View Assessment
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-bar-chart me-2"></i>
+
+                                                        View Results
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-person-plus me-2"></i>
+
+                                                        Assign Learners
+
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- =================================
+                                     ASSESSMENT 5 - DRAFT
+                                ================================== -->
+
+                                <tr class="assessment-row">
+
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center gap-2">
+
+
+                                            <div class="activity-icon">
+
+                                                <i class="bi bi-pencil-square"></i>
+
+                                            </div>
+
+
+                                            <div>
+
+                                                <strong class="d-block small">
+
+                                                    Numbers Final Assessment
+
+                                                </strong>
+
+
+                                                <span class="text-muted" style="font-size: 10px;">
+
+                                                    25 questions • 30 points
+
+                                                </span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-info">
+                                            Test
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="text-muted small">
+                                            Not assigned
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="text-muted small">
+                                            —
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="text-muted small">
+                                            —
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-secondary">
+                                            Draft
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="text-end">
+
+                                        <div class="dropdown">
+
+                                            <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                                <i class="bi bi-three-dots"></i>
+
+                                            </button>
+
+
+                                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                                <li>
+
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-pencil me-2"></i>
+
+                                                        Continue Editing
+
+                                                    </a>
+
+                                                </li>
+
+
+                                                <li>
+
+                                                    <a class="dropdown-item" href="#">
+
+                                                        <i class="bi bi-eye me-2"></i>
+
+                                                        Preview
+
+                                                    </a>
+
+                                                </li>
+
+
+                                                <li>
+
+                                                    <a class="dropdown-item text-danger" href="#">
+
+                                                        <i class="bi bi-trash me-2"></i>
+
+                                                        Delete
+
+                                                    </a>
+
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- =================================
+                         MOBILE ASSESSMENT CARDS
+                    ================================== -->
+
+                    <div class="d-md-none" id="mobileAssessmentList">
+
+
+                        <!-- MOBILE CARD 1 -->
+
+                        <div class="border rounded-4 p-3 mb-3">
+
+
+                            <div class="d-flex align-items-start gap-3">
+
+
+                                <div class="activity-icon">
+
+                                    <i class="bi bi-palette-fill"></i>
+
+                                </div>
+
+
+                                <div class="flex-grow-1">
+
+                                    <div class="d-flex justify-content-between gap-2">
+
+                                        <div>
+
+                                            <strong class="d-block">
+
+                                                Colors Recognition Assessment
+
+                                            </strong>
+
+                                            <small class="text-muted">
+
+                                                15 questions • 20 points
+
+                                            </small>
+
+                                        </div>
+
+
+                                        <div class="dropdown">
+
+                                            <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                                <i class="bi bi-three-dots"></i>
+
+                                            </button>
+
+
+                                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        View Results
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        Edit
+
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <hr>
+
+
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                <span class="badge text-bg-primary">
+                                    Quiz
+                                </span>
+
+                                <span class="badge text-bg-success">
+                                    Active
+                                </span>
+
+                            </div>
+
+
+                            <div class="row g-2 small">
+
+
+                                <div class="col-6">
+
+                                    <span class="text-muted d-block">
+                                        Assigned
+                                    </span>
+
+                                    <strong>
+                                        24 learners
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6">
+
+                                    <span class="text-muted d-block">
+                                        Submissions
+                                    </span>
+
+                                    <strong>
+                                        21 / 24
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6 mt-3">
+
+                                    <span class="text-muted d-block">
+                                        Average Score
+                                    </span>
+
+                                    <strong class="text-success">
+                                        89%
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6 mt-3">
+
+                                    <span class="text-muted d-block">
+                                        Completion
+                                    </span>
+
+                                    <strong>
+                                        88%
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <a href="#" class="btn btn-outline-primary btn-sm w-100 mt-3">
+
+                                <i class="bi bi-bar-chart me-1"></i>
+
+                                View Results
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- MOBILE CARD 2 -->
+
+                        <div class="border rounded-4 p-3 mb-3">
+
+
+                            <div class="d-flex align-items-start gap-3">
+
+
+                                <div class="activity-icon">
+
+                                    <i class="bi bi-shapes"></i>
+
+                                </div>
+
+
+                                <div class="flex-grow-1">
+
+                                    <div class="d-flex justify-content-between gap-2">
+
+                                        <div>
+
+                                            <strong class="d-block">
+
+                                                Basic Shapes Assessment
+
+                                            </strong>
+
+                                            <small class="text-muted">
+
+                                                20 questions • 25 points
+
+                                            </small>
+
+                                        </div>
+
+
+                                        <div class="dropdown">
+
+                                            <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                                <i class="bi bi-three-dots"></i>
+
+                                            </button>
+
+
+                                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        View Results
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        Edit
+
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <hr>
+
+
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                <span class="badge text-bg-info">
+                                    Test
+                                </span>
+
+                                <span class="badge text-bg-success">
+                                    Active
+                                </span>
+
+                            </div>
+
+
+                            <div class="row g-2 small">
+
+                                <div class="col-6">
+
+                                    <span class="text-muted d-block">
+                                        Assigned
+                                    </span>
+
+                                    <strong>
+                                        24 learners
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6">
+
+                                    <span class="text-muted d-block">
+                                        Submissions
+                                    </span>
+
+                                    <strong>
+                                        18 / 24
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6 mt-3">
+
+                                    <span class="text-muted d-block">
+                                        Average Score
+                                    </span>
+
+                                    <strong class="text-success">
+                                        84%
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6 mt-3">
+
+                                    <span class="text-muted d-block">
+                                        Completion
+                                    </span>
+
+                                    <strong>
+                                        75%
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <a href="#" class="btn btn-outline-primary btn-sm w-100 mt-3">
+
+                                <i class="bi bi-bar-chart me-1"></i>
+
+                                View Results
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- MOBILE CARD 3 -->
+
+                        <div class="border rounded-4 p-3 mb-3">
+
+
+                            <div class="d-flex align-items-start gap-3">
+
+
+                                <div class="activity-icon">
+
+                                    <i class="bi bi-123"></i>
+
+                                </div>
+
+
+                                <div class="flex-grow-1">
+
+                                    <div class="d-flex justify-content-between gap-2">
+
+                                        <div>
+
+                                            <strong class="d-block">
+
+                                                Number Recognition Test
+
+                                            </strong>
+
+                                            <small class="text-muted">
+
+                                                15 questions • 15 points
+
+                                            </small>
+
+                                        </div>
+
+
+                                        <div class="dropdown">
+
+                                            <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                                <i class="bi bi-three-dots"></i>
+
+                                            </button>
+
+
+                                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        View Results
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        Generate Report
+
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <hr>
+
+
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                <span class="badge text-bg-warning">
+                                    Evaluation
+                                </span>
+
+                                <span class="badge text-bg-secondary">
+                                    Completed
+                                </span>
+
+                            </div>
+
+
+                            <div class="row g-2 small">
+
+                                <div class="col-6">
+
+                                    <span class="text-muted d-block">
+                                        Assigned
+                                    </span>
+
+                                    <strong>
+                                        20 learners
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6">
+
+                                    <span class="text-muted d-block">
+                                        Submissions
+                                    </span>
+
+                                    <strong>
+                                        20 / 20
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6 mt-3">
+
+                                    <span class="text-muted d-block">
+                                        Average Score
+                                    </span>
+
+                                    <strong class="text-success">
+                                        92%
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6 mt-3">
+
+                                    <span class="text-muted d-block">
+                                        Completion
+                                    </span>
+
+                                    <strong>
+                                        100%
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <a href="#" class="btn btn-outline-primary btn-sm w-100 mt-3">
+
+                                <i class="bi bi-bar-chart me-1"></i>
+
+                                View Results
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- MOBILE CARD 4 -->
+
+                        <div class="border rounded-4 p-3 mb-3">
+
+
+                            <div class="d-flex align-items-start gap-3">
+
+
+                                <div class="activity-icon">
+
+                                    <i class="bi bi-pencil-square"></i>
+
+                                </div>
+
+
+                                <div class="flex-grow-1">
+
+                                    <div class="d-flex justify-content-between gap-2">
+
+                                        <div>
+
+                                            <strong class="d-block">
+
+                                                Color & Shape Review
+
+                                            </strong>
+
+                                            <small class="text-muted">
+
+                                                10 questions • 10 points
+
+                                            </small>
+
+                                        </div>
+
+
+                                        <div class="dropdown">
+
+                                            <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                                <i class="bi bi-three-dots"></i>
+
+                                            </button>
+
+
+                                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        View Results
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        Edit
+
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <hr>
+
+
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                <span class="badge text-bg-primary">
+                                    Quiz
+                                </span>
+
+                                <span class="badge text-bg-success">
+                                    Active
+                                </span>
+
+                            </div>
+
+
+                            <div class="row g-2 small">
+
+                                <div class="col-6">
+
+                                    <span class="text-muted d-block">
+                                        Assigned
+                                    </span>
+
+                                    <strong>
+                                        18 learners
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6">
+
+                                    <span class="text-muted d-block">
+                                        Submissions
+                                    </span>
+
+                                    <strong>
+                                        11 / 18
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6 mt-3">
+
+                                    <span class="text-muted d-block">
+                                        Average Score
+                                    </span>
+
+                                    <strong class="text-warning">
+                                        76%
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6 mt-3">
+
+                                    <span class="text-muted d-block">
+                                        Completion
+                                    </span>
+
+                                    <strong>
+                                        61%
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <a href="#" class="btn btn-outline-primary btn-sm w-100 mt-3">
+
+                                <i class="bi bi-bar-chart me-1"></i>
+
+                                View Results
+
+                            </a>
+
+                        </div>
+
+
+                        <!-- MOBILE CARD 5 -->
+
+                        <div class="border rounded-4 p-3 mb-3">
+
+
+                            <div class="d-flex align-items-start gap-3">
+
+
+                                <div class="activity-icon">
+
+                                    <i class="bi bi-pencil-square"></i>
+
+                                </div>
+
+
+                                <div class="flex-grow-1">
+
+                                    <div class="d-flex justify-content-between gap-2">
+
+                                        <div>
+
+                                            <strong class="d-block">
+
+                                                Numbers Final Assessment
+
+                                            </strong>
+
+                                            <small class="text-muted">
+
+                                                25 questions • 30 points
+
+                                            </small>
+
+                                        </div>
+
+
+                                        <div class="dropdown">
+
+                                            <button class="btn btn-sm btn-light" data-bs-toggle="dropdown">
+
+                                                <i class="bi bi-three-dots"></i>
+
+                                            </button>
+
+
+                                            <ul class="dropdown-menu dropdown-menu-end">
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        Continue Editing
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item" href="#">
+
+                                                        Preview
+
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a class="dropdown-item text-danger" href="#">
+
+                                                        Delete
+
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <hr>
+
+
+                            <div class="d-flex flex-wrap gap-1 mb-3">
+
+                                <span class="badge text-bg-info">
+                                    Test
+                                </span>
+
+                                <span class="badge text-bg-secondary">
+                                    Draft
+                                </span>
+
+                            </div>
+
+
+                            <div class="row g-2 small">
+
+                                <div class="col-6">
+
+                                    <span class="text-muted d-block">
+                                        Questions
+                                    </span>
+
+                                    <strong>
+                                        25
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="col-6">
+
+                                    <span class="text-muted d-block">
+                                        Points
+                                    </span>
+
+                                    <strong>
+                                        30
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <button type="button" class="btn btn-primary btn-sm w-100 mt-3">
+
+                                <i class="bi bi-pencil me-1"></i>
+
+                                Continue Editing
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================
+                         PAGINATION
+                    ================================== -->
+
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 mt-4">
+
+
+                        <small class="text-muted">
+
+                            Showing
+                            <strong>1–5</strong>
+                            of
+                            <strong>12</strong>
+                            assessments
+
+                        </small>
+
+
+                        <nav>
+
+                            <ul class="pagination pagination-sm mb-0">
+
+
+                                <li class="page-item disabled">
+
+                                    <a class="page-link" href="#">
+
+                                        <i class="bi bi-chevron-left"></i>
+
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item active">
+
+                                    <a class="page-link" href="#">
+                                        1
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item">
+
+                                    <a class="page-link" href="#">
+                                        2
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item">
+
+                                    <a class="page-link" href="#">
+                                        3
+                                    </a>
+
+                                </li>
+
+
+                                <li class="page-item">
+
+                                    <a class="page-link" href="#">
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </a>
+
+                                </li>
+
+                            </ul>
+
+                        </nav>
+
+                    </div>
+
+                </section>
+
+                <!-- recent submission -->
+                <section class="teacher-card mt-4">
+
+
+                    <div class="teacher-card-header">
+
+                        <div>
+
+                            <h5>
+                                Recent Submissions
+                            </h5>
+
+                            <span>
+                                Latest assessment attempts from your learners
+                            </span>
+
+                        </div>
+
+
+                        <a href="progress.html" class="btn btn-sm btn-outline-primary">
+
+                            View All
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+
+                        <table class="table align-middle mb-0">
+
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Learner
+                                    </th>
+
+                                    <th>
+                                        Assessment
+                                    </th>
+
+                                    <th>
+                                        Score
+                                    </th>
+
+                                    <th>
+                                        Submitted
+                                    </th>
+
+                                    <th>
+                                        Result
+                                    </th>
+
+                                    <th class="text-end">
+                                        Action
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+
+                                <!-- SUBMISSION 1 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center gap-2">
+
+                                            <div class="learner-avatar blue">
+                                                JM
+                                            </div>
+
+                                            <strong class="small">
+                                                John Martinez
+                                            </strong>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td class="small">
+
+                                        Colors Recognition Assessment
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong class="text-success">
+                                            18 / 20
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td class="text-muted small">
+
+                                        10 minutes ago
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-success">
+                                            Passed
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="text-end">
+
+                                        <button class="btn btn-sm btn-outline-primary">
+
+                                            Review
+
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- SUBMISSION 2 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center gap-2">
+
+                                            <div class="learner-avatar pink">
+                                                AS
+                                            </div>
+
+                                            <strong class="small">
+                                                Anna Santos
+                                            </strong>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td class="small">
+
+                                        Basic Shapes Assessment
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong class="text-success">
+                                            22 / 25
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td class="text-muted small">
+
+                                        30 minutes ago
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-success">
+                                            Passed
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="text-end">
+
+                                        <button class="btn btn-sm btn-outline-primary">
+
+                                            Review
+
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- SUBMISSION 3 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center gap-2">
+
+                                            <div class="learner-avatar orange">
+                                                DT
+                                            </div>
+
+                                            <strong class="small">
+                                                Daniel Torres
+                                            </strong>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td class="small">
+
+                                        Color & Shape Review
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong class="text-warning">
+                                            6 / 10
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td class="text-muted small">
+
+                                        1 hour ago
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-warning">
+                                            Needs Review
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="text-end">
+
+                                        <button class="btn btn-sm btn-outline-primary">
+
+                                            Review
+
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- SUBMISSION 4 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center gap-2">
+
+                                            <div class="learner-avatar green">
+                                                MR
+                                            </div>
+
+                                            <strong class="small">
+                                                Maria Reyes
+                                            </strong>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td class="small">
+
+                                        Number Recognition Test
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <strong class="text-success">
+                                            14 / 15
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td class="text-muted small">
+
+                                        2 hours ago
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge text-bg-success">
+                                            Passed
+                                        </span>
+
+                                    </td>
+
+
+                                    <td class="text-end">
+
+                                        <button class="btn btn-sm btn-outline-primary">
+
+                                            Review
+
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+                <!-- footer -->
+                <div id="footersection"></div>
+            </div>
+
+        </main>
+    </div>
+
+
+    <!-- =========================================
+         CREATE ASSESSMENT MODAL
+    ========================================== -->
+
+    <div class="modal fade" id="createAssessmentModal" tabindex="-1" aria-hidden="true">
+
+
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+
+            <div class="modal-content">
+
+
+                <!-- MODAL HEADER -->
+
+                <div class="modal-header">
+
+                    <div>
+
+                        <h5 class="modal-title fw-bold">
+
+                            Create New Assessment
+
+                        </h5>
+
+
+                        <small class="text-muted">
+
+                            Create an assessment for your learners
+
+                        </small>
+
+                    </div>
+
+
+                    <a href="create-activity.html" class="btn teacher-primary-button">
+
+                        <i class="bi bi-plus-lg me-1"></i>
+
+                        Create Activity
+
+                    </a>
+
+                </div>
+
+
+                <!-- MODAL BODY -->
+
+                <div class="modal-body">
+
+
+                    <form id="createAssessmentForm">
+
+
+                        <!-- NAME -->
+
+                        <div class="mb-3">
+
+                            <label for="assessmentName" class="form-label">
+
+                                Assessment Name
+
+                            </label>
+
+
+                            <input type="text" class="form-control" id="assessmentName"
+                                placeholder="e.g. Colors Recognition Assessment" required>
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="mb-3">
+
+                            <label for="assessmentDescription" class="form-label">
+
+                                Description
+
+                            </label>
+
+
+                            <textarea class="form-control" id="assessmentDescription" rows="3"
+                                placeholder="Describe the purpose of this assessment..." required></textarea>
+
+                        </div>
+
+
+                        <!-- CATEGORY + TYPE -->
+
+                        <div class="row g-3 mb-3">
+
+
+                            <div class="col-12 col-md-6">
+
+                                <label for="assessmentCategoryModal" class="form-label">
+
+                                    Learning Area
+
+                                </label>
+
+
+                                <select class="form-select" id="assessmentCategoryModal" required>
+
+                                    <option value="">
+                                        Select learning area
+                                    </option>
+
+                                    <option value="colors">
+                                        Colors
+                                    </option>
+
+                                    <option value="shapes">
+                                        Shapes
+                                    </option>
+
+                                    <option value="numbers">
+                                        Numbers
+                                    </option>
+
+                                    <option value="mixed">
+                                        Colors, Shapes & Numbers
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="col-12 col-md-6">
+
+                                <label for="assessmentTypeModal" class="form-label">
+
+                                    Assessment Type
+
+                                </label>
+
+
+                                <select class="form-select" id="assessmentTypeModal" required>
+
+                                    <option value="">
+                                        Select type
+                                    </option>
+
+                                    <option value="quiz">
+                                        Quiz
+                                    </option>
+
+                                    <option value="test">
+                                        Test
+                                    </option>
+
+                                    <option value="evaluation">
+                                        Evaluation
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- QUESTIONS + POINTS -->
+
+                        <div class="row g-3 mb-3">
+
+
+                            <div class="col-12 col-md-6">
+
+                                <label for="questionCount" class="form-label">
+
+                                    Number of Questions
+
+                                </label>
+
+
+                                <input type="number" class="form-control" id="questionCount" value="10" min="1"
+                                    required>
+
+                            </div>
+
+
+                            <div class="col-12 col-md-6">
+
+                                <label for="totalPoints" class="form-label">
+
+                                    Total Points
+
+                                </label>
+
+
+                                <input type="number" class="form-control" id="totalPoints" value="10" min="1" required>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DIFFICULTY -->
+
+                        <div class="mb-3">
+
+                            <label for="assessmentDifficulty" class="form-label">
+
+                                Difficulty Level
+
+                            </label>
+
+
+                            <select class="form-select" id="assessmentDifficulty">
+
+                                <option value="easy">
+                                    Easy
+                                </option>
+
+                                <option value="medium">
+                                    Medium
+                                </option>
+
+                                <option value="hard">
+                                    Hard
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- ASSIGN -->
+
+                        <div class="mb-3">
+
+                            <label for="assessmentClass" class="form-label">
+
+                                Assign To
+
+                            </label>
+
+
+                            <select class="form-select" id="assessmentClass">
+
+                                <option value="">
+                                    Save as draft
+                                </option>
+
+                                <option value="grade1-a">
+                                    Grade 1 - A
+                                </option>
+
+                                <option value="grade1-b">
+                                    Grade 1 - B
+                                </option>
+
+                                <option value="grade2-a">
+                                    Grade 2 - A
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- TIME LIMIT -->
+
+                        <div class="mb-3">
+
+                            <label for="assessmentTime" class="form-label">
+
+                                Time Limit
+
+                            </label>
+
+
+                            <div class="input-group">
+
+                                <input type="number" class="form-control" id="assessmentTime" value="15" min="1">
+
+                                <span class="input-group-text">
+                                    minutes
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DUE DATE -->
+
+                        <div class="mb-3">
+
+                            <label for="assessmentDueDate" class="form-label">
+
+                                Due Date
+
+                            </label>
+
+
+                            <input type="date" class="form-control" id="assessmentDueDate">
+
+                        </div>
+
+
+                        <!-- RANDOMIZE -->
+
+                        <div class="form-check mb-2">
+
+                            <input class="form-check-input" type="checkbox" id="randomizeQuestions">
+
+                            <label class="form-check-label" for="randomizeQuestions">
+
+                                Randomize question order
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- SHOW RESULT -->
+
+                        <div class="form-check">
+
+                            <input class="form-check-input" type="checkbox" id="showResults" checked>
+
+                            <label class="form-check-label" for="showResults">
+
+                                Show results after submission
+
+                            </label>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- MODAL FOOTER -->
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+
+                        Cancel
+
+                    </button>
+
+
+                    <button type="button" class="btn btn-outline-primary">
+
+                        <i class="bi bi-file-earmark me-1"></i>
+
+                        Save as Draft
+
+                    </button>
+
+
+                    <button type="submit" form="createAssessmentForm" class="btn teacher-primary-button">
+
+                        <i class="bi bi-check-lg me-1"></i>
+
+                        Create Assessment
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- Teacher Dashboard JS -->
+    <script src="js/aside.js"></script>
+
+</body>
+
+</html>

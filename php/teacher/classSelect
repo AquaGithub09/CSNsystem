@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ColorShapeNum | Dashboard</title>
+  
+  <!-- bootstrap scss -->
+  <link rel="stylesheet" href="../../src/css/index.css">
+  <link rel="stylesheet" href="../../src/css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <!-- bootstrap icons -->
+  <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    ```css
+    /* =========================================
+   BASE
+========================================= */
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      background: #f8f9fb;
+      font-family: Arial, sans-serif;
+      color: #212529;
+    }
+    
+    
+    /* =========================================
+   TEACHER CONTENT
+========================================= */
+    
+    .teacher-content {
+      min-height: 100vh;
+      
+      display: flex;
+      flex-direction: column;
+    }
+    
+    
+    /* =========================================
+   CLASS SELECTION
+========================================= */
+    
+    .class-selection {
+      flex: 1;
+      
+      width: 100%;
+      max-width: 1200px;
+      
+      margin: 0 auto;
+      
+      padding: 40px 20px;
+    }
+    
+    
+    /* =========================================
+   HEADER
+========================================= */
+    
+    .class-selection-header {
+      margin-bottom: 30px;
+    }
+    
+    .class-selection-header h2 {
+      margin: 0 0 6px;
+      
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+    
+    .class-selection-header p {
+      margin: 0;
+      
+      color: #6c757d;
+      font-size: 0.95rem;
+    }
+    
+    
+    /* =========================================
+   CLASS GRID
+========================================= */
+    
+    .class-grid {
+      display: grid;
+      
+      grid-template-columns: repeat(2, 1fr);
+      
+      gap: 16px;
+    }
+    
+    
+    /* =========================================
+   CLASS PROFILE
+========================================= */
+    
+    .class-profile {
+      width: 100%;
+      
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      
+      background: #ffffff;
+      
+      padding: 24px 16px;
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      
+      text-align: center;
+      
+      cursor: pointer;
+      
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+    }
+    
+    
+    /* =========================================
+   HOVER
+========================================= */
+    
+    .class-profile:hover {
+      transform: translateY(-3px);
+      
+      border-color: #d7dbe0;
+      
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.07);
+    }
+    
+    
+    /* =========================================
+   SELECTED
+========================================= */
+    
+    .class-profile.selected {
+      border-color: #0d6efd;
+      
+      background: #f4f8ff;
+      
+      box-shadow:
+        0 0 0 3px rgba(13, 110, 253, 0.12);
+    }
+    
+    
+    /* =========================================
+   CLASS AVATAR
+========================================= */
+    
+    .class-avatar {
+      width: 90px;
+      height: 90px;
+      
+      border-radius: 50%;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      margin-bottom: 15px;
+      
+      font-size: 2rem;
+    }
+    
+    
+    /* =========================================
+   AVATAR COLORS
+========================================= */
+    
+    .class-avatar.blue {
+      background: #e7f1ff;
+      color: #0d6efd;
+    }
+    
+    .class-avatar.pink {
+      background: #ffe8f0;
+      color: #d63384;
+    }
+    
+    .class-avatar.green {
+      background: #e6f7ee;
+      color: #198754;
+    }
+    
+    .class-avatar.orange {
+      background: #fff0df;
+      color: #fd7e14;
+    }
+    
+    
+    /* =========================================
+   CLASS INFO
+========================================= */
+    
+    .class-info h5 {
+      margin: 0 0 5px;
+      
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    
+    .class-info span {
+      color: #6c757d;
+      
+      font-size: 0.85rem;
+    }
+    
+    
+    /* =========================================
+   ADD CLASS
+========================================= */
+    
+    .class-profile.add-class {
+      border-style: dashed;
+      
+      background: #fafafa;
+    }
+    
+    .class-profile.add-class:hover {
+      background: #ffffff;
+      
+      border-color: #0d6efd;
+    }
+    
+    .class-avatar.add {
+      background: #eef1f5;
+      
+      color: #6c757d;
+    }
+    
+    .class-profile.add-class:hover .class-avatar.add {
+      background: #e7f1ff;
+      
+      color: #0d6efd;
+    }
+    
+    
+
+    
+    /* =========================================
+   TABLET
+========================================= */
+    
+    @media (min-width: 576px) {
+      
+      .class-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+    }
+    
+    
+    /* =========================================
+   DESKTOP
+========================================= */
+    
+    @media (min-width: 992px) {
+      
+      .class-selection {
+        padding: 55px 30px;
+      }
+      
+      .class-selection-header h2 {
+        font-size: 2rem;
+      }
+      
+      .class-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      
+    }
+    
+    
+    /* =========================================
+   SMALL MOBILE
+========================================= */
+    
+    @media (max-width: 400px) {
+      
+      .class-selection {
+        padding: 30px 15px;
+      }
+      
+      .class-grid {
+        gap: 12px;
+      }
+      
+      .class-profile {
+        padding: 20px 10px;
+      }
+      
+      .class-avatar {
+        width: 75px;
+        height: 75px;
+        
+        font-size: 1.7rem;
+      }
+      
+      .class-info h5 {
+        font-size: 0.9rem;
+      }
+      
+      .class-info span {
+        font-size: 0.75rem;
+      }
+      
+      .teacher-footer {
+        flex-direction: column;
+        
+        text-align: center;
+      }
+      
+    }
+    
+    ```
+  </style>
+</head>
+
+
+<body>
+  
+  <div class="teacher-wrapper">
+    
+    <!-- MOBILE OVERLAY -->
+    
+    <div class="teacher-overlay" id="teacherOverlay">
+    </div>
+    
+    <!-- SIDEBAR -->
+    <aside class="teacher-sidebar" id="teacherSidebar">
+      
+      <!-- Brand -->
+      
+      <div class="teacher-brand">
+        
+        <div class="teacher-brand-icon">
+          <i class="bi bi-stars"></i>
+        </div>
+        
+        <div class="teacher-brand-text">
+          
+          <strong>ColorShapeNum</strong>
+          
+          <small>
+            Learn. Play. Discover.
+          </small>
+          
+        </div>
+        
+        <button type="button" class="teacher-close d-lg-none" id="teacherClose">
+        
+          <i class="bi bi-x-lg"></i>
+          
+        </button>
+        
+      </div>
+      
+      
+      <!-- Navigation -->
+      
+      <nav class="teacher-navigation">
+        
+        <div class="teacher-nav-label">
+          
+        </div>
+        
+        <a href="classSelect.html" class="teacher-nav-link active">
+        
+          <i class="bi bi-house-fill"></i>
+          
+          <span>
+            Home
+          </span>
+        </a>
+        
+        <a href="userSelect.html" class="teacher-nav-link">
+
+          <i class="bi bi-person-fill"></i>
+          
+          <span>
+            Select Learner
+          </span>
+        </a>
+        
+        <a href="components/classComponents/createClass.html" class="teacher-nav-link">
+        
+          <i class="bi bi-folder-plus"></i>
+          
+          <span>
+            Create Class
+          </span>
+        </a>
+        
+        <a href="../../index.html" class="teacher-nav-link">
+        
+          <i class="bi bi-box-arrow-right"></i>
+          
+          <span>
+            Logout
+          </span>
+        </a>
+        
+        
+      </nav>
+      
+      
+      <!-- Sidebar Bottom -->
+      
+      <div class="teacher-sidebar-bottom">
+        
+        <div class="teacher-support">
+          
+          <div class="teacher-support-icon">
+            <i class="bi bi-lightbulb-fill"></i>
+          </div>
+          
+          <div>
+            
+            <strong>
+              Teaching Tip
+            </strong>
+            
+            <small>
+              Keep learning fun!
+            </small>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </aside>
+    
+    <!-- MAIN -->
+    <main class="teacher-main">
+      
+      <!-- TOPBAR -->
+      <header class="teacher-topbar">
+        
+        <div class="teacher-top-left">
+          
+          <button type="button" class="teacher-menu-button d-lg-none" id="teacherMenu">
+          
+            <i class="bi bi-list"></i>
+            
+          </button>
+          
+          
+          <div>
+            
+            <h6>
+              Class Selection
+            </h6>
+            
+            <span>
+              Monday, August 24, 2026
+            </span>
+            
+          </div>
+          
+        </div>
+        
+        
+        <div class="teacher-top-right">
+          
+          <button class="teacher-notification" type="button">
+          
+            <i class="bi bi-bell"></i>
+            
+            <span></span>
+            
+          </button>
+          
+          
+          <div class="teacher-profile">
+            
+            <div class="teacher-avatar">
+              TA
+            </div>
+            
+            <div class="teacher-profile-info d-none d-md-block">
+              
+              <strong>
+                Teacher Anna
+              </strong>
+              
+              <small>
+                Teacher
+              </small>
+              
+            </div>
+            
+            <i class="bi bi-chevron-down d-none d-md-block"></i>
+            
+          </div>
+          
+        </div>
+        
+      </header>
+      
+      <!-- Main content -->
+      <div class="teacher-content">
+        <!-- content header -->
+        <section class="mb-4">
+          <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div>
+              <h1 class="h3 fw-bold mb-1">
+                Select a Class
+              </h1>
+              <p class="text-muted small mb-0">
+                Choose a class to view and manage your learners.
+              </p>
+            </div>
+            <div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- class select -->
+        <section class="class-selection">
+          <div class="class-grid" id="classGrid">
+            <!-- CLASS 1 -->
+            <a href="dashboard.html">
+              <button type="button" class="class-profile" data-class="Grade 1 - A">
+                <div class="class-avatar blue"> <i class="bi bi-people-fill"></i> </div>
+                <div class="class-info">
+                  <h5> Grade 1 - A </h5> <span> 12 learners </span>
+                </div>
+              </button>
+            </a>
+            <!-- CLASS 2 -->
+            <button type="button" class="class-profile" data-class="Grade 1 - B">
+              <div class="class-avatar pink"> <i class="bi bi-people-fill"></i> </div>
+              <div class="class-info">
+                <h5> Grade 1 - B </h5> <span> 15 learners </span>
+              </div>
+            </button> <!-- CLASS 3 --> <button type="button" class="class-profile" data-class="Grade 2 - A">
+              <div class="class-avatar green"> <i class="bi bi-people-fill"></i> </div>
+              <div class="class-info">
+                <h5> Grade 2 - A </h5> <span> 10 learners </span>
+              </div>
+            </button> <!-- CLASS 4 --> <button type="button" class="class-profile" data-class="Grade 2 - B">
+              <div class="class-avatar orange"> <i class="bi bi-people-fill"></i> </div>
+              <div class="class-info">
+                <h5> Grade 2 - B </h5> <span> 14 learners </span>
+              </div>
+            </button>
+          </div>
+        </section>
+        
+        <!-- content Footer -->
+        <footer class="teacher-footer">
+          <span>
+            © 2026 ColorShapeNum
+          </span>
+          
+          <span>
+            Teacher Portal • Learn. Play. Discover.
+          </span>
+          
+        </footer>
+        
+      </div>
+      
+    </main>
+    
+  </div>
+  
+  <!-- Bootstrap JS -->
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js">
+  </script>
+  
+  <!-- Teacher Dashboard JS -->
+  <script src="js/dashboard.js"></script>
+  
+</body>
+
+</html>

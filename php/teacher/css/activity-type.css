@@ -1,0 +1,954 @@
+:root {
+    --teacher-primary: #6366f1;
+    --teacher-primary-dark: #4f46e5;
+
+    --teacher-text: #1e293b;
+    --teacher-muted: #64748b;
+
+    --teacher-border: #e2e8f0;
+
+    --teacher-background: #f8fafc;
+}
+
+/* =========================================================
+   ACTIVITY TYPE SELECTOR
+========================================================= */
+
+.activity-type-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* =========================================================
+   ACTIVITY OPTION
+========================================================= */
+
+.activity-option {
+  position: relative;
+}
+
+/* Hide the actual radio */
+
+.activity-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.activity-option-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  padding: 1.25rem;
+
+  background: #ffffff;
+
+  border: 2px solid #e9ecef;
+
+  border-radius: 18px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Hover */
+
+.activity-option-card:hover {
+  transform: translateY(-3px);
+
+  border-color: #adb5bd;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+/* =========================================================
+   SELECTED CARD
+========================================================= */
+
+.activity-option input:checked + .activity-option-card {
+  border-color: #4f46e5;
+
+  background: linear-gradient(180deg, #f8f7ff 0%, #ffffff 100%);
+
+  box-shadow: 0 8px 28px rgba(79, 70, 229, 0.14);
+}
+
+/* Selected top border */
+
+.activity-option input:checked + .activity-option-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -2px;
+  left: 20px;
+  right: 20px;
+
+  height: 4px;
+
+  background: #4f46e5;
+
+  border-radius: 0 0 10px 10px;
+}
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.activity-option-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.activity-option-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 15px;
+
+  font-size: 1.5rem;
+}
+
+/* Different icon backgrounds */
+
+.choose-icon {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.match-icon {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.identify-icon {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.count-icon {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.listen-icon {
+  background: #fdf2f8;
+  color: #db2777;
+}
+
+.drag-icon {
+  background: #f5f3ff;
+  color: #7c3aed;
+}
+
+.mix-icon {
+  background: #fff7ed;
+  color: #f59e0b;
+}
+
+/* =========================================================
+   CHECK INDICATOR
+========================================================= */
+
+.activity-option-check {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 2px solid #dee2e6;
+
+  color: transparent;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.activity-option input:checked + .activity-option-card .activity-option-check {
+  background: #4f46e5;
+
+  border-color: #4f46e5;
+
+  color: #ffffff;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.activity-option-content {
+  margin-bottom: 1rem;
+}
+
+.activity-option-content h6 {
+  margin: 0 0 0.4rem;
+
+  font-size: 1.05rem;
+
+  font-weight: 700;
+
+  color: #212529;
+}
+
+.activity-option-content p {
+  margin: 0;
+
+  min-height: 48px;
+
+  color: #6c757d;
+
+  font-size: 0.875rem;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   EXAMPLE
+========================================================= */
+
+.activity-option-example {
+  margin-top: auto;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid #f0f1f3;
+}
+
+.activity-option-example > span {
+  display: block;
+
+  margin-bottom: 0.5rem;
+
+  color: #9ca3af;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+/* =========================================================
+   MINI EXAMPLE
+========================================================= */
+
+.mini-example {
+  min-height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+
+  color: #495057;
+
+  font-size: 0.85rem;
+}
+
+.mini-answers {
+  display: flex;
+
+  gap: 0.35rem;
+
+  margin-left: auto;
+}
+
+.mini-answer {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #f8f9fa;
+
+  border: 1px solid #e9ecef;
+
+  border-radius: 8px;
+
+  font-size: 1rem;
+}
+
+/* Match */
+
+.match-example {
+  justify-content: center;
+
+  font-size: 1rem;
+}
+
+.match-example i {
+  color: #adb5bd;
+}
+
+/* Identify */
+
+.example-shape {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #fff7ed;
+
+  border-radius: 9px;
+
+  color: #f97316;
+
+  font-size: 1.4rem;
+}
+
+/* Count */
+
+.count-example {
+  justify-content: center;
+
+  font-size: 1.1rem;
+}
+
+.count-example strong {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #eff6ff;
+
+  border-radius: 8px;
+
+  color: #2563eb;
+}
+
+/* Listen */
+
+.listen-example-button {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #fdf2f8;
+
+  border-radius: 50%;
+
+  color: #db2777;
+}
+
+/* Drag */
+
+.drop-area {
+  width: 40px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 2px dashed #adb5bd;
+
+  border-radius: 8px;
+
+  color: #adb5bd;
+}
+
+/* =========================================================
+   MIX TYPE
+========================================================= */
+
+.activity-option-mix {
+  grid-column: 1 / -1;
+}
+
+.mix-card {
+  background: linear-gradient(135deg, #fffdf5, #ffffff);
+}
+
+.mix-card:hover {
+  border-color: #f59e0b;
+}
+
+.activity-option input:checked + .mix-card {
+  border-color: #f59e0b;
+
+  background: linear-gradient(135deg, #fffaf0, #ffffff);
+
+  box-shadow: 0 8px 28px rgba(245, 158, 11, 0.15);
+}
+
+.activity-option input:checked + .mix-card::before {
+  background: #f59e0b;
+}
+
+.activity-option input:checked + .mix-card .activity-option-check {
+  background: #f59e0b;
+
+  border-color: #f59e0b;
+}
+
+.recommended-badge {
+  position: absolute;
+
+  top: 1rem;
+  right: 1rem;
+
+  padding: 0.3rem 0.55rem;
+
+  background: #fff3cd;
+
+  color: #996c00;
+
+  border-radius: 50px;
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+}
+
+/* Mix example */
+
+.mix-types {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.4rem;
+}
+
+.mix-types span {
+  padding: 0.35rem 0.55rem;
+
+  background: #f8f9fa;
+
+  border: 1px solid #e9ecef;
+
+  border-radius: 7px;
+
+  font-size: 0.75rem;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 576px) {
+  .activity-type-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 992px) {
+  .activity-type-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+  .activity-option-card {
+    padding: 1.35rem;
+  }
+}
+
+/* --------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* =========================================================
+   LEARNING CATEGORY SELECTOR
+========================================================= */
+
+.learning-category-grid {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 1rem;
+}
+
+/* =========================================================
+   CATEGORY OPTION
+========================================================= */
+
+
+
+.learning-category-option {
+  position: relative;
+}
+
+/* Hide radio */
+
+.learning-category-option input {
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   CATEGORY CARD
+========================================================= */
+
+.learning-category-card {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  height: 100%;
+
+  padding: 1.35rem;
+
+  background: #ffffff;
+
+  border: 2px solid #e9ecef;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Hover */
+
+.learning-category-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--teacher-primary-dark);
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+}
+
+/* =========================================================
+   SELECTED CARD
+========================================================= */
+
+.learning-category-option input:checked + .learning-category-card {
+  border-color: #4f46e5;
+
+  background: linear-gradient(180deg, #f8f7ff 0%, #ffffff 100%);
+
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.14);
+}
+
+/* Top selected line */
+
+.learning-category-option input:checked + .learning-category-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -2px;
+
+  left: 25px;
+
+  right: 25px;
+
+  height: 4px;
+
+  background: #4f46e5;
+
+  border-radius: 0 0 10px 10px;
+}
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.learning-category-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  margin-bottom: 1.15rem;
+}
+
+/* =========================================================
+   CATEGORY ICON
+========================================================= */
+
+.learning-category-icon {
+  width: 62px;
+
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 17px;
+
+  font-size: 1.7rem;
+}
+
+/* Colors */
+
+.colors-icon {
+  background: #fff1f2;
+
+  color: #e11d48;
+}
+
+/* Shapes */
+
+.shapes-icon {
+  background: #eef2ff;
+
+  color: #4f46e5;
+}
+
+/* Numbers */
+
+.numbers-icon {
+  background: #eff6ff;
+
+  color: #2563eb;
+}
+
+/* =========================================================
+   CHECK
+========================================================= */
+
+.learning-category-check {
+  width: 30px;
+
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 2px solid #dee2e6;
+
+  color: transparent;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.learning-category-option
+  input:checked
+  + .learning-category-card
+  .learning-category-check {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #ffffff;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.learning-category-content {
+  margin-bottom: 1.25rem;
+}
+
+.learning-category-content h6 {
+  margin: 0 0 0.45rem;
+
+  font-size: 1.2rem;
+
+  font-weight: 700;
+
+  color: #212529;
+}
+
+.learning-category-content p {
+  margin: 0;
+
+  color: #6c757d;
+
+  font-size: 0.9rem;
+
+  line-height: 1.55;
+}
+
+/* =========================================================
+   EXAMPLE AREA
+========================================================= */
+
+.learning-category-example {
+  margin-top: auto;
+
+  padding-top: 1rem;
+
+  border-top: 1px solid #f0f1f3;
+}
+
+.learning-category-example > span {
+  display: block;
+
+  margin-bottom: 0.7rem;
+
+  color: #9ca3af;
+
+  font-size: 0.8rem;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+/* =========================================================
+   COLORS EXAMPLE
+========================================================= */
+
+.color-example-list {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  margin-bottom: 0.65rem;
+}
+
+.color-dot {
+  width: 30px;
+
+  height: 30px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  border: 3px solid #ffffff;
+
+  box-shadow: 0 0 0 1px #dee2e6;
+}
+
+.color-red {
+  background: #ef4444;
+}
+
+.color-blue {
+  background: #3b82f6;
+}
+
+.color-yellow {
+  background: #facc15;
+}
+
+.color-green {
+  background: #22c55e;
+}
+
+.color-purple {
+  background: #a855f7;
+}
+
+/* =========================================================
+   SHAPE EXAMPLE
+========================================================= */
+
+.shape-example-list {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.7rem;
+
+  height: 34px;
+
+  margin-bottom: 0.65rem;
+}
+
+.shape-circle {
+  width: 27px;
+
+  height: 27px;
+
+  border-radius: 50%;
+
+  background: #818cf8;
+}
+
+.shape-square {
+  width: 27px;
+
+  height: 27px;
+
+  border-radius: 5px;
+
+  background: #60a5fa;
+}
+
+.shape-triangle {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 28px;
+
+  height: 28px;
+
+  color: #f97316;
+
+  font-size: 1.65rem;
+
+  line-height: 1;
+}
+
+.shape-rectangle {
+  width: 36px;
+
+  height: 23px;
+
+  border-radius: 5px;
+
+  background: #34d399;
+}
+
+/* =========================================================
+   NUMBER EXAMPLE
+========================================================= */
+
+.number-example-list {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  margin-bottom: 0.65rem;
+}
+
+.number-example-list span {
+  width: 30px;
+
+  height: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #eff6ff;
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 8px;
+
+  color: #2563eb;
+
+  font-size: 0.85rem;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   EXAMPLE TEXT
+========================================================= */
+
+.category-example-text {
+  color: #6c757d;
+
+  font-size: 0.78rem;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 576px) {
+  .learning-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 992px) {
+  .learning-category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1200px) {
+  .learning-category-card {
+    padding: 1.5rem;
+  }
+}

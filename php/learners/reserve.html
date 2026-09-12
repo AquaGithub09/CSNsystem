@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ColorShapeNum - Assessment</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --bg: #f0f9ff;
+      --card: #ffffff;
+      --text: #1e293b;
+      --radius: 20px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #e0f2fe 0%, #fce7f3 50%, #fef3c7 100%);
+      min-height: 100vh;
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(90deg, #6366f1, #ec4899, #f59e0b);
+      color: white;
+      padding: 16px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: clamp(1.4rem, 5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.95;
+      margin-top: 4px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 12px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid #e0e7ff;
+    }
+
+    .nav-btn {
+      background: white;
+      border: 3px solid #c7d2fe;
+      border-radius: 50px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #4338ca;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 10px rgba(99,102,241,0.15);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn:hover, .nav-btn:focus {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(99,102,241,0.25);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border-color: #4f46e5;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 16px 60px;
+    }
+
+    .section {
+      display: none;
+      animation: fadeIn 0.35s ease;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      color: #4338ca;
+    }
+
+    .section-desc {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+    }
+
+    .activity-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+      border: 3px solid #e0e7ff;
+    }
+
+    .prompt {
+      text-align: center;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 18px;
+      background: #dbeafe;
+      padding: 12px 20px;
+      border-radius: 14px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .feedback {
+      text-align: center;
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin: 16px 0;
+      min-height: 40px;
+      transition: all 0.3s ease;
+    }
+
+    .feedback.good { color: #16a34a; }
+    .feedback.bad { color: #dc2626; }
+
+    .score-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fef3c7;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #92400e;
+      margin: 10px auto;
+    }
+
+    .progress-bar-wrap {
+      background: #e2e8f0;
+      border-radius: 50px;
+      height: 18px;
+      margin: 16px 0 8px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      border-radius: 50px;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    .progress-text {
+      text-align: center;
+      font-weight: 700;
+      color: #475569;
+      margin-bottom: 16px;
+    }
+
+    /* Visual areas */
+    .visual-area {
+      text-align: center;
+      margin: 20px 0;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .color-swatch {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+
+    .shape {
+      width: 80px;
+      height: 80px;
+    }
+
+    .circle { border-radius: 50%; background: #ef4444; }
+    .square { background: #3b82f6; }
+    .triangle {
+      width: 0; height: 0;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 70px solid #22c55e;
+      background: transparent !important;
+    }
+    .rectangle { width: 100px; height: 60px; background: #f59e0b; border-radius: 8px; }
+    .star {
+      background: #a855f7;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    .count-objects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      font-size: 2.3rem;
+    }
+
+    /* Options */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .option-btn {
+      padding: 16px 12px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border-radius: 16px;
+      border: 3px solid #c7d2fe;
+      background: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      color: #1e293b;
+    }
+
+    .option-btn:hover {
+      background: #eef2ff;
+      border-color: #6366f1;
+      transform: scale(1.03);
+    }
+
+    .option-btn.correct {
+      background: #dcfce7;
+      border-color: #22c55e;
+      color: #166534;
+    }
+
+    .option-btn.wrong {
+      background: #fee2e2;
+      border-color: #ef4444;
+      color: #991b1b;
+    }
+
+    .option-btn:disabled {
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    /* Color option circles */
+    .color-option {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin: 0 auto;
+    }
+
+    .color-option:hover { transform: scale(1.1); }
+    .color-option.correct { box-shadow: 0 0 0 5px #22c55e; }
+    .color-option.wrong { box-shadow: 0 0 0 5px #ef4444; }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .action-btn {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(99,102,241,0.35);
+      transition: all 0.2s ease;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(99,102,241,0.45);
+    }
+
+    .action-btn.secondary {
+      background: linear-gradient(135deg, #64748b, #475569);
+    }
+
+    .action-btn.success {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+    }
+
+    .action-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Results */
+    .results-card {
+      text-align: center;
+    }
+
+    .big-score {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #4f46e5;
+      margin: 12px 0;
+    }
+
+    .stars {
+      font-size: 2.2rem;
+      letter-spacing: 6px;
+      margin: 12px 0 20px;
+    }
+
+    .result-breakdown {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
+      margin: 24px 0;
+    }
+
+    .result-item {
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 16px 12px;
+      border: 2px solid #e2e8f0;
+    }
+
+    .result-item .label {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+
+    .result-item .value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1e293b;
+    }
+
+    .result-item.good .value { color: #16a34a; }
+    .result-item.ok .value { color: #d97706; }
+    .result-item.bad .value { color: #dc2626; }
+
+    .encouragement {
+      background: #dbeafe;
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #1e40af;
+      margin: 20px 0;
+    }
+
+    /* Home cards */
+    .assess-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .assess-card {
+      background: #f8fafc;
+      border: 3px solid #e0e7ff;
+      border-radius: 18px;
+      padding: 22px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .assess-card:hover {
+      transform: translateY(-5px);
+      border-color: #6366f1;
+      box-shadow: 0 8px 20px rgba(99,102,241,0.2);
+    }
+
+    .assess-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .assess-card h3 {
+      font-size: 1.2rem;
+      color: #4338ca;
+      margin-bottom: 6px;
+    }
+
+    .assess-card p {
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      top: -20px;
+      z-index: 999;
+      animation: fall linear forwards;
+      border-radius: 2px;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .color-swatch { width: 80px; height: 80px; }
+      .color-option { width: 65px; height: 65px; }
+      .options-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📝 ColorShapeNum Assessment</h1>
+    <p>Check what you know about Colors, Shapes & Numbers</p>
+  </header>
+
+  <nav>
+    <button class="nav-btn active" data-section="home">🏠 Home</button>
+    <button class="nav-btn" data-section="colors">🌈 Colors</button>
+    <button class="nav-btn" data-section="shapes">🔷 Shapes</button>
+    <button class="nav-btn" data-section="numbers">🔢 Numbers</button>
+    <button class="nav-btn" data-section="full">📋 Full Test</button>
+    <button class="nav-btn" data-section="results">📊 Results</button>
+  </nav>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="section active">
+      <div class="activity-card">
+        <h2 class="section-title">Ready for Assessment?</h2>
+        <p class="section-desc">
+          Choose a short test or take the full assessment.  
+          Parents & teachers can view the results afterwards.
+        </p>
+
+        <div class="assess-options">
+          <div class="assess-card" data-go="colors">
+            <div class="icon">🌈</div>
+            <h3>Colors Test</h3>
+            <p>8 questions</p>
+          </div>
+          <div class="assess-card" data-go="shapes">
+            <div class="icon">🔷</div>
+            <h3>Shapes Test</h3>
+            <p>5 questions</p>
+          </div>
+          <div class="assess-card" data-go="numbers">
+            <div class="icon">🔢</div>
+            <h3>Numbers Test</h3>
+            <p>8 questions</p>
+          </div>
+          <div class="assess-card" data-go="full">
+            <div class="icon">📋</div>
+            <h3>Full Assessment</h3>
+            <p>15 questions</p>
+          </div>
+        </div>
+
+        <p style="text-align:center; color:#64748b; margin-top:10px;">
+          Tip: Use headphones or speakers for voice guidance.
+        </p>
+      </div>
+    </section>
+
+    <!-- COLORS ASSESSMENT -->
+    <section id="colors" class="section">
+      <h2 class="section-title">🌈 Colors Assessment</h2>
+      <p class="section-desc">Identify the colors correctly</p>
+
+      <div class="activity-card">
+        <div class="progress-bar-wrap"><div class="progress-bar" id="color-progress"></div></div>
+        <div class="progress-text" id="color-progress-text">Question 0 of 0</div>
+
+        <div class="prompt" id="color-prompt">Tap Start to begin</div>
+        <div class="visual-area" id="color-visual"></div>
+        <div class="options-grid" id="color-options"></div>
+        <div class="feedback" id="color-feedback"></div>
+        <div class="score-box" id="color-score">⭐ Score: 0</div>
+
+        <div class="controls">
+          <button class="action-btn success" id="color-start">Start Test 🚀</button>
+          <button class="action-btn" id="color-next" style="display:none;">Next ➡️</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHAPES ASSESSMENT -->
+    <section id="shapes" class="section">
+      <h2 class="section-title">🔷 Shapes Assessment</h2>
+      <p class="section-desc">Name the shapes you see</p>
+
+      <div class="activity-card">
+        <div class="progress-bar-wrap"><div class="progress-bar" id="shape-progress"></div></div>
+        <div class="progress-text" id="shape-progress-text">Question 0 of 0</div>
+
+        <div class="prompt" id="shape-prompt">Tap Start to begin</div>
+        <div class="visual-area" id="shape-visual"></div>
+        <div class="options-grid" id="shape-options"></div>
+        <div class="feedback" id="shape-feedback"></div>
+        <div class="score-box" id="shape-score">⭐ Score: 0</div>
+
+        <div class="controls">
+          <button class="action-btn success" id="shape-start">Start Test 🚀</button>
+          <button class="action-btn" id="shape-next" style="display:none;">Next ➡️</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUMBERS ASSESSMENT -->
+    <section id="numbers" class="section">
+      <h2 class="section-title">🔢 Numbers Assessment</h2>
+      <p class="section-desc">Count the objects carefully</p>
+
+      <div class="activity-card">
+        <div class="progress-bar-wrap"><div class="progress-bar" id="number-progress"></div></div>
+        <div class="progress-text" id="number-progress-text">Question 0 of 0</div>
+
+        <div class="prompt" id="number-prompt">Tap Start to begin</div>
+        <div class="visual-area" id="number-visual"></div>
+        <div class="options-grid" id="number-options"></div>
+        <div class="feedback" id="number-feedback"></div>
+        <div class="score-box" id="number-score">⭐ Score: 0</div>
+
+        <div class="controls">
+          <button class="action-btn success" id="number-start">Start Test 🚀</button>
+          <button class="action-btn" id="number-next" style="display:none;">Next ➡️</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL ASSESSMENT -->
+    <section id="full" class="section">
+      <h2 class="section-title">📋 Full Assessment</h2>
+      <p class="section-desc">Colors + Shapes + Numbers mixed together</p>
+
+      <div class="activity-card">
+        <div class="progress-bar-wrap"><div class="progress-bar" id="full-progress"></div></div>
+        <div class="progress-text" id="full-progress-text">Question 0 of 0</div>
+
+        <div class="prompt" id="full-prompt">Tap Start to begin the full test</div>
+        <div class="visual-area" id="full-visual"></div>
+        <div class="options-grid" id="full-options"></div>
+        <div class="feedback" id="full-feedback"></div>
+        <div class="score-box" id="full-score">⭐ Score: 0</div>
+
+        <div class="controls">
+          <button class="action-btn success" id="full-start">Start Full Test 🚀</button>
+          <button class="action-btn" id="full-next" style="display:none;">Next ➡️</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="section">
+      <h2 class="section-title">📊 Assessment Results</h2>
+      <p class="section-desc">Summary for parents & teachers</p>
+
+      <div class="activity-card results-card">
+        <div id="results-content">
+          <p style="font-size:1.2rem; color:#64748b; margin:30px 0;">
+            No assessment completed yet.<br>
+            Take a test first, then come back here!
+          </p>
+        </div>
+
+        <div class="controls" style="margin-top:30px;">
+          <button class="action-btn secondary" id="clear-results">Clear Results</button>
+          <button class="action-btn" onclick="document.querySelector('[data-section=home]').click()">Back to Home</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // ========== DATA ==========
+    const colors = [
+      { name: 'Red',    hex: '#ef4444' },
+      { name: 'Blue',   hex: '#3b82f6' },
+      { name: 'Green',  hex: '#22c55e' },
+      { name: 'Yellow', hex: '#eab308' },
+      { name: 'Orange', hex: '#f97316' },
+      { name: 'Purple', hex: '#a855f7' },
+      { name: 'Pink',   hex: '#ec4899' },
+      { name: 'Brown',  hex: '#a16207' }
+    ];
+
+    const shapes = [
+      { name: 'Circle',    class: 'circle' },
+      { name: 'Square',    class: 'square' },
+      { name: 'Triangle',  class: 'triangle' },
+      { name: 'Rectangle', class: 'rectangle' },
+      { name: 'Star',      class: 'star' }
+    ];
+
+    const numberEmojis = ['🍎','🐶','⭐','🎈','🚗','🌸','🐱','🏀','🌈','🍪','🦋','🐸'];
+
+    // Results storage
+    let assessmentResults = {
+      colors: null,
+      shapes: null,
+      numbers: null,
+      full: null
+    };
+
+    // ========== SPEECH ==========
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.rate = 0.9;
+        u.pitch = 1.1;
+        const voices = speechSynthesis.getVoices();
+        const preferred = voices.find(v =>
+          v.name.includes('Google') || v.name.includes('Samantha') || v.lang.startsWith('en')
+        );
+        if (preferred) u.voice = preferred;
+        speechSynthesis.speak(u);
+      }
+    }
+
+    if ('speechSynthesis' in window) {
+      speechSynthesis.getVoices();
+      speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+    }
+
+    // ========== CONFETTI ==========
+    function confetti() {
+      const cols = ['#ef4444','#3b82f6','#22c55e','#eab308','#a855f7','#ec4899','#f97316'];
+      for (let i = 0; i < 35; i++) {
+        const el = document.createElement('div');
+        el.className = 'confetti';
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.background = cols[Math.floor(Math.random() * cols.length)];
+        el.style.animationDuration = (1.4 + Math.random() * 1.6) + 's';
+        el.style.animationDelay = (Math.random() * 0.25) + 's';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 3400);
+      }
+    }
+
+    // ========== UTILS ==========
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function randomFrom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    // ========== NAVIGATION ==========
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.section).classList.add('active');
+
+        if (btn.dataset.section === 'results') {
+          renderResults();
+        }
+      });
+    });
+
+    // Home cards navigation
+    document.querySelectorAll('.assess-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const target = card.dataset.go;
+        document.querySelector(`.nav-btn[data-section="${target}"]`).click();
+      });
+    });
+
+    // ========== GENERIC ASSESSMENT ENGINE ==========
+    function createAssessment(config) {
+      const {
+        prefix,           // 'color', 'shape', 'number', 'full'
+        totalQuestions,
+        generateQuestion, // function that returns {prompt, visualHTML, options, correct}
+        onComplete        // called with score, total
+      } = config;
+
+      let score = 0;
+      let index = 0;
+      let currentCorrect = null;
+      let answered = false;
+
+      const els = {
+        progress: document.getElementById(`${prefix}-progress`),
+        progressText: document.getElementById(`${prefix}-progress-text`),
+        prompt: document.getElementById(`${prefix}-prompt`),
+        visual: document.getElementById(`${prefix}-visual`),
+        options: document.getElementById(`${prefix}-options`),
+        feedback: document.getElementById(`${prefix}-feedback`),
+        score: document.getElementById(`${prefix}-score`),
+        startBtn: document.getElementById(`${prefix}-start`),
+        nextBtn: document.getElementById(`${prefix}-next`)
+      };
+
+      function updateProgress() {
+        const pct = (index / totalQuestions) * 100;
+        els.progress.style.width = pct + '%';
+        els.progressText.textContent = `Question ${Math.min(index + 1, totalQuestions)} of ${totalQuestions}`;
+      }
+
+      function showQuestion() {
+        if (index >= totalQuestions) {
+          finish();
+          return;
+        }
+
+        answered = false;
+        const q = generateQuestion();
+        currentCorrect = q.correct;
+
+        els.prompt.textContent = q.prompt;
+        els.visual.innerHTML = q.visualHTML;
+        els.feedback.textContent = '';
+        els.nextBtn.style.display = 'none';
+        els.startBtn.style.display = 'none';
+
+        els.options.innerHTML = '';
+        q.options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.className = 'option-btn';
+          btn.textContent = opt;
+          btn.addEventListener('click', () => selectAnswer(opt, btn));
+          els.options.appendChild(btn);
+        });
+
+        updateProgress();
+        speak(q.prompt);
+      }
+
+      function selectAnswer(chosen, btn) {
+        if (answered) return;
+        answered = true;
+
+        document.querySelectorAll(`#${prefix}-options .option-btn`).forEach(b => {
+          b.disabled = true;
+        });
+
+        if (chosen === currentCorrect) {
+          score++;
+          btn.classList.add('correct');
+          els.feedback.textContent = '🎉 Correct!';
+          els.feedback.className = 'feedback good';
+          speak('Correct! Great job!');
+          confetti();
+        } else {
+          btn.classList.add('wrong');
+          els.feedback.textContent = `The answer is ${currentCorrect}`;
+          els.feedback.className = 'feedback bad';
+          speak(`The correct answer is ${currentCorrect}`);
+          document.querySelectorAll(`#${prefix}-options .option-btn`).forEach(b => {
+            if (b.textContent === currentCorrect) b.classList.add('correct');
+          });
+        }
+
+        els.score.textContent = `⭐ Score: ${score}`;
+        els.nextBtn.style.display = 'inline-flex';
+      }
+
+      function finish() {
+        els.progress.style.width = '100%';
+        els.progressText.textContent = `Completed!`;
+        els.prompt.textContent = 'Assessment Complete! 🎉';
+        els.visual.innerHTML = '';
+        els.options.innerHTML = '';
+        els.feedback.textContent = `You got ${score} out of ${totalQuestions} correct!`;
+        els.feedback.className = 'feedback good';
+        els.nextBtn.style.display = 'none';
+        els.startBtn.style.display = 'inline-flex';
+        els.startBtn.textContent = 'Try Again 🔄';
+
+        if (score >= totalQuestions * 0.7) confetti();
+        speak(`You scored ${score} out of ${totalQuestions}. Well done!`);
+
+        onComplete(score, totalQuestions);
+      }
+
+      els.startBtn.addEventListener('click', () => {
+        score = 0;
+        index = 0;
+        els.score.textContent = '⭐ Score: 0';
+        els.startBtn.style.display = 'none';
+        showQuestion();
+      });
+
+      els.nextBtn.addEventListener('click', () => {
+        index++;
+        showQuestion();
+      });
+    }
+
+    // ========== COLOR ASSESSMENT ==========
+    createAssessment({
+      prefix: 'color',
+      totalQuestions: 8,
+      generateQuestion() {
+        const correct = randomFrom(colors);
+        const options = shuffle([correct.name, ...shuffle(colors.filter(c => c.name !== correct.name)).slice(0, 3).map(c => c.name)]);
+        return {
+          prompt: 'What color is this?',
+          visualHTML: `<div class="color-swatch" style="background:${correct.hex}"></div>`,
+          options,
+          correct: correct.name
+        };
+      },
+      onComplete(score, total) {
+        assessmentResults.colors = { score, total, percent: Math.round((score / total) * 100), date: new Date().toLocaleString() };
+      }
+    });
+
+    // ========== SHAPE ASSESSMENT ==========
+    createAssessment({
+      prefix: 'shape',
+      totalQuestions: 5,
+      generateQuestion() {
+        const correct = randomFrom(shapes);
+        const options = shuffle([correct.name, ...shuffle(shapes.filter(s => s.name !== correct.name)).slice(0, 3).map(s => s.name)]);
+        return {
+          prompt: 'What shape is this?',
+          visualHTML: `<div class="shape ${correct.class}"></div>`,
+          options,
+          correct: correct.name
+        };
+      },
+      onComplete(score, total) {
+        assessmentResults.shapes = { score, total, percent: Math.round((score / total) * 100), date: new Date().toLocaleString() };
+      }
+    });
+
+    // ========== NUMBER ASSESSMENT ==========
+    createAssessment({
+      prefix: 'number',
+      totalQuestions: 8,
+      generateQuestion() {
+        const count = Math.floor(Math.random() * 9) + 1;
+        const emoji = randomFrom(numberEmojis);
+        let visual = '<div class="count-objects">';
+        for (let i = 0; i < count; i++) visual += `<span>${emoji}</span>`;
+        visual += '</div>';
+
+        const opts = [String(count)];
+        while (opts.length < 4) {
+          const r = String(Math.floor(Math.random() * 9) + 1);
+          if (!opts.includes(r)) opts.push(r);
+        }
+        return {
+          prompt: 'How many do you see?',
+          visualHTML: visual,
+          options: shuffle(opts),
+          correct: String(count)
+        };
+      },
+      onComplete(score, total) {
+        assessmentResults.numbers = { score, total, percent: Math.round((score / total) * 100), date: new Date().toLocaleString() };
+      }
+    });
+
+    // ========== FULL ASSESSMENT ==========
+    createAssessment({
+      prefix: 'full',
+      totalQuestions: 15,
+      generateQuestion() {
+        const type = Math.floor(Math.random() * 3); // 0 color, 1 shape, 2 number
+
+        if (type === 0) {
+          const correct = randomFrom(colors);
+          const options = shuffle([correct.name, ...shuffle(colors.filter(c => c.name !== correct.name)).slice(0, 3).map(c => c.name)]);
+          return {
+            prompt: 'What color is this?',
+            visualHTML: `<div class="color-swatch" style="background:${correct.hex}"></div>`,
+            options,
+            correct: correct.name
+          };
+        } else if (type === 1) {
+          const correct = randomFrom(shapes);
+          const options = shuffle([correct.name, ...shuffle(shapes.filter(s => s.name !== correct.name)).slice(0, 3).map(s => s.name)]);
+          return {
+            prompt: 'What shape is this?',
+            visualHTML: `<div class="shape ${correct.class}"></div>`,
+            options,
+            correct: correct.name
+          };
+        } else {
+          const count = Math.floor(Math.random() * 9) + 1;
+          const emoji = randomFrom(numberEmojis);
+          let visual = '<div class="count-objects">';
+          for (let i = 0; i < count; i++) visual += `<span>${emoji}</span>`;
+          visual += '</div>';
+          const opts = [String(count)];
+          while (opts.length < 4) {
+            const r = String(Math.floor(Math.random() * 9) + 1);
+            if (!opts.includes(r)) opts.push(r);
+          }
+          return {
+            prompt: 'How many do you see?',
+            visualHTML: visual,
+            options: shuffle(opts),
+            correct: String(count)
+          };
+        }
+      },
+      onComplete(score, total) {
+        assessmentResults.full = { score, total, percent: Math.round((score / total) * 100), date: new Date().toLocaleString() };
+      }
+    });
+
+    // ========== RESULTS ==========
+    function getLevel(percent) {
+      if (percent >= 90) return { text: 'Excellent!', class: 'good', stars: 5 };
+      if (percent >= 75) return { text: 'Very Good!', class: 'good', stars: 4 };
+      if (percent >= 60) return { text: 'Good job!', class: 'ok', stars: 3 };
+      if (percent >= 40) return { text: 'Keep practicing!', class: 'ok', stars: 2 };
+      return { text: 'Try again soon!', class: 'bad', stars: 1 };
+    }
+
+    function renderResults() {
+      const content = document.getElementById('results-content');
+      const hasAny = assessmentResults.colors || assessmentResults.shapes ||
+                     assessmentResults.numbers || assessmentResults.full;
+
+      if (!hasAny) {
+        content.innerHTML = `
+          <p style="font-size:1.2rem; color:#64748b; margin:30px 0;">
+            No assessment completed yet.<br>
+            Take a test first, then come back here!
+          </p>`;
+        return;
+      }
+
+      let html = '';
+      let overallScore = 0;
+      let overallTotal = 0;
+
+      const sections = [
+        { key: 'colors',  label: '🌈 Colors',  icon: '🌈' },
+        { key: 'shapes',  label: '🔷 Shapes',  icon: '🔷' },
+        { key: 'numbers', label: '🔢 Numbers', icon: '🔢' },
+        { key: 'full',    label: '📋 Full Test', icon: '📋' }
+      ];
+
+      html += '<div class="result-breakdown">';
+      sections.forEach(s => {
+        const r = assessmentResults[s.key];
+        if (r) {
+          overallScore += r.score;
+          overallTotal += r.total;
+          const level = getLevel(r.percent);
+          html += `
+            <div class="result-item ${level.class}">
+              <div class="label">${s.label}</div>
+              <div class="value">${r.score}/${r.total}</div>
+              <div style="font-size:0.9rem; color:#64748b;">${r.percent}%</div>
+              <div style="font-size:0.8rem; margin-top:4px;">${r.date}</div>
+            </div>`;
+        }
+      });
+      html += '</div>';
+
+      if (overallTotal > 0) {
+        const overallPercent = Math.round((overallScore / overallTotal) * 100);
+        const level = getLevel(overallPercent);
+        html = `
+          <div class="big-score">${overallPercent}%</div>
+          <div class="stars">${'⭐'.repeat(level.stars)}${'☆'.repeat(5 - level.stars)}</div>
+          <div class="encouragement">${level.text}</div>
+        ` + html;
+      }
+
+      html += `
+        <p style="margin-top:24px; color:#64748b; font-size:0.95rem;">
+          This assessment measures basic recognition of colors, shapes, and numbers.<br>
+          It is a supplementary tool and does not replace formal classroom evaluation.
+        </p>`;
+
+      content.innerHTML = html;
+    }
+
+    document.getElementById('clear-results').addEventListener('click', () => {
+      assessmentResults = { colors: null, shapes: null, numbers: null, full: null };
+      renderResults();
+      speak('Results cleared.');
+    });
+
+    // Initial welcome
+    setTimeout(() => {
+      speak('Welcome to Color Shape Num Assessment. Choose a test when you are ready!');
+    }, 700);
+  </script>
+</body>
+</html>

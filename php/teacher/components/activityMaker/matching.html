@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ColorShapeNum | Dashboard</title>
+
+    <!-- bootstrap scss -->
+    <link rel="stylesheet" href="../../../../src/css/index.css" />
+    <link rel="stylesheet" href="../../../../src/css/main.css" />
+    <link rel="stylesheet" href="../../css/dashboard.css" />
+    <link rel="stylesheet" href="../../css/matching.css" />
+    <link rel="stylesheet" href="../../css/activity-type.css" />
+    <!-- bootstrap icons -->
+    <link
+      rel="stylesheet"
+      href="../../../../node_modules/bootstrap-icons/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+    <div class="teacher-wrapper">
+      <!-- SIDEBAR -->
+      <aside class="teacher-sidebar" id="teacherSidebar">
+        <div class="teacher-brand">
+          <div class="teacher-brand-icon">
+            <i class="bi bi-stars"></i>
+          </div>
+
+          <div class="teacher-brand-text">
+            <strong>ColorShapeNum</strong>
+            <small>Learn. Play. Discover.</small>
+          </div>
+
+          <button
+            class="teacher-close d-lg-none"
+            id="teacherClose"
+            type="button"
+          >
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+
+        <nav class="teacher-navigation">
+          <div class="teacher-nav-label">TEACHING</div>
+
+          <a href="../../../dashboard.html" class="teacher-nav-link">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="../../../learner.html" class="teacher-nav-link">
+            <i class="bi bi-people-fill"></i>
+            <span>My Learners</span>
+            <span class="teacher-nav-badge">24</span>
+          </a>
+
+          <a href="../../../activities.html" class="teacher-nav-link active">
+            <i class="bi bi-controller"></i>
+            <span>Activities</span>
+          </a>
+
+          <a href="../../../assessments.html" class="teacher-nav-link">
+            <i class="bi bi-clipboard-check-fill"></i>
+            <span>Assessments</span>
+          </a>
+
+          <a href="../../../progress.html" class="teacher-nav-link">
+            <i class="bi bi-bar-chart-fill"></i>
+            <span>Progress</span>
+          </a>
+
+          <div class="teacher-nav-label teacher-nav-space">RESOURCES</div>
+
+          <a href="learningmaterial.html" class="teacher-nav-link">
+            <i class="bi bi-journal-bookmark-fill"></i>
+            <span>Learning Materials</span>
+          </a>
+
+          <a href="reports.html" class="teacher-nav-link">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i>
+            <span>Reports</span>
+          </a>
+
+          <div class="teacher-nav-label teacher-nav-space">ACCOUNT</div>
+
+          <a href="profile.html" class="teacher-nav-link">
+            <i class="bi bi-person-circle"></i>
+            <span>My Profile</span>
+          </a>
+
+          <a href="settings.html" class="teacher-nav-link">
+            <i class="bi bi-gear-fill"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- MOBILE OVERLAY -->
+      <div class="teacher-overlay" id="teacherOverlay"></div>
+
+      <!-- MAIN -->
+      <main class="teacher-main">
+        <!-- TOPBAR -->
+        <header class="teacher-topbar">
+          <div class="teacher-top-left">
+            <button
+              type="button"
+              class="teacher-menu-button d-lg-none"
+              id="teacherMenu"
+            >
+              <i class="bi bi-list"></i>
+            </button>
+
+            <div>
+              <h6>Create Activity</h6>
+              <span>Build an educational game</span>
+            </div>
+          </div>
+
+          <div class="teacher-top-right">
+            <button type="button" class="teacher-notification">
+              <i class="bi bi-bell"></i>
+              <span></span>
+            </button>
+
+            <div class="teacher-profile">
+              <div class="teacher-avatar">TA</div>
+
+              <div class="teacher-profile-info d-none d-md-block">
+                <strong>Teacher Anna</strong>
+                <small>Teacher</small>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="teacher-content">
+          <!-- BREADCRUMB -->
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <a
+              href="../colorsActivitySelection.html"
+              class="text-muted text-decoration-none small"
+            >
+              Create Activities
+            </a>
+
+            <i class="bi bi-chevron-right text-muted small"></i>
+
+            <span class="text-muted small">Match it</span>
+          </div>
+
+          <!-- PAGE HEADER -->
+          <div class="mb-4">
+            <h1 class="h3 fw-bold mb-1">Create Educational Activity</h1>
+
+            <p class="text-muted mb-0">
+              Create interactive learning games for children.
+            </p>
+          </div>
+
+          <form action="" method="post">
+            <!-- ACTIVITY INFORMATION -->
+            <div class="teacher-card mb-4">
+              <div class="teacher-card-header">
+                <div>
+                  <h5>Activity Information</h5>
+
+                  <span>
+                    Give your activity a name and choose the learner level.
+                  </span>
+                </div>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-12">
+                  <label for="activityName" class="form-label fw-semibold">
+                    Activity Name
+                  </label>
+
+                  <input
+                    type="text"
+                    name="activityName"
+                    id="activityName"
+                    class="form-control"
+                    placeholder="Example: Matching Colors"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label
+                    for="activityDescription"
+                    class="form-label fw-semibold"
+                  >
+                    Description
+                  </label>
+
+                  <textarea
+                    id="activityDescription"
+                    name="activityDescription"
+                    class="form-control"
+                    rows="3"
+                    placeholder="What will children learn from this activity?"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- ACTIVITY BUILDER -->
+            <div class="teacher-card mb-4" id="activityBuilderSection">
+              <div class="teacher-card-header">
+                <div>
+                  <h5>Items</h5>
+                  <span id="builderDescription">Create your questions.</span>
+                </div>
+                <div class="help-video-wrapper">
+                  <span
+                    id="selectedActivityBadge"
+                    class="badge bg-primary-subtle text-dark help-badge"
+                  >
+                    Need Help?
+                    <i class="bi bi-question-circle"></i>
+                  </span>
+
+                  <div id="helpVideoPopup" class="help-video-popup">
+                    <button
+                      type="button"
+                      id="closeHelpVideo"
+                      class="btn-close"
+                      aria-label="Close"
+                    ></button>
+
+                    <video id="helpTutorialVideo" controls width="500">
+                      <source
+                        src="../../../src/mobile-Galaxy_S22_Ultra-recording.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+
+                    <div class="help-video-title">
+                      <i class="bi bi-play-circle me-1"></i>
+                      How to create an activity
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="builderContent">
+                <div class="builder-panel" id="builderMatch">
+                  <div class="alert alert-primary">
+                    <strong>Create Matching Items</strong>
+                    <div class="small mt-1">
+                      Add matching items. Each item can contain an image, text as answer,
+                      or both.
+                    </div>
+                  </div>
+
+                  <!-- MATCHING ITEMS - Grid container -->
+                  <div id="matchPairsContainer" class="row g-3">
+                    <!-- Cards will be generated here -->
+                  </div>
+
+                  <!-- ADD ITEM BUTTON -->
+                  <button
+                    type="button"
+                    id="addMatchPairBtn"
+                    class="btn text-white mt-3"
+                  >
+                    <i class="bi bi-plus-lg me-1"></i>
+                    Add Item
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <!-- SETTINGS -->
+          <div class="teacher-card mb-4" id="gameSettingsSection">
+            <div class="teacher-card-header">
+              <div>
+                <h5>Activity Settings</h5>
+
+                <span> Customize the learner experience. </span>
+              </div>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-semibold">Time per Question</label>
+                <select
+                  name="activity_question_timer"
+                  id="questionTimer"
+                  class="form-select"
+                >
+                  <option value="0" selected class="bg-secondary-subtle">
+                    None
+                  </option>
+                  <option value="10">10 seconds</option>
+                  <option value="15">15 seconds</option>
+                  <option value="20">20 seconds</option>
+                  <option value="30">30 seconds</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label fw-semibold"> Attempts </label>
+                <select
+                  name="activity_attempts"
+                  id="attempts"
+                  class="form-select"
+                >
+                  <option
+                    value="unlimited"
+                    selected
+                    class="bg-secondary-subtle"
+                  >
+                    None
+                  </option>
+                  <option value="1">1 Attempt</option>
+                  <option value="3">3 Attempts</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIONS -->
+          <div
+            class="d-flex flex-column flex-sm-row justify-content-end gap-2 mb-5"
+          >
+            <a
+              href="../../../activities.html"
+              class="btn btn-light bg-secondary-subtle order-1"
+            >
+              <i class="bi bi-arrow-left me-1"></i>
+              Cancel
+            </a>
+
+            <button
+              type="button"
+              id="publishActivityBtn"
+              class="btn teacher-primary-button order-0"
+            >
+              <i class="bi bi-rocket-takeoff me-1"></i>
+              Publish Activity
+            </button>
+          </div>
+
+          <footer class="teacher-footer d-flex flex-row justify-content-center">
+            <span> © 2026 ColorShapeNum </span>
+
+            <span> Teacher Portal </span>
+          </footer>
+        </div>
+      </main>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Teacher Dashboard JS -->
+    <script src="../../../js/dashboard.js"></script>
+    <script src="../../../js/matching.js"></script>
+  </body>
+</html>
